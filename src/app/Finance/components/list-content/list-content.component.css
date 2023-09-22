@@ -21,7 +21,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 0px 16px;
+  padding: 0 16px;
   gap: 10px;
 }
 .v--list--item-_-_content {
@@ -29,7 +29,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 12px 0px;
+  padding: 12px 0;
   gap: 2px;
 }
 .text-1 {
@@ -46,7 +46,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 0px 16px;
+  padding: 0 16px;
   gap: 10px;
 }
 .v--list--item-_-_content {
@@ -54,7 +54,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 12px 0px;
+  padding: 12px 0;
   gap: 2px;
 }
 .text-2 {
@@ -80,7 +80,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 0px 16px;
+  padding: 0 16px;
   gap: 10px;
 }
 .v--list--item-_-_content {
@@ -88,7 +88,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 12px 0px;
+  padding: 12px 0;
   gap: 2px;
 }
 .text-4 {
