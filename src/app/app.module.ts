@@ -26,6 +26,9 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from "@angular/material/table";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatCardModule} from '@angular/material/card';
+import { TableBillContentComponent } from './Finance/components/table-bill-content/table-bill-content.component';
+import { Button4ContentComponent } from './Finance/components/button4-content/button4-content.component';
+import { Dialog2ContentComponent } from './Finance/components/dialog2-content/dialog2-content.component';
 
 
 
@@ -39,7 +42,10 @@ import {MatCardModule} from '@angular/material/card';
     FinanceMainContentComponent,
     DialogContentComponent,
     TableCostContentComponent,
-    Button3ContentComponent
+    Button3ContentComponent,
+    TableBillContentComponent,
+    Button4ContentComponent,
+    Dialog2ContentComponent
   ],
   imports: [
     BrowserModule,
