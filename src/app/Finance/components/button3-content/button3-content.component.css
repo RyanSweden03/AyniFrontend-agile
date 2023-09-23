@@ -19,7 +19,9 @@ section {
   padding: 24px 42px; /* Ajusta el espacio alrededor del texto del botón */
   background-color: #3EAF2C;
   color: #ffffff;
-  position: relative; /* Añadimos posicionamiento relativo */
+  margin-top: 100px;
+  margin-left: 850px;
+
 }
 
 .example-flex-container {
@@ -31,5 +33,7 @@ section {
 .example-button-container {
   display: flex;
   justify-content: center;
-  width: 120px;
+  width: 300px;
 }
+
+

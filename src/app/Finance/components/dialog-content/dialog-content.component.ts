@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 
 
+
 @Component({
   selector: 'app-dialog-content',
   templateUrl: './dialog-content.component.html',
@@ -17,13 +18,16 @@ export class DialogContentComponent {
   ngOnInit(): void {
     this.productForm = this.formBuilder.group({
       costName: ['', Validators.required],
-      category: ['', Validators.required],
-      freshness: ['', Validators.required],
+      description: ['', Validators.required],
       price: ['', Validators.required],
-      comment: ['', Validators.required],
+      category: ['', Validators.required],
       date: ['', Validators.required],
+      quantity: ['', Validators.required],
     })
   }
 
+  addCost() {
+    console.log(this.productForm.value)
+  }
 
 }

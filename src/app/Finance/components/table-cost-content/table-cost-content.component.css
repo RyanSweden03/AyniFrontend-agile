@@ -3,7 +3,18 @@
   background-size: cover;
   height: 100%;
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   align-items: center;
   justify-content: center;
 }
+
+.page-background div {
+
+  margin-top: 100px;
+}
+
+
+
+

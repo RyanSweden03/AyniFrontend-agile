@@ -1,0 +1,25 @@
+{
+  "costList": [
+    {
+      "category": "Servicio",
+      "costName": "Pago de agua",
+      "date": "2019-10-10",
+      "description": "se pago el agua",
+      "price": 2,
+      "quantity": "3"
+
+
+    }
+
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
