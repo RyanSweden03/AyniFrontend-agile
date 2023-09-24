@@ -1,0 +1,113 @@
+{
+  "order_details": [
+    {
+      "quantity": 10,
+      "product": {
+        "name": "Manzanas Frescas",
+        "description": "Deliciosas manzanas frescas, cosechadas en nuestro huerto local. Perfectas para bocadillos saludables o repostería.",
+        "unit_price": 1.50,
+        "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
+      }
+    },
+    {
+      "quantity": 10,
+      "product": {
+        "name": "Zanahorias Organicas",
+        "description": "Miel dorada y natural de nuestras colmenas. Endulza tus bebidas y comidas de manera saludable.",
+        "unit_price": 1.50,
+        "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
+      }
+    },
+    {
+      "quantity": 10,
+      "product": {
+        "name": "Miel de Abeja Pura",
+        "description": "Zanahorias de calidad premium, cultivadas sin pesticidas. Ideales para ensaladas y guisos.",
+        "unit_price": 1.50,
+        "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
+      }
+    }
+
+  ],
+  "order_payment": [
+    {
+      "ordered_date": "2023-05-09",
+      "order_detail":{
+        "quantity": 20,
+        "product": {
+          "name": "Papas",
+          "unit_price": 1.50
+        }
+      },
+      "payment_method": {
+        "name": "mastercard"
+      }
+    },
+    {
+      "ordered_date": "2023-05-09",
+      "order_detail":{
+        "quantity": 20,
+        "product": {
+          "name": "Papas",
+          "unit_price": 1.50
+        }
+      },
+      "payment_method": {
+        "name": "mastercard"
+      }
+    },
+    {
+      "ordered_date": "2023-05-09",
+      "order_detail":{
+        "quantity": 20,
+        "product": {
+          "name": "Papas",
+          "unit_price": 1.50
+        }
+      },
+      "payment_method": {
+        "name": "mastercard"
+      }
+    }
+  ],
+  "products": [
+    {
+      "name": "Papas",
+      "description": "Papas haradas durante bastante tiempo",
+      "unit_price": 1.50,
+      "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
+    },
+    {
+      "name": "Cerezos",
+      "description": "Cereza recontra roja",
+      "unit_price": 2.50,
+      "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
+    },
+    {
+      "name": "Arroz",
+      "description": "Arroz bien plantado",
+      "unit_price": 1.50,
+      "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
+    }
+  ],
+  "activities": [
+    {
+      "name": "Harar la tierra",
+      "description": "Harar la tierra description",
+      "start_date": "2020-03-09",
+      "finish_date": "2020-03-27"
+    },
+    {
+      "name": "Harar la tierra",
+      "description": "Harar la tierra description",
+      "start_date": "2020-03-09",
+      "finish_date": "2020-03-27"
+    },
+    {
+      "name": "Harar la tierra",
+      "description": "Harar la tierra description",
+      "start_date": "2020-03-09",
+      "finish_date": "2020-03-27"
+    }
+  ]
+}
