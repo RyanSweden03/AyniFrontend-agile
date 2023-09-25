@@ -10,6 +10,8 @@ import {TableCostContentComponent} from "./Finance/components/table-cost-content
 import {CropsStepperContentComponent} from "./Management/crops/components/stepper-content/stepper-content.component";
 import {TableBillContentComponent} from "./Finance/components/table-bill-content/table-bill-content.component";
 import {FinanceMainContentComponent} from "./Finance/components/finance-main-content/finance-main-content.component";
+import {ProductsContentComponent} from "./Shopping/products/pages/products-content/products-content.component";
+import {ProductDetailsContentComponent} from "./Shopping/products/pages/product-details-content/product-details-content.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'signin', pathMatch: 'full' },
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'costlist', component: TableCostContentComponent },
   { path: 'billlist', component: TableBillContentComponent },
   { path: 'finance', component: FinanceMainContentComponent },
+  { path: 'products', component: ProductsContentComponent },
+  { path: 'product-details', component: ProductDetailsContentComponent },
   { path: '**', redirectTo: 'signin', pathMatch: 'full'  },
 ];
 

@@ -1,5 +1,7 @@
 section {
-  display: table;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .example-label {
@@ -10,18 +12,20 @@ section {
 }
 
 .example-button-row {
-  display: table-cell;
+  display: flex;
+  justify-content: center;
   max-width: 600px;
 }
 
 .example-button-row .mat-mdc-button-base {
-  font-size: 18px; /* Ajusta el tamaño del texto del botón */
-  padding: 24px 42px; /* Ajusta el espacio alrededor del texto del botón */
+  font-size: 18px;
+  padding: 24px 42px;
   background-color: #3EAF2C;
   color: #ffffff;
-  margin-top: 100px;
-  margin-left: 850px;
-
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .example-flex-container {
@@ -33,7 +37,5 @@ section {
 .example-button-container {
   display: flex;
   justify-content: center;
-  width: 300px;
+  width: 100%;
 }
-
-

@@ -15,14 +15,14 @@ export class NavigationComponent {
   // Angular Routing Navigation
   routesFarmer: {label:string , to: string}[] = [
     {label: "Home", to: "/farmer-home"},
-    {label: "Products", to: "/crops"},
+    {label: "Products", to: "/products"},
     {label: "Financial Management", to: "/finance"},
     {label: "Orders", to: "/farmer-home"},
   ]
   routesMerchant: {label:string , to: string}[] = [
     {label: "Home", to: "/merchant-home"},
-    {label: "Products", to: "/sales"},
-    {label: "Shopping", to: "/merchant-home"},
+    {label: "Products", to: "/products"},
+    {label: "My Shopping", to: "/merchant-home"},
     {label: "Rate", to: "/merchant-home"},
   ]
 

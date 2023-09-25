@@ -1,12 +1,18 @@
 .Titulo1 {
-  font-size: 50px;
+  font-size: 2rem;
   text-align: center;
-  font-family: Archivo;
-  letter-spacing: 0.75px;
-  line-height: 32px;
-  color: rgb(0, 0, 0);
-  top: 100%;
-  right: 40%;
+  font-family: Archivo, sans-serif;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  color: #000;
+}
+
+.container {
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .mat--list {
@@ -14,109 +20,43 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: #f31c1c;
 }
+
 .mat--list--item {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   padding: 0 16px;
   gap: 10px;
 }
-.v--list--item-_-_content {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 12px 0;
-  gap: 2px;
-}
-.text-1 {
-  text-align: center;
-  vertical-align: middle;
-  font-size: 24px;
-  font-family: Archivo;
-  letter-spacing: 0.5px;
-  line-height: 24px;
-  color: rgb(255, 255, 255);
-}
-.mat--list--item {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 0 16px;
-  gap: 10px;
-}
-.v--list--item-_-_content {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 12px 0;
-  gap: 2px;
-}
-.text-2 {
-  text-align: left;
-  vertical-align: middle;
-  font-size: 20px;
-  font-family: Archivo;
-  letter-spacing: 0.5px;
-  line-height: 24px;
-  color: rgb(255, 255, 255);
-}
-.text-3 {
-  text-align: left;
-  vertical-align: middle;
-  font-size: 18px;
-  font-family: Roboto;
-  letter-spacing: 0.25px;
-  line-height: 20px;
-  color: rgb(255, 255, 255);
-}
-.mat--list--item {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 0 16px;
-  gap: 10px;
-}
-.v--list--item-_-_content {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 12px 0;
-  gap: 2px;
-}
-.text-4 {
-  text-align: left;
-  vertical-align: middle;
-  font-size: 20px;
-  font-family: Archivo;
-  letter-spacing: 0.5px;
-  line-height: 24px;
-  color: rgba(255, 255, 255, 0.87);
-}
+
+.text-1,
+.text-2,
+.text-3,
+.text-4,
 .text-5 {
   text-align: left;
-  vertical-align: middle;
-  font-size: 18px;
-  font-family: Roboto;
-  letter-spacing: 0.25px;
-  line-height: 20px;
-  color: rgb(255, 255, 255);
+  font-family: Archivo, sans-serif;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  color: #fff;
 }
 
-.container {
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 155%;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-
+.text-1 {
+  font-size: 1.5rem;
 }
 
+.text-2 {
+  font-size: 1.2rem;
+}
 
+.text-3,
+.text-5 {
+  font-family: Roboto, sans-serif;
+  font-size: 1rem;
+}
+
+.text-4 {
+  font-size: 1.2rem;
+}

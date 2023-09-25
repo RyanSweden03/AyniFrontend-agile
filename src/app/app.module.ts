@@ -54,6 +54,13 @@ import { SelectRolComponent } from './Authentication/components/select-rol/selec
 import { FarmerMainContentComponent } from './Authentication/components/home/farmer-home/components/farmer-main-content/farmer-main-content.component';
 import { MerchantMainContentComponent } from './Authentication/components/home/merchant-home/components/merchant-main-content/merchant-main-content.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {
+  ProductDetailsContentComponent
+} from "./Shopping/products/pages/product-details-content/product-details-content.component";
+import {ProductsContentComponent} from "./Shopping/products/pages/products-content/products-content.component";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {ProductCardComponent} from "./Shopping/products/components/product-card/product-card.component";
+import {MatPaginatorModule} from "@angular/material/paginator";
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +90,10 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     Button3ContentComponent,
     TableBillContentComponent,
     Button4ContentComponent,
-    Dialog2ContentComponent
+    Dialog2ContentComponent,
+    ProductDetailsContentComponent,
+    ProductsContentComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
@@ -112,7 +122,9 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     MatSelectModule,
     MatRadioModule,
     MatTableModule,
-    MatMenuModule
+    MatMenuModule,
+    MatGridListModule,
+    MatPaginatorModule
   ],
   providers: [SalesService],
   bootstrap: [AppComponent]

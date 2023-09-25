@@ -1,15 +1,18 @@
 .page-background {
   background: linear-gradient(to bottom, #2AAF87, #48D4AA, #ABEDD9, #D0F3CB, white);
   background-size: cover;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-.page-background div {
-  margin-right: 150px;
-  margin-left: 150px;
-  margin-top: 200px;
+.page-background .content,
+.page-background .image {
+  margin: 0 20px;
+}
+
+.page-background .image img {
+  max-width: 100%;
+  height: auto;
 }

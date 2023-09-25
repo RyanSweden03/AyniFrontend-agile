@@ -1,8 +1,7 @@
 .page-background {
   background: linear-gradient(to bottom, #2AAF87, #48D4AA, #ABEDD9, #D0F3CB, white);
   background-size: cover;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
@@ -10,7 +9,6 @@
   justify-content: center;
 }
 
-.page-background div {
-
+.page-background .content {
   margin-top: 100px;
 }

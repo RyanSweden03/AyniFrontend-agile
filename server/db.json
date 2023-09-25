@@ -6,25 +6,25 @@
         "name": "Manzanas Frescas",
         "description": "Deliciosas manzanas frescas, cosechadas en nuestro huerto local. Perfectas para bocadillos saludables o repostería.",
         "unit_price": 1.5,
-        "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
+        "image_url": "https://github.com/upc-pre-202302-GreatMinds-SW51/Informe-Final_OpenSource/assets/104078975/027de51b-6b9d-4722-b060-e7bdffdc2d48"
       }
     },
     {
       "quantity": 10,
       "product": {
         "name": "Zanahorias Organicas",
-        "description": "Miel dorada y natural de nuestras colmenas. Endulza tus bebidas y comidas de manera saludable.",
+        "description": "Zanahorias de calidad premium, cultivadas sin pesticidas. Ideales para ensaladas y guisos.",
         "unit_price": 1.5,
-        "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
+        "image_url": "https://github.com/upc-pre-202302-GreatMinds-SW51/Informe-Final_OpenSource/assets/104078975/f5c2a814-6c9f-4eff-bc4b-d78c3f35fd6e"
       }
     },
     {
       "quantity": 10,
       "product": {
         "name": "Miel de Abeja Pura",
-        "description": "Zanahorias de calidad premium, cultivadas sin pesticidas. Ideales para ensaladas y guisos.",
+        "description": "Miel dorada y natural de nuestras colmenas. Endulza tus bebidas y comidas de manera saludable.",
         "unit_price": 1.5,
-        "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
+        "image_url": "https://github.com/upc-pre-202302-GreatMinds-SW51/Informe-Final_OpenSource/assets/104078975/bb4f774c-c3da-49d5-a9e1-2b8eede85fa8"
       }
     }
   ],
@@ -74,19 +74,19 @@
       "name": "Papas",
       "description": "Papas haradas durante bastante tiempo",
       "unit_price": 1.5,
-      "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
+      "image_url": "https://github.com/upc-pre-202302-GreatMinds-SW51/Informe-Final_OpenSource/assets/104078975/ce40fc4a-b351-420d-a06e-14304018bed5"
     },
     {
       "name": "Cerezos",
       "description": "Cereza recontra roja",
       "unit_price": 2.5,
-      "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
+      "image_url": "https://github.com/upc-pre-202302-GreatMinds-SW51/Informe-Final_OpenSource/assets/104078975/f481402c-de81-4d95-a694-82fab273adfa"
     },
     {
       "name": "Arroz",
       "description": "Arroz bien plantado",
       "unit_price": 1.5,
-      "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
+      "image_url": "https://github.com/upc-pre-202302-GreatMinds-SW51/Informe-Final_OpenSource/assets/104078975/19f2c725-e39b-4319-84c3-efed243898dd"
     }
   ],
   "activities": [
