@@ -44,10 +44,35 @@ import {MatMenuModule} from "@angular/material/menu";
 import { TableBillContentComponent } from './Finance/components/table-bill-content/table-bill-content.component';
 import { Button4ContentComponent } from './Finance/components/button4-content/button4-content.component';
 import { Dialog2ContentComponent } from './Finance/components/dialog2-content/dialog2-content.component';
+import { NavigationComponent } from './shared/components/navigation/navigation.component';
+import { SignInComponent } from './Authentication/components/sign-in/sign-in.component';
+import { SignUpComponent } from './Authentication/components/sign-up/sign-up.component';
 
+// Angular Material Components
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
+import {MatMenuModule, MatMenuTrigger} from "@angular/material/menu";
+import {MatButtonModule} from "@angular/material/button";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatCardModule} from "@angular/material/card";
+import {MatListModule} from "@angular/material/list";
+import { SelectRolComponent } from './Authentication/components/select-rol/select-rol.component';
+import { FarmerMainContentComponent } from './Authentication/components/home/farmer-home/components/farmer-main-content/farmer-main-content.component';
+import { MerchantMainContentComponent } from './Authentication/components/home/merchant-home/components/merchant-main-content/merchant-main-content.component';
+import {HttpClientModule} from "@angular/common/http";
+import {MatTableModule} from "@angular/material/table";
+import {MatSidenavModule} from "@angular/material/sidenav";
 @NgModule({
   declarations: [
     AppComponent,
+    NavigationComponent,
+    SignInComponent,
+    SignUpComponent,
+    SelectRolComponent,
+    FarmerMainContentComponent,
+    MerchantMainContentComponent,
     CropsStepperContentComponent,
     CropsCardStep1ContentComponent,
     CropsCardStep2ContentComponent,
@@ -69,12 +94,15 @@ import { Dialog2ContentComponent } from './Finance/components/dialog2-content/di
     TableBillContentComponent,
     Button4ContentComponent,
     Dialog2ContentComponent
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatToolbarModule, 
+    MatMenuModule,
+    MatListModule,
+    MatSidenavModule,
     HttpClientModule,
     MatStepperModule,
     MatButtonModule,
