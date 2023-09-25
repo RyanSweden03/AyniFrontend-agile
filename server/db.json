@@ -1,8 +1,23 @@
 {
   "sales": [
-
+    {
+      "id": 1,
+      "product": "Yuca",
+      "quantity": 10,
+      "date": "2023-09-15T05:00:00.000Z",
+      "method": "Credito"
+    }
   ],
   "crops": [
-
+    {
+      "undergrowth": true,
+      "fertilize": false,
+      "oxygenate": true,
+      "lines": false,
+      "holes": true,
+      "watered": "3",
+      "pestcleaning": "5",
+      "id": 1
+    }
   ]
 }
