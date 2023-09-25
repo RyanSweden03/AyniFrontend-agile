@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +28,22 @@ import {SalesCardStep3ContentComponent} from './Shopping/sales/components/card-s
 import {SalesDialogContentComponent} from './Shopping/sales/components/dialog-content/dialog-content.component';
 import {SalesService} from "./Shopping/sales/services/sales.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ListContentComponent } from './Finance/components/list-content/list-content.component';
+import { List2ContentComponent } from './Finance/components/list2-content/list2-content.component';
+import {MatDividerModule} from '@angular/material/divider';
+import { ButtonContentComponent } from './Finance/components/button-content/button-content.component';
+import { Button2ContentComponent } from './Finance/components/button2-content/button2-content.component';
+import { FinanceMainContentComponent } from './Finance/components/finance-main-content/finance-main-content.component';
+import { DialogContentComponent } from './Finance/components/dialog-content/dialog-content.component';
+import { TableCostContentComponent } from './Finance/components/table-cost-content/table-cost-content.component';
+import { Button3ContentComponent } from './Finance/components/button3-content/button3-content.component';
+import {MatSelectModule} from "@angular/material/select";
+import {MatRadioModule} from '@angular/material/radio';
+import {MatTableModule} from "@angular/material/table";
+import {MatMenuModule} from "@angular/material/menu";
+import { TableBillContentComponent } from './Finance/components/table-bill-content/table-bill-content.component';
+import { Button4ContentComponent } from './Finance/components/button4-content/button4-content.component';
+import { Dialog2ContentComponent } from './Finance/components/dialog2-content/dialog2-content.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +58,18 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     SalesCardStep2ContentComponent,
     SalesCardStep3ContentComponent,
     SalesDialogContentComponent,
+    ListContentComponent,
+    List2ContentComponent,
+    ButtonContentComponent,
+    Button2ContentComponent,
+    FinanceMainContentComponent,
+    DialogContentComponent,
+    TableCostContentComponent,
+    Button3ContentComponent,
+    TableBillContentComponent,
+    Button4ContentComponent,
+    Dialog2ContentComponent
+
   ],
   imports: [
     BrowserModule,
@@ -63,6 +90,11 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MatDialogModule,
     NgOptimizedImage,
     ReactiveFormsModule
+    MatDividerModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatTableModule,
+    MatMenuModule
   ],
   providers: [SalesService],
   bootstrap: [AppComponent]
