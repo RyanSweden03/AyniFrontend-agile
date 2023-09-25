@@ -7,6 +7,8 @@ import {MerchantMainContentComponent} from "./Authentication/components/home/mer
 import {
   FarmerMainContentComponent
 } from "./Authentication/components/home/farmer-home/components/farmer-main-content/farmer-main-content.component";
+import {SalesStepperContentComponent} from "./Shopping/sales/components/stepper-content/stepper-content.component";
+import {TableCostContentComponent} from "./Finance/components/table-cost-content/table-cost-content.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'signin', pathMatch: 'full' },
@@ -15,7 +17,9 @@ const routes: Routes = [
   { path: 'select-rol', component: SelectRolComponent},
   { path: 'merchant-home', component: MerchantMainContentComponent},
   { path: 'farmer-home', component: FarmerMainContentComponent },
-  { path: '**', redirectTo: 'signin', pathMatch: 'full'  }
+  { path: '**', redirectTo: 'signin', pathMatch: 'full'  },
+  { path: 'sales', component: SalesStepperContentComponent },
+  {path: 'costList', component: TableCostContentComponent }
 ];
 
 @NgModule({
