@@ -1,0 +1,62 @@
+.Titulo1 {
+  font-size: 2rem;
+  text-align: center;
+  font-family: Archivo, sans-serif;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  color: #000;
+}
+
+.container {
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.mat--list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.mat--list--item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0 16px;
+  gap: 10px;
+}
+
+.text-1,
+.text-2,
+.text-3,
+.text-4,
+.text-5 {
+  text-align: left;
+  font-family: Archivo, sans-serif;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.text-1 {
+  font-size: 1.5rem;
+}
+
+.text-2 {
+  font-size: 1.2rem;
+}
+
+.text-3,
+.text-5 {
+  font-family: Roboto, sans-serif;
+  font-size: 1rem;
+}
+
+.text-4 {
+  font-size: 1.2rem;
+}
