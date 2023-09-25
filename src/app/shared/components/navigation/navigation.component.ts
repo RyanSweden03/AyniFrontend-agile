@@ -1,7 +1,8 @@
 import {Component, HostListener, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {MatMenu} from "@angular/material/menu";
-import {RolSubjectService} from "../../../Authentication/services/rol-subject.service";
+import {Store} from "@ngrx/store";
+import {selectIsAuthenticated, selectRol} from "../../../Authentication/states/user.selector";
 
 @Component({
   selector: 'app-navigation',
@@ -10,7 +11,7 @@ import {RolSubjectService} from "../../../Authentication/services/rol-subject.se
 })
 export class NavigationComponent {
   isLargeScreen = window.innerWidth >= 768;
-  rol:string = "farmer";
+  rol:string = "";
 
   // Angular Routing Navigation
   routesFarmer: {label:string , to: string}[] = [
@@ -31,10 +32,10 @@ export class NavigationComponent {
     this.isLargeScreen = event.target.innerWidth >= 768;
   }
   constructor(private router: Router,
-              private rolService: RolSubjectService) {
-    this.rolService.rol$.subscribe((value) => {
-      this.rol = value;
-    })
+              private store: Store) {
+
+    this.store.select(selectRol)
+      .subscribe((rol) => this.rol = rol);
   }
 
   redirectToSignIn(){

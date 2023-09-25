@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {BaseHomeService} from "../../../../../shared/services/base-home.service";
 import {Activity} from "../model/activity";
+import {BaseService} from "../../../../../shared/services/base.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ActivityApiService extends BaseHomeService<Activity>{
+export class ActivityApiService extends BaseService<Activity>{
 
   constructor(http: HttpClient) {
     super(http);

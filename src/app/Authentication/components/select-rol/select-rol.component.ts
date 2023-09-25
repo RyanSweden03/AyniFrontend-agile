@@ -1,6 +1,7 @@
 import {Component, Output} from '@angular/core';
 import {Router} from "@angular/router";
-import {RolSubjectService} from "../../services/rol-subject.service";
+import {Store} from "@ngrx/store";
+import {updateRol} from "../../states/user.actions";
 
 @Component({
   selector: 'app-select-rol',
@@ -10,11 +11,11 @@ import {RolSubjectService} from "../../services/rol-subject.service";
 export class SelectRolComponent {
   rol !: string;
   constructor(private router: Router,
-              private rolService: RolSubjectService) {
+              private store: Store) {
   }
   onFarmerSelected() {
     this.rol = 'farmer';
-    this.rolService.emitRol(this.rol);
+    this.store.dispatch(updateRol({rol: this.rol}));
 
     // Complete SignIn
 
@@ -23,7 +24,7 @@ export class SelectRolComponent {
 
   onMerchantSelected() {
     this.rol = 'merchant';
-    this.rolService.emitRol(this.rol);
+    this.store.dispatch(updateRol({rol: this.rol}));
     // Complete SignIn
 
     this.router.navigate(["merchant-home"])

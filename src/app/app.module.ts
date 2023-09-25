@@ -61,6 +61,11 @@ import {ProductsContentComponent} from "./Shopping/products/pages/products-conte
 import {MatGridListModule} from "@angular/material/grid-list";
 import {ProductCardComponent} from "./Shopping/products/components/product-card/product-card.component";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {StoreModule} from "@ngrx/store";
+import {reducer} from "./Authentication/states/user.reducer";
+
+let StoreDevtoolsModule;
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -124,7 +129,8 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MatTableModule,
     MatMenuModule,
     MatGridListModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    StoreModule.forRoot({user: reducer}),
   ],
   providers: [SalesService],
   bootstrap: [AppComponent]
