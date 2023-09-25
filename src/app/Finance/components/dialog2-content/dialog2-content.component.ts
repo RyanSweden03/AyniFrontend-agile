@@ -1,5 +1,7 @@
 import { Component, OnInit  } from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
+import {BillsService} from "../../services/bills.service";
+import {Bill} from "../../model/bill-model";
 
 @Component({
   selector: 'app-dialog2-content',
@@ -8,23 +10,12 @@ import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 })
 export class Dialog2ContentComponent {
   freshnessList = ["Fruta", "Verdura"];
-  productForm!: FormGroup
-
-  constructor(private formBuilder: FormBuilder) {
+  form: Bill;
+  constructor(private billsService: BillsService, private router: Router) {
+    this.form={id: 0,costName:'',date:'',description:'',price:0,quantity:''};
   }
 
-  ngOnInit(): void {
-    this.productForm = this.formBuilder.group({
-      costName: ['', Validators.required],
-      description: ['', Validators.required],
-      price: ['', Validators.required],
-      category: ['', Validators.required],
-      date: ['', Validators.required],
-      quantity: ['', Validators.required],
-    })
-  }
-
-  addBill() {
-    console.log(this.productForm.value)
+  onSubmit() {
+    this.billsService.create(this.form).subscribe(() => { });
   }
 }

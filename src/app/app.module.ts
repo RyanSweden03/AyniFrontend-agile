@@ -7,16 +7,11 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {CropsStepperContentComponent} from "./Management/crops/components/stepper-content/stepper-content.component";
 import {HttpClientModule} from "@angular/common/http";
 import {NgOptimizedImage} from "@angular/common";
-import {MatButtonModule} from "@angular/material/button";
-import {MatCardModule} from "@angular/material/card";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
 import {OverlayModule} from "@angular/cdk/overlay";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {CropsCardStep1ContentComponent} from './Management/crops/components/card-step1-content/card-step1-content.component';
 import {CropsCardStep2ContentComponent} from './Management/crops/components/card-step2-content/card-step2-content.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MatIconModule} from "@angular/material/icon";
 import {MatNativeDateModule} from "@angular/material/core";
 import {CropsCardStep3ContentComponent} from './Management/crops/components/card-step3-content/card-step3-content.component';
 import {MatDialogModule} from "@angular/material/dialog";
@@ -48,12 +43,9 @@ import { NavigationComponent } from './shared/components/navigation/navigation.c
 import { SignInComponent } from './Authentication/components/sign-in/sign-in.component';
 import { SignUpComponent } from './Authentication/components/sign-up/sign-up.component';
 
-// Angular Material Components
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
-import {MatMenuModule, MatMenuTrigger} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
-import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
@@ -61,8 +53,6 @@ import {MatListModule} from "@angular/material/list";
 import { SelectRolComponent } from './Authentication/components/select-rol/select-rol.component';
 import { FarmerMainContentComponent } from './Authentication/components/home/farmer-home/components/farmer-main-content/farmer-main-content.component';
 import { MerchantMainContentComponent } from './Authentication/components/home/merchant-home/components/merchant-main-content/merchant-main-content.component';
-import {HttpClientModule} from "@angular/common/http";
-import {MatTableModule} from "@angular/material/table";
 import {MatSidenavModule} from "@angular/material/sidenav";
 @NgModule({
   declarations: [
@@ -99,7 +89,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule, 
+    MatToolbarModule,
     MatMenuModule,
     MatListModule,
     MatSidenavModule,
@@ -117,7 +107,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     MatIconModule,
     MatDialogModule,
     NgOptimizedImage,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     MatDividerModule,
     MatSelectModule,
     MatRadioModule,

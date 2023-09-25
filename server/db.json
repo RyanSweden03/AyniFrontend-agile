@@ -5,7 +5,7 @@
       "product": {
         "name": "Manzanas Frescas",
         "description": "Deliciosas manzanas frescas, cosechadas en nuestro huerto local. Perfectas para bocadillos saludables o repostería.",
-        "unit_price": 1.50,
+        "unit_price": 1.5,
         "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
       }
     },
@@ -14,7 +14,7 @@
       "product": {
         "name": "Zanahorias Organicas",
         "description": "Miel dorada y natural de nuestras colmenas. Endulza tus bebidas y comidas de manera saludable.",
-        "unit_price": 1.50,
+        "unit_price": 1.5,
         "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
       }
     },
@@ -23,20 +23,19 @@
       "product": {
         "name": "Miel de Abeja Pura",
         "description": "Zanahorias de calidad premium, cultivadas sin pesticidas. Ideales para ensaladas y guisos.",
-        "unit_price": 1.50,
+        "unit_price": 1.5,
         "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
       }
     }
-
   ],
   "order_payment": [
     {
       "ordered_date": "2023-05-09",
-      "order_detail":{
+      "order_detail": {
         "quantity": 20,
         "product": {
           "name": "Papas",
-          "unit_price": 1.50
+          "unit_price": 1.5
         }
       },
       "payment_method": {
@@ -45,11 +44,11 @@
     },
     {
       "ordered_date": "2023-05-09",
-      "order_detail":{
+      "order_detail": {
         "quantity": 20,
         "product": {
           "name": "Papas",
-          "unit_price": 1.50
+          "unit_price": 1.5
         }
       },
       "payment_method": {
@@ -58,11 +57,11 @@
     },
     {
       "ordered_date": "2023-05-09",
-      "order_detail":{
+      "order_detail": {
         "quantity": 20,
         "product": {
           "name": "Papas",
-          "unit_price": 1.50
+          "unit_price": 1.5
         }
       },
       "payment_method": {
@@ -74,19 +73,19 @@
     {
       "name": "Papas",
       "description": "Papas haradas durante bastante tiempo",
-      "unit_price": 1.50,
+      "unit_price": 1.5,
       "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
     },
     {
       "name": "Cerezos",
       "description": "Cereza recontra roja",
-      "unit_price": 2.50,
+      "unit_price": 2.5,
       "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
     },
     {
       "name": "Arroz",
       "description": "Arroz bien plantado",
-      "unit_price": 1.50,
+      "unit_price": 1.5,
       "image_url": "https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg"
     }
   ],
@@ -117,6 +116,83 @@
       "quantity": 10,
       "date": "2023-09-15T05:00:00.000Z",
       "method": "Credito"
+    },
+    {
+      "id": 2,
+      "product": "Camote",
+      "quantity": 12,
+      "date": "2023-09-30T05:00:00.000Z",
+      "method": "Credito"
+    },
+    {
+      "id": 3,
+      "product": "",
+      "quantity": 0,
+      "date": "",
+      "method": ""
+    },
+    {
+      "id": 4,
+      "product": "",
+      "quantity": 0,
+      "date": "",
+      "method": ""
+    },
+    {
+      "id": 5,
+      "product": "",
+      "quantity": 0,
+      "date": "",
+      "method": ""
+    },
+    {
+      "id": 6,
+      "product": "",
+      "quantity": 0,
+      "date": "",
+      "method": ""
+    },
+    {
+      "id": 7,
+      "product": "",
+      "quantity": 0,
+      "date": "",
+      "method": ""
+    },
+    {
+      "id": 8,
+      "product": "",
+      "quantity": 0,
+      "date": "",
+      "method": ""
+    },
+    {
+      "id": 9,
+      "product": "",
+      "quantity": 0,
+      "date": "",
+      "method": ""
+    },
+    {
+      "id": 10,
+      "product": "",
+      "quantity": 0,
+      "date": "",
+      "method": ""
+    },
+    {
+      "id": 11,
+      "product": "",
+      "quantity": 0,
+      "date": "",
+      "method": ""
+    },
+    {
+      "id": 12,
+      "product": "",
+      "quantity": 0,
+      "date": "",
+      "method": ""
     }
   ],
   "crops": [
@@ -131,29 +207,25 @@
       "id": 1
     }
   ],
-"costList": [
+  "costList": [
     {
-      "category": "Servicio",
+      "id": 1,
       "costName": "Pago de agua",
       "date": "2019-10-10",
       "description": "se pago el agua del mes de octubre",
       "price": 200,
       "quantity": "1"
-
-
     },
     {
-      "category": "Servicio",
+      "id": 2,
       "costName": "Pago de cajas contenedoras",
       "date": "2019-11-10",
       "description": "se compraron cajas contenedoras para la producción de zanahorias",
       "price": 500,
       "quantity": "45 cajas contenedoras"
-
-
     },
     {
-      "category": "Servicio",
+      "id": 3,
       "costName": "Comida para el personal",
       "date": "2019-12-05",
       "description": "Compra de alimentos para el personal de la granja",
@@ -161,7 +233,7 @@
       "quantity": "1 compra"
     },
     {
-      "category": "Servicio",
+      "id": 4,
       "costName": "Reparacion de maquinaria",
       "date": "2020-01-15",
       "description": "Se reparo la trilladora de maíz",
@@ -169,7 +241,7 @@
       "quantity": "1 reparacion"
     },
     {
-      "category": "Producto",
+      "id": 5,
       "costName": "Semillas de tomate",
       "date": "2020-02-20",
       "description": "Compra de semillas de tomate para la temporada de primavera",
@@ -177,37 +249,43 @@
       "quantity": "1 paquete de semillas"
     },
     {
-      "category": "Servicio",
+      "id": 6,
       "costName": "Jornaleros para la cosecha",
       "date": "2020-03-25",
       "description": "Contratacion de jornaleros para la cosecha de maiz",
       "price": 1000,
       "quantity": "5 jornaleros por 1 semana"
+    },
+    {
+      "id": 7,
+      "costName": "Tractor",
+      "date": "2023-09-21T05:00:00.000Z",
+      "description": "Lineas",
+      "price": 200,
+      "quantity": "1"
     }
-
-
   ],
   "billsList": [
     {
+      "id": 1,
       "category": "Fruta",
       "costName": "Manzanas",
       "date": "2019-07-10",
       "description": "Se vendió 300 paquetes de manzanas a Exportadora de frutas",
       "price": 250,
       "quantity": "300 paquetes"
-
-
     },
     {
+      "id": 2,
       "category": "Vegetal",
       "costName": "Zanahorias",
       "date": "2019-11-15",
       "description": "Se vendió 200 paquetes de zanahorias a Juan Perez",
       "price": 200,
       "quantity": "200 paquetes de zanahorias"
-
     },
     {
+      "id": 3,
       "category": "Fruta",
       "costName": "Papayas",
       "date": "2020-01-15",
@@ -216,6 +294,7 @@
       "quantity": "150 paquetes"
     },
     {
+      "id": 4,
       "category": "Vegetal",
       "costName": "Espinacas",
       "date": "2020-02-20",
@@ -224,6 +303,7 @@
       "quantity": "100 paquetes de espinacas"
     },
     {
+      "id": 5,
       "category": "Fruta",
       "costName": "Plátanos",
       "date": "2020-03-25",
@@ -232,12 +312,21 @@
       "quantity": "400 paquetes"
     },
     {
+      "id": 6,
       "category": "Vegetal",
       "costName": "Pimientos",
       "date": "2020-04-30",
       "description": "Se vendió 250 paquetes de pimientos a Mercado Fresco",
       "price": 220,
       "quantity": "250 paquetes de pimientos"
+    },
+    {
+      "id": 7,
+      "costName": "Camote",
+      "date": "2023-09-20T05:00:00.000Z",
+      "description": "Venta de 30 kg de camote",
+      "price": 300,
+      "quantity": "30"
     }
   ]
 }

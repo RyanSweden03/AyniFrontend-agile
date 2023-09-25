@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from "@angular/forms";
-
-
+import { Component} from '@angular/core';
+import {Router} from "@angular/router";
+import {Cost} from "../../model/cost-model";
+import {CostsService} from "../../services/costs.service";
 
 @Component({
   selector: 'app-dialog-content',
@@ -10,24 +10,12 @@ import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 })
 export class DialogContentComponent {
   freshnessList = ["Producto", "Servicio"];
-  productForm!: FormGroup
-
-  constructor(private formBuilder: FormBuilder) {
+  form: Cost;
+  constructor(private costsService: CostsService, private router: Router) {
+    this.form={id: 0,costName:'',date:'',description:'',price:0,quantity:''};
   }
 
-  ngOnInit(): void {
-    this.productForm = this.formBuilder.group({
-      costName: ['', Validators.required],
-      description: ['', Validators.required],
-      price: ['', Validators.required],
-      category: ['', Validators.required],
-      date: ['', Validators.required],
-      quantity: ['', Validators.required],
-    })
+  onSubmit() {
+    this.costsService.create(this.form).subscribe(() => { });
   }
-
-  addCost() {
-    console.log(this.productForm.value)
-  }
-
 }

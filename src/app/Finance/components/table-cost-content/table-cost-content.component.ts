@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {CostsService} from "../../services/costs.service";
-import {CostModel} from "../../model/cost-model";
+import {Cost} from "../../model/cost-model";
 
 
 @Component({
@@ -11,7 +11,7 @@ import {CostModel} from "../../model/cost-model";
 
 export class TableCostContentComponent {
 
-  @Input() costos: Array<CostModel>=[];
+  @Input() costos: Array<Cost>=[];
 
 
   constructor(private costservice: CostsService) {

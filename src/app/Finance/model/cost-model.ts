@@ -1,5 +1,5 @@
-export class CostModel {
-  category: string;
+export class Cost {
+  id: number;
   costName: string;
   date: string;
   description: string;
@@ -7,7 +7,7 @@ export class CostModel {
   quantity: string;
 
   constructor(){
-    this.category = '';
+    this.id= 0;
     this.costName = '';
     this.date = '';
     this.description = '';

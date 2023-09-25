@@ -22,7 +22,9 @@
 
   <!-- Display buttons for merchant -->
   <ng-container *ngIf="isLargeScreen && rol === 'merchant' ">
-    <button *ngFor="let route of routesMerchant" mat-button>
+    <button *ngFor="let route of routesMerchant"
+            [routerLink]="route.to"
+            mat-button>
       {{ route.label }}
     </button>
   </ng-container>

@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {BillModel} from "../../model/bill-model";
+import {Bill} from "../../model/bill-model";
 import {BillsService} from "../../services/bills.service";
 
 @Component({
@@ -8,7 +8,7 @@ import {BillsService} from "../../services/bills.service";
   styleUrls: ['./table-bill-content.component.css']
 })
 export class TableBillContentComponent {
-  @Input() ganancias: Array<BillModel>=[];
+  @Input() ganancias: Array<Bill>=[];
 
   constructor(private billservice: BillsService) {
 

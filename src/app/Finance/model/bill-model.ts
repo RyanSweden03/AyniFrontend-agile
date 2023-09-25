@@ -1,12 +1,12 @@
-export class BillModel {
-  category: string;
+export class Bill {
+  id: number;
   costName: string;
   date: string;
   description: string;
   price: number;
   quantity: string;
   constructor(){
-    this.category = '';
+    this.id=0;
     this.costName = '';
     this.date = '';
     this.description = '';

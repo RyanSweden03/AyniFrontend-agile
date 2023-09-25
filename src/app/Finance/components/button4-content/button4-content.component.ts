@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {DialogContentComponent} from "../dialog-content/dialog-content.component";
+import {Dialog2ContentComponent} from "../dialog2-content/dialog2-content.component";
 
 @Component({
   selector: 'app-button4-content',
@@ -11,7 +11,7 @@ export class Button4ContentComponent {
   constructor(private dialog: MatDialog){
   }
   openDialog() {
-    this.dialog.open(DialogContentComponent, {
+    this.dialog.open(Dialog2ContentComponent, {
       width:'30%'
     });
   }
