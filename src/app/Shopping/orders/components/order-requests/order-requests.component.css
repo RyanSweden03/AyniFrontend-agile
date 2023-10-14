@@ -24,20 +24,19 @@
 
 mat-card-content {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   margin: 0;
-  padding: 3px;
+  padding: 3px 5px;
 }
 :host mat-card-header {
   margin: 0;
-  padding: 5px 0 0 5px;
+  padding: 3px 0 0 3px;
   border:0;
 }
 
 .buttons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 10px;
 }
 
@@ -46,14 +45,14 @@ mat-card-content {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  width:40%;
+
 
 }
 
 .product-info {
-  padding: 10px;
+  padding: 10px 20px;
   line-height: 15px;
-  width: 60%;
+
 }
 
 .user-photo {
@@ -62,11 +61,30 @@ mat-card-content {
   object-fit: cover;
 }
 
-.paginator{
-  font-weight: bold;
+:host .button-color{
+  color: white;
+  background-color: #3EAF2C;
+}
+.pagination-buttons {
+  margin: 20px 0;
 }
 
+.pagination-buttons button {
+  color: black;
+  margin: 0 5px;
+  transition: background-color 0.1s ease, transform 0.2s ease;
+}
 
+.pagination-buttons button.active {
+  background-color: #425afa;
+  color: white;
+}
 
+.navigation-buttons{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
 
 

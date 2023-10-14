@@ -15,7 +15,7 @@
   </ng-container>
   <button mat-button [matMenuTriggerFor]="userMenu" *ngIf="!isLargeScreen && rol === 'farmer' "><mat-icon>menu</mat-icon></button>
   <mat-menu #userMenu="matMenu">
-    <button *ngFor="let route of routesFarmer" mat-menu-item>
+    <button *ngFor="let route of routesFarmer" [routerLink]="route.to" mat-menu-item>
       {{ route.label }}
     </button>
   </mat-menu>

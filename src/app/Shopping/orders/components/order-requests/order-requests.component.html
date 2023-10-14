@@ -17,7 +17,7 @@
             <p>Cantidad: {{order.quantity}}</p>
             <p>Precio Total: {{order.totalPrice}}</p>
             <div class="buttons">
-              <button color="primary" mat-raised-button (click)="openDialog()">Aceptar</button>
+              <button class="button-color" mat-raised-button (click)="openDialog(); deleteOrder(order.id)">Aceptar</button>
               <button color="warn"  (click)="deleteOrder(order.id)" mat-raised-button>Rechazar</button>
             </div>
           </div>
@@ -27,8 +27,21 @@
     </ng-container>
   </div>
 
-  <mat-paginator (page)="onPageChange($event)" [hidePageSize]="true" [length]="orders.length" [pageIndex]="pageIndex"
-                 [pageSize]="pageSize" class="paginator"></mat-paginator>
+
+  <div class="navigation-buttons">
+  <button mat-raised-button (click)="navigateToPreviousView()"><mat-icon>keyboard_arrow_left></mat-icon></button>
+
+  <div class="pagination-buttons">
+    <button mat-raised-button  (click)="goToPage(pageIndex - 1)" [disabled]="pageIndex === 0" ><mat-icon>keyboard_arrow_left></mat-icon></button>
+    <button mat-raised-button  *ngFor="let pageNumber of pageNumbers" (click)="goToPage(pageNumber)" [class.active]="pageNumber === pageIndex">
+      {{ pageNumber+1 }}
+    </button>
+    <button mat-raised-button (click)="goToPage(pageIndex + 1)" [disabled]="pageIndex === pageNumbers.length - 1"><mat-icon>keyboard_arrow_right</mat-icon></button>
+  </div>
+    <button disabled mat-raised-button><mat-icon>keyboard_arrow_right</mat-icon></button>
+
+  </div>
+
 
 
 </div>
