@@ -24,7 +24,7 @@ export class NavigationComponent {
     {label: "Home", to: "/merchant-home"},
     {label: "Products", to: "/products"},
     {label: "My Shopping", to: "/merchant-home"},
-    {label: "Rate", to: "/merchant-home"},
+    {label: "Rate", to: "/rates"},
   ]
 
   @HostListener('window:resize', ['$event'])
