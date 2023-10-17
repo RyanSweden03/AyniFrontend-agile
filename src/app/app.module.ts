@@ -42,6 +42,9 @@ import { Dialog2ContentComponent } from './Finance/components/dialog2-content/di
 import { NavigationComponent } from './shared/components/navigation/navigation.component';
 import { SignInComponent } from './Authentication/components/sign-in/sign-in.component';
 import { SignUpComponent } from './Authentication/components/sign-up/sign-up.component';
+import {RateContentComponent} from "./Shopping/rates/components/rate-content/rate-content.component";
+import { RateDialogComponent } from './Shopping/rates/components/rate-dialog/rate-dialog.component';
+
 
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
@@ -98,7 +101,9 @@ let StoreDevtoolsModule;
     Dialog2ContentComponent,
     ProductDetailsContentComponent,
     ProductsContentComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    RateContentComponent,
+    RateDialogComponent
   ],
   imports: [
     BrowserModule,
