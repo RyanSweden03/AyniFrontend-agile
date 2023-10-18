@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from "../../models/product";
+import {Product} from "../../model/product";
 import {ProductsService} from "../../services/products.service";
 import {Router} from "@angular/router";
 import {PageEvent} from "@angular/material/paginator";
