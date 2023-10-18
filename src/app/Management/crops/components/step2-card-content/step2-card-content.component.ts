@@ -2,11 +2,11 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {CropsService} from "../../services/crops.service";
 
 @Component({
-  selector: 'crops-card-step2-content',
-  templateUrl: './card-step2-content.component.html',
-  styleUrls: ['./card-step2-content.component.css']
+  selector: 'crops-step2-card-content',
+  templateUrl: './step2-card-content.component.html',
+  styleUrls: ['./step2-card-content.component.css']
 })
-export class CropsCardStep2ContentComponent {
+export class CropsStep2CardContentComponent {
   @Output() formCompleted2 = new EventEmitter<any>();
 
   cropform2: any = {

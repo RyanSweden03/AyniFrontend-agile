@@ -7,13 +7,13 @@
 
     <mat-horizontal-stepper>
       <mat-step label="Paso 1">
-        <crops-card-step1-content (formCompleted1)="handleFormCompleted1($event)"></crops-card-step1-content>
+        <crops-step1-card-content (formCompleted1)="handleFormCompleted1($event)"></crops-step1-card-content>
       </mat-step>
       <mat-step label="Paso 2">
-        <crops-card-step2-content (formCompleted2)="handleFormCompleted2($event)"></crops-card-step2-content>
+        <crops-step2-card-content (formCompleted2)="handleFormCompleted2($event)"></crops-step2-card-content>
       </mat-step>
       <mat-step label="Paso 3">
-        <crops-card-step3-content [formData]="combinedFormData"></crops-card-step3-content>
+        <crops-step3-card-content [formData]="combinedFormData"></crops-step3-card-content>
       </mat-step>
     </mat-horizontal-stepper>
   </div>

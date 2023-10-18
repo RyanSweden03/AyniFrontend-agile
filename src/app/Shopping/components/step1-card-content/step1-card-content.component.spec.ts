@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CardStep1ContentComponent } from './card-step1-content.component';
+import { CardStep1ContentComponent } from './step1-card-content.component';
 
 describe('CardStep1ContentComponent', () => {
   let component: CardStep1ContentComponent;

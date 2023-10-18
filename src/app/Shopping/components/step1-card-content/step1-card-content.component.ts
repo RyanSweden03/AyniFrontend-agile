@@ -4,14 +4,14 @@ import {Sale} from "../../model/sale";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'sales-card-step1-content',
-  templateUrl: './card-step1-content.component.html',
-  styleUrls: ['./card-step1-content.component.css']
+  selector: 'sales-step1-card-content',
+  templateUrl: './step1-card-content.component.html',
+  styleUrls: ['./step1-card-content.component.css']
 })
-export class SalesCardStep1ContentComponent {
+export class SalesStep1CardContentComponent {
   saleform1: Sale;
   constructor(private salesService: SalesService, private router: Router) {
-    this.saleform1={id: 0, product:'',quantity:0,date:'',method:''};
+    this.saleform1={id: 0, productId:0, userId:0, description:'',quantity:0, orderedDate:'', totalPrice:'', method:''};
   }
 
   onSubmit() {

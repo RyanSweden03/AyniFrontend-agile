@@ -6,7 +6,7 @@
   <mat-card-content>
     <form class="form-group">
       <mat-form-field>
-        <input matInput [(ngModel)]="saleform1.product" name="product" placeholder="Nombre del cultivo"/>
+        <input matInput [(ngModel)]="saleform1.productId" name="product" placeholder="Nombre del cultivo"/>
       </mat-form-field>
 
       <mat-form-field>
@@ -15,7 +15,7 @@
 
       <mat-form-field>
         <mat-label>Fecha de compra</mat-label>
-        <input matInput [(ngModel)]="saleform1.date" name="date" [matDatepicker]="picker"/>
+        <input matInput [(ngModel)]="saleform1.orderedDate" name="date" [matDatepicker]="picker"/>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>

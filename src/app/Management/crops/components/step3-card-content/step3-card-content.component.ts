@@ -5,11 +5,11 @@ import {CropsService} from "../../services/crops.service";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'crops-card-step3-content',
-  templateUrl: './card-step3-content.component.html',
-  styleUrls: ['./card-step3-content.component.css']
+  selector: 'crops-step3-card-content',
+  templateUrl: './step3-card-content.component.html',
+  styleUrls: ['./step3-card-content.component.css']
 })
-export class CropsCardStep3ContentComponent {
+export class CropsStep3CardContentComponent {
   @Input() formData: any;
   constructor(public dialog:MatDialog, private cropsService:CropsService, private router:Router) { }
 
