@@ -1,0 +1,24 @@
+<mat-card class="order-card">
+  <mat-card-header>
+    <p>Fecha: {{order.orderedDate}}</p>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="user-info">
+      <img alt="user picture" class="user-photo" src="{{getProduct(order.productId)?.imageUrl}}">
+      <button mat-raised-button>{{getProduct(order.productId)?.name}}</button>
+    </div>
+    <div class="product-info">
+      <p>Producto: {{getProduct(order.productId)?.name}}</p>
+      <p>Descripción: {{getProduct(order.productId)?.description}}</p>
+      <p>Estado: {{getProduct(order.productId)?.name}}</p>
+      <p>Precio Unitario: {{getProduct(order.productId)?.unitPrice}}</p>
+      <p>Cantidad: {{order.quantity}}</p>
+      <p>Precio Total: {{order.totalPrice}}</p>
+      <div class="buttons">
+        <button color="button-color" (click)="deleteOrder(order.id)" mat-raised-button>Ver estado</button>
+        <button class="warn" mat-raised-button (click)="openDialog(); deleteOrder(order.id)">Cancelar</button>
+      </div>
+    </div>
+
+  </mat-card-content>
+</mat-card>
