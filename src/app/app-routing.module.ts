@@ -13,7 +13,7 @@ import {FinanceMainContentComponent} from "./Finance/components/finance-main-con
 import {ProductsContentComponent} from "./Shopping/products/pages/products-content/products-content.component";
 import {ProductDetailsContentComponent} from "./Shopping/products/pages/product-details-content/product-details-content.component";
 import {RateContentComponent} from "./Shopping/rates/components/rate-content/rate-content.component";
-
+import {OrderRequestsComponent} from "./Shopping/orders/pages/order-requests/order-requests.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'signin', pathMatch: 'full' },
@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'merchant-home', component: MerchantMainContentComponent},
   { path: 'farmer-home', component: FarmerMainContentComponent },
   { path: 'sales', component: SalesStepperContentComponent },
+  { path: 'orders', component: OrderRequestsComponent },
   { path: 'crops', component: CropsStepperContentComponent},
   { path: 'costlist', component: TableCostContentComponent },
   { path: 'billlist', component: TableBillContentComponent },

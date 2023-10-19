@@ -66,6 +66,8 @@ import {ProductCardComponent} from "./Shopping/products/components/product-card/
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {StoreModule} from "@ngrx/store";
 import {reducer} from "./Authentication/states/user.reducer";
+import { OrderRequestsComponent } from './Shopping/orders/pages/order-requests/order-requests.component';
+import { OrderDialogComponent } from './Shopping/orders/components/order-dialog/order-dialog.component';
 
 let StoreDevtoolsModule;
 
@@ -104,6 +106,8 @@ let StoreDevtoolsModule;
     ProductCardComponent,
     RateContentComponent,
     RateDialogComponent
+    OrderRequestsComponent,
+    OrderDialogComponent,
   ],
   imports: [
     BrowserModule,
