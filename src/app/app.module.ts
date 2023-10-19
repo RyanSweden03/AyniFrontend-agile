@@ -63,6 +63,8 @@ import {ProductCardComponent} from "./Shopping/products/components/product-card/
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {StoreModule} from "@ngrx/store";
 import {reducer} from "./Authentication/states/user.reducer";
+import { OrderRequestsComponent } from './Shopping/orders/pages/order-requests/order-requests.component';
+import { OrderDialogComponent } from './Shopping/orders/components/order-dialog/order-dialog.component';
 
 let StoreDevtoolsModule;
 
@@ -98,7 +100,9 @@ let StoreDevtoolsModule;
     Dialog2ContentComponent,
     ProductDetailsContentComponent,
     ProductsContentComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    OrderRequestsComponent,
+    OrderDialogComponent,
   ],
   imports: [
     BrowserModule,
