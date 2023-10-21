@@ -301,5 +301,76 @@
       "price": 300,
       "quantity": "30"
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "Juan",
+      "email": "Juan@gmail.com",
+      "password": "Juan123",
+      "rol": "cliente",
+      "photo": "https://media.istockphoto.com/id/1199175531/photo/outdoor-portrait-of-smiling-spanish-man-in-mid-20s.jpg?s=170667a&w=0&k=20&c=6mDr4Fkq-ECwldusAzBRG21qenqKvtqLVXCEwHguGGY="
+    },
+    {
+      "id": 2,
+      "username": "Jose",
+      "email": "Jose@gmail.com",
+      "rol": "cliente",
+      "photo": "https://t4.ftcdn.net/jpg/02/29/18/89/360_F_229188937_si0ueDfrAV8XBo9yH2SdYA43p1iYRTz9.jpg"
+    },
+    {
+      "id": 3,
+      "username": "Hana",
+      "email": "Hana@gmail.com",
+      "rol": "cliente",
+      "photo": "https://static.boredpanda.com/blog/wp-content/uploads/2021/02/world-not-built-for-women-4645-1.jpg"
+    }
+  ],
+  "orders": [
+    {
+      "id": 2,
+      "userId": 2,
+      "description": "Quiero sandias de buena calidad",
+      "productId": 2,
+      "quantity": 1,
+      "totalPrice": 2.5,
+      "date": "2023-10-12"
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "description": "Quiero lechugas de buena calidad",
+      "productId": 3,
+      "quantity": 2,
+      "totalPrice": 3,
+      "date": "2023-10-13"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "description": "Quiero lechugas de buena calidad",
+      "productId": 3,
+      "quantity": 2,
+      "totalPrice": 3,
+      "date": "2023-10-13"
+    },
+    {
+      "id": 5,
+      "userId": 2,
+      "description": "Quiero lechugas de buena calidad",
+      "productId": 3,
+      "quantity": 2,
+      "totalPrice": 3,
+      "date": "2023-10-13"
+    },
+    {
+      "id": 7,
+      "userId": 1,
+      "description": "Quiero lechugas de buena calidad",
+      "productId": 3,
+      "quantity": 2,
+      "totalPrice": 3,
+      "date": "2023-10-13"
+    }
   ]
 }
