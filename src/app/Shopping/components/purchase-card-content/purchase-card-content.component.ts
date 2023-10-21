@@ -7,6 +7,9 @@ import {
   CancelPurchaseDialogContentComponent
 } from "../cancel-purchase-dialog-content/cancel-purchase-dialog-content.component";
 import {SalesService} from "../../services/sales.service";
+import {Router} from "@angular/router";
+import {ProductsService} from "../../services/products.service";
+import {UsersService} from "../../../Authentication/services/users.service";
 
 @Component({
   selector: 'app-purchase-card-content',
@@ -16,11 +19,11 @@ import {SalesService} from "../../services/sales.service";
 export class PurchaseCardContentComponent {
   @Input() order: Sale = new Sale();
   orders="/orders";
+  @Input() users: User[] = [];
+  @Input() products: Product[] = [];
 
-  users: User[] = [];
-  products: Product[] = [];
-
-  constructor(private saleService:SalesService,public dialog:MatDialog) {}
+  constructor(private saleService:SalesService, private productsService:ProductsService,private usersService:UsersService,public dialog:MatDialog,private router: Router) {
+  }
 
   openDialog(){
     this.dialog.open(CancelPurchaseDialogContentComponent);
@@ -36,5 +39,9 @@ export class PurchaseCardContentComponent {
 
   deleteOrder(id: number) {
     this.saleService.delete(id).subscribe(()=> {})
+  }
+
+  viewOrderDetails(id: number) {
+    this.router.navigate(['/purchases', id]);
   }
 }
