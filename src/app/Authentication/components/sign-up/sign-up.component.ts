@@ -40,6 +40,7 @@ export class SignUpComponent implements OnInit{
 
       // Call to store
       const user: User = {
+        id: 0,
         username: username,
         email: email,
         rol: '',

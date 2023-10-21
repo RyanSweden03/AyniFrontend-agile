@@ -1,4 +1,22 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "username": "agri",
+      "email": "test@test.com",
+      "password": "123456",
+      "rol": "Agricultor",
+      "isAuthenticated": true
+    },
+    {
+      "id": 2,
+      "username": "compra",
+      "email": "compra@test.com",
+      "password": "abcdef",
+      "rol": "Comprador",
+      "isAuthenticated": true
+    }
+  ],
   "order_details": [
     {
       "quantity": 10,
@@ -71,22 +89,25 @@
   ],
   "products": [
     {
+      "id": 1,
       "name": "Papas",
       "description": "Papas haradas durante bastante tiempo",
-      "unit_price": 1.5,
-      "image_url": "https://github.com/upc-pre-202302-GreatMinds-SW51/Informe-Final_OpenSource/assets/104078975/ce40fc4a-b351-420d-a06e-14304018bed5"
+      "unitPrice": 1.5,
+      "imageUrl": "https://github.com/upc-pre-202302-GreatMinds-SW51/Informe-Final_OpenSource/assets/104078975/ce40fc4a-b351-420d-a06e-14304018bed5"
     },
     {
+      "id": 2,
       "name": "Cerezos",
       "description": "Cereza recontra roja",
-      "unit_price": 2.5,
-      "image_url": "https://github.com/upc-pre-202302-GreatMinds-SW51/Informe-Final_OpenSource/assets/104078975/f481402c-de81-4d95-a694-82fab273adfa"
+      "unitPrice": 2.5,
+      "imageUrl": "https://github.com/upc-pre-202302-GreatMinds-SW51/Informe-Final_OpenSource/assets/104078975/f481402c-de81-4d95-a694-82fab273adfa"
     },
     {
+      "id": 3,
       "name": "Arroz",
       "description": "Arroz bien plantado",
-      "unit_price": 1.5,
-      "image_url": "https://github.com/upc-pre-202302-GreatMinds-SW51/Informe-Final_OpenSource/assets/104078975/19f2c725-e39b-4319-84c3-efed243898dd"
+      "unitPrice": 1.5,
+      "imageUrl": "https://github.com/upc-pre-202302-GreatMinds-SW51/Informe-Final_OpenSource/assets/104078975/19f2c725-e39b-4319-84c3-efed243898dd"
     }
   ],
   "activities": [
@@ -112,94 +133,39 @@
   "sales": [
     {
       "id": 1,
-      "product": "Yuca",
-      "quantity": 10,
-      "date": "2023-09-15T05:00:00.000Z",
-      "method": "Credito"
+      "productId": 1,
+      "orderedBy": 2,
+      "acceptedBy": 1,
+      "description": "Venta de papas",
+      "quantity": 20,
+      "status": "Pendiente",
+      "orderedDate": "2023-05-09",
+      "totalPrice": 30,
+      "paymentMethod": "mastercard"
     },
     {
       "id": 2,
-      "product": "Camote",
-      "quantity": 12,
-      "date": "2023-09-30T05:00:00.000Z",
-      "method": "Credito"
+      "productId": 2,
+      "orderedBy": 2,
+      "acceptedBy": 1,
+      "description": "Venta de papas",
+      "quantity": 20,
+      "status": "Pendiente",
+      "orderedDate": "2023-05-09",
+      "totalPrice": 30,
+      "paymentMethod": "mastercard"
     },
     {
       "id": 3,
-      "product": "",
-      "quantity": 0,
-      "date": "",
-      "method": ""
-    },
-    {
-      "id": 4,
-      "product": "",
-      "quantity": 0,
-      "date": "",
-      "method": ""
-    },
-    {
-      "id": 5,
-      "product": "",
-      "quantity": 0,
-      "date": "",
-      "method": ""
-    },
-    {
-      "id": 6,
-      "product": "",
-      "quantity": 0,
-      "date": "",
-      "method": ""
-    },
-    {
-      "id": 7,
-      "product": "",
-      "quantity": 0,
-      "date": "",
-      "method": ""
-    },
-    {
-      "id": 8,
-      "product": "",
-      "quantity": 0,
-      "date": "",
-      "method": ""
-    },
-    {
-      "id": 9,
-      "product": "",
-      "quantity": 0,
-      "date": "",
-      "method": ""
-    },
-    {
-      "id": 10,
-      "product": "",
-      "quantity": 0,
-      "date": "",
-      "method": ""
-    },
-    {
-      "id": 11,
-      "product": "",
-      "quantity": 0,
-      "date": "",
-      "method": ""
-    },
-    {
-      "id": 12,
-      "product": "",
-      "quantity": 0,
-      "date": "",
-      "method": ""
-    },
-    {
-      "id": 13,
-      "product": "",
-      "quantity": 0,
-      "date": "",
-      "method": ""
+      "productId": 2,
+      "orderedBy": 1,
+      "acceptedBy": 1,
+      "description": "wasaaa",
+      "quantity": 20,
+      "status": "Pendiente",
+      "orderedDate": "2023-05-09",
+      "totalPrice": 30,
+      "paymentMethod": "mastercard"
     }
   ],
   "crops": [

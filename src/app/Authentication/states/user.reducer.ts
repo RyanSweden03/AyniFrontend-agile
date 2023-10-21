@@ -5,6 +5,7 @@ import {User} from "../model/user";
 
 // Define el estado inicial
 export const initialState: User = {
+  id: 0,
   username: '',
   email: '',
   rol: '',

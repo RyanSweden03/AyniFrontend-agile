@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class SalesStep1CardContentComponent {
   saleform1: Sale;
   constructor(private salesService: SalesService, private router: Router) {
-    this.saleform1={id: 0, productId:0, userId:0, description:'',quantity:0, orderedDate:'', totalPrice:'', method:''};
+    this.saleform1={id: 0, productId:0, orderedBy:0, acceptedBy:0, description:'',quantity:0, status:'', orderedDate:'', totalPrice:'', paymentMethod:''};
   }
 
   onSubmit() {
