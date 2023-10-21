@@ -1,1 +1,16 @@
-<p>purchases-content works!</p>
+<div class="container">
+  <h1>Purchases</h1>
+  <div class="orders">
+    <ng-container *ngFor="let order of pagedList">
+      <app-purchase-card-content [order]="order" [products]="products" [users]="users"></app-purchase-card-content>
+    </ng-container>
+  </div>
+  <div>
+    <mat-paginator [length]="length"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="pageSizeOptions"
+                   [hidePageSize]=true
+                   (page)="OnPageChange($event)">
+    </mat-paginator>
+  </div>
+</div>
