@@ -2,7 +2,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, pipe, retry, throwError} from "rxjs";
 
 export class BaseService<T> {
-  basePath:string='https://my-json-server.typicode.com/JorgeGonzales15/AyniDBPrueba';
+  basePath:string='http://localhost:3000/api/v1';
   resourceEndpoint:string='/resources';
 
   httpOptions = {
