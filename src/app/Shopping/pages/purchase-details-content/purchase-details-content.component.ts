@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { Sale } from "../../model/sale";
+import { Order } from "../../model/order";
 import { User } from "../../../Authentication/model/user";
-import { Product } from "../../model/product";
-import { SalesService } from "../../services/sales.service";
-import { ProductsService } from "../../services/products.service";
+import { Product } from "../../../Management/model/product";
+import { OrdersService } from "../../services/orders.service";
+import { ProductsService } from "../../../Management/services/products.service";
 import { UsersService } from "../../../Authentication/services/users.service";
 import { MatDialog } from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -17,12 +17,12 @@ import {
   styleUrls: ['./purchase-details-content.component.css']
 })
 export class PurchaseDetailsContentComponent {
-  order: Sale = new Sale();
+  order: Order = new Order();
   user: User = new User();
   product: Product = new Product();
 
   constructor(
-    private saleService: SalesService,
+    private saleService: OrdersService,
     private productsService: ProductsService,
     private usersService: UsersService,
     private router: Router,
@@ -45,7 +45,7 @@ export class PurchaseDetailsContentComponent {
           this.user=userResponse;
         });
 
-        this.productsService.getById(this.order.productId).subscribe((productResponse: any) => {
+        this.productsService.getById(this.order.saleId).subscribe((productResponse: any) => {
           this.product=productResponse;
         });
       });

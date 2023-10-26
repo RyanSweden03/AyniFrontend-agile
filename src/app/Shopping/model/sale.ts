@@ -1,25 +1,17 @@
 export class Sale {
   id: number;
-  productId: number;
-  orderedBy: number;
-  acceptedBy: number;
+  name: string;
   description: string;
+  unitPrice: number;
   quantity: number;
-  status: string;
-  orderedDate: string;
-  totalPrice: string;
-  paymentMethod: string;
+  imageUrl: string;
 
   constructor() {
     this.id = 0;
-    this.productId = 0;
-    this.orderedBy = 0;
-    this.acceptedBy = 0;
+    this.name = '';
     this.description = '';
+    this.unitPrice = 0;
     this.quantity = 0;
-    this.status = '';
-    this.orderedDate = '';
-    this.totalPrice = '';
-    this.paymentMethod = '';
+    this.imageUrl = '';
   }
 }

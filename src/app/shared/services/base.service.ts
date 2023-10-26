@@ -49,6 +49,11 @@ export class BaseService<T> {
       .pipe(retry(2), catchError(this.handleError));
   }
 
+  getByQuery(query: string): Observable<T> {
+    return this.http.get<T>(`${this.resourcePath()}?${query}`, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
   private resourcePath():string{
     return `${this.basePath}${this.resourceEndpoint}`;
   }

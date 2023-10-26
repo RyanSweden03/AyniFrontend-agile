@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {SalesService} from "../../services/sales.service";
-import {Sale} from "../../model/sale";
+import {OrdersService} from "../../services/orders.service";
+import {Order} from "../../model/order";
 import {Router} from "@angular/router";
 
 @Component({
@@ -9,9 +9,9 @@ import {Router} from "@angular/router";
   styleUrls: ['./step1-card-content.component.css']
 })
 export class SalesStep1CardContentComponent {
-  saleform1: Sale;
-  constructor(private salesService: SalesService, private router: Router) {
-    this.saleform1={id: 0, productId:0, orderedBy:0, acceptedBy:0, description:'',quantity:0, status:'', orderedDate:'', totalPrice:'', paymentMethod:''};
+  saleform1: Order;
+  constructor(private salesService: OrdersService, private router: Router) {
+    this.saleform1={id: 0, saleId:0, orderedBy:0, acceptedBy:0, description:'',quantity:0, status:'', orderedDate:'', totalPrice:'', paymentMethod:''};
   }
 
   onSubmit() {

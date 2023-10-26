@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
-import {Product} from "../../model/product";
-import {FarmerHomeApiService} from "../../services/farmer-home-api.service";
 import {ActivityApiService} from "../../services/activity-api.service";
 import {Activity} from "../../model/activity";
+import {ProductsService} from "../../../../../../Management/services/products.service";
+import {Product} from "../../../../../../Management/model/product";
 
 @Component({
   selector: 'app-farmer-main-content',
@@ -17,9 +17,9 @@ export class FarmerMainContentComponent {
   // Table
   displayedColumns: string[] = ['name', 'description', 'start_date', 'finish_date'];
   dataSource!: MatTableDataSource<any>;
-  constructor(private farmerApi: FarmerHomeApiService,
-              private activityApi: ActivityApiService) {
-    this.farmerApi.getAll()
+  constructor(private activityApi: ActivityApiService,
+              private productsService: ProductsService) {
+    this.productsService.getAll()
       .subscribe((response: any) => {
         this.products = response;
       });

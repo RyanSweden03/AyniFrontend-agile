@@ -1,14 +1,14 @@
 import {Component, Input} from '@angular/core';
-import {Sale} from "../../model/sale";
+import {Order} from "../../model/order";
 import {User} from "../../../Authentication/model/user";
-import {Product} from "../../model/product";
+import {Product} from "../../../Management/model/product";
 import {MatDialog} from "@angular/material/dialog";
 import {
   CancelPurchaseDialogContentComponent
 } from "../cancel-purchase-dialog-content/cancel-purchase-dialog-content.component";
-import {SalesService} from "../../services/sales.service";
+import {OrdersService} from "../../services/orders.service";
 import {Router} from "@angular/router";
-import {ProductsService} from "../../services/products.service";
+import {ProductsService} from "../../../Management/services/products.service";
 import {UsersService} from "../../../Authentication/services/users.service";
 
 @Component({
@@ -17,12 +17,12 @@ import {UsersService} from "../../../Authentication/services/users.service";
   styleUrls: ['./purchase-card-content.component.css']
 })
 export class PurchaseCardContentComponent {
-  @Input() order: Sale = new Sale();
+  @Input() order: Order = new Order();
   orders="/orders";
   @Input() users: User[] = [];
   @Input() products: Product[] = [];
 
-  constructor(private saleService:SalesService, private productsService:ProductsService,private usersService:UsersService,public dialog:MatDialog,private router: Router) {
+  constructor(private orderService:OrdersService, private productsService:ProductsService, private usersService:UsersService, public dialog:MatDialog, private router: Router) {
   }
 
   openDialog(){
@@ -38,7 +38,7 @@ export class PurchaseCardContentComponent {
   }
 
   deleteOrder(id: number) {
-    this.saleService.delete(id).subscribe(()=> {})
+    this.orderService.delete(id).subscribe(()=> {})
   }
 
   viewOrderDetails(id: number) {

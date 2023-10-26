@@ -1,10 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {Store} from "@ngrx/store";
 import {User} from "../../model/user";
-import {registerUser} from "../../states/user.actions";
-import {selectIsAuthenticated} from "../../states/user.selector";
+import {DataService} from "../../services/data.service";
 
 @Component({
   selector: 'app-sign-up',
@@ -12,14 +10,13 @@ import {selectIsAuthenticated} from "../../states/user.selector";
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit{
+  @Output() form = new EventEmitter<any>();
+
   signUpForm!: FormGroup;
-  isAuthenticated: boolean = false;
 
-  constructor(private fb: FormBuilder,
-              private router: Router,
-              private store: Store) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private dataService: DataService) {
 
-    this.signUpForm = this.fb.group({
+    this.signUpForm = this.formBuilder.group({
       username: new FormControl('', [
         Validators.required
       ]),
@@ -29,33 +26,17 @@ export class SignUpComponent implements OnInit{
       ]),
       password: new FormControl('', [
         Validators.required
-      ])
+      ]),
+      photo: new FormControl('', [
+        Validators.required
+      ]),
+      rol: ''
     });
   }
-  onSumbit(){
-    if (this.signUpForm.valid){
-      const email = this.signUpForm.get('email')?.value;
-      const password = this.signUpForm.get('password')?.value;
-      const username = this.signUpForm.get('username')?.value;
 
-      // Call to store
-      const user: User = {
-        id: 0,
-        username: username,
-        email: email,
-        rol: '',
-        isAuthenticated: true
-      };
-      this.store.dispatch(registerUser({user}));
-      this.store.select(selectIsAuthenticated)
-        .subscribe((isAuthenticated) => this.isAuthenticated = isAuthenticated);
-      // Redirect to select-rol or display error
-      if(this.isAuthenticated){
-        this.router.navigate(['select-rol']);
-      } else{
-        console.log('Not Authenticated')
-      }
-    }
+  saveData() {
+    this.dataService.setFormData(this.signUpForm.value);
+    this.router.navigate(['select-rol']);
   }
 
   redirectToSignin() {
