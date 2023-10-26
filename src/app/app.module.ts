@@ -86,6 +86,8 @@ import { AddSaleContentComponent } from './Shopping/pages/add-sale-content/add-s
 import { SaleDetailsContentComponent } from './Shopping/pages/sale-details-content/sale-details-content.component';
 import { OrderRequestsComponent } from "./Shopping/pages/order-requests/order-requests.component";
 import { MerchantNavigationComponent } from './shared/components/merchant-navigation/merchant-navigation.component';
+import {OrderDialogComponent} from "./Shopping/components/order-dialog/order-dialog.component";
+import {RateDialogComponent} from "./Shopping/components/rate-dialog/rate-dialog.component";
 
 let StoreDevtoolsModule;
 
@@ -134,7 +136,9 @@ let StoreDevtoolsModule;
     AddSaleContentComponent,
     SaleDetailsContentComponent,
     OrderRequestsComponent,
-    MerchantNavigationComponent
+    MerchantNavigationComponent,
+    OrderDialogComponent,
+    RateDialogComponent
   ],
   imports: [
     BrowserModule,
