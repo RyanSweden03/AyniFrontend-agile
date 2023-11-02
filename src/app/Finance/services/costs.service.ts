@@ -10,6 +10,6 @@ export class CostsService extends BaseService<Cost>{
 
   constructor(http: HttpClient) {
     super(http);
-    this.resourceEndpoint= '/costlist';
+    this.resourceEndpoint= '/costs';
   }
 }

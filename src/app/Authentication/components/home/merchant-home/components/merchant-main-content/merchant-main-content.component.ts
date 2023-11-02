@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {OrderDetail} from "../../model/order-detail/order-detail";
-import {MerchantHomeApiService} from "../../services/merchant-home-api.service";
-import {OrderPaymentApiService} from "../../services/order-payment-api.service";
-import {OrderPayment} from "../../model/order-payment/order-payment";
 import {MatTableDataSource} from "@angular/material/table";
+import {Order} from "../../../../../../Shopping/model/order";
+import {OrdersService} from "../../../../../../Shopping/services/orders.service";
+import {Sale} from "../../../../../../Shopping/model/sale";
+import {SalesService} from "../../../../../../Shopping/services/sales.service";
 
 @Component({
   selector: 'app-merchant-main-content',
@@ -11,22 +11,35 @@ import {MatTableDataSource} from "@angular/material/table";
   styleUrls: ['./merchant-main-content.component.css']
 })
 export class MerchantMainContentComponent {
-  orders !: OrderDetail[];
-  orders_payment !: OrderPayment[];
+  orders: Order[]=[];
+  sales: Sale[]=[];
 
   // Table
   displayedColumns: string[] = ['name', 'quantity', 'ordered_date'];
-  dataSource!: MatTableDataSource<any>;
-  constructor(private merchantApi: MerchantHomeApiService,
-              private orderPaymentApi: OrderPaymentApiService) {
-    this.merchantApi.getAll()
-      .subscribe((response: any) => {
-        this.orders = response;
+  dataSource!: MatTableDataSource<Order>;
+  constructor(private ordersService: OrdersService, private salesServices: SalesService) {
+    this.loadData(1);
+  }
+
+  loadData(userId: number) {
+    this.ordersService.getAll().subscribe((response: any) => {
+      this.orders = response.filter((purchase: any) => purchase.orderedBy === userId);
+      this.dataSource = new MatTableDataSource(this.orders);
+
+      this.orders.forEach(purchase => {
+        this.salesServices.getById(purchase.saleId).subscribe((productResponse: any) => {
+          this.sales.push(productResponse);
+        });
       });
-    this.orderPaymentApi.getAll()
-      .subscribe((response: any) => {
-        this.orders_payment = response;
-        this.dataSource = new MatTableDataSource(this.orders_payment);
-      });
+
+      const token = localStorage.getItem('token');
+
+      console.log('Token JWT:', token);
+
+    });
+  }
+
+  getProduct(saleId: number): any {
+    return this.sales.find(sale => sale.id === saleId);
   }
 }

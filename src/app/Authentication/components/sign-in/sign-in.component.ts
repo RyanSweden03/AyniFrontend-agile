@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {UsersService} from "../../services/users.service";
+import {User} from "../../model/user";
 
 @Component({
   selector: 'app-sign-in',
@@ -9,8 +11,9 @@ import {Router} from "@angular/router";
 })
 export class SignInComponent{
   signInForm!: FormGroup;
-  isAuthenticated: boolean = false;
-  constructor(private fb: FormBuilder, private router: Router) {
+  users: User[] = [];
+  user: User = new User();
+  constructor(private fb: FormBuilder, private router: Router, private usersService: UsersService) {
     this.signInForm = this.fb.group({
       email: new FormControl('', [
         Validators.required,
@@ -21,23 +24,30 @@ export class SignInComponent{
       ])
     });
   }
-  onSumbit(){
-    if (this.signInForm.valid){
+  onSumbit() {
+    if (this.signInForm.valid) {
       const email = this.signInForm.get('email')?.value;
       const password = this.signInForm.get('password')?.value;
 
-      // Call to Authentication Api
+      this.usersService.getUserByEmail(email).subscribe((response: User) => {
+        this.user = response;
 
-      // Redirect to select-rol or display error
-      if(this.isAuthenticated){
-        this.router.navigate(['home']);
-      } else{
-        console.log('Not Authenticated')
-      }
+        console.log(this.user);
+
+        if (this.user.password === password && this.user.rol === 'farmer') {
+          this.router.navigate(['farmer-home']);
+        } else if (this.user.password === password && this.user.rol === 'merchant') {
+          this.router.navigate(['merchant-home']);
+        } else {
+          console.error("no login");
+        }
+      });
+
+      console.log(this.user.id);
     }
   }
 
   redirectToSignup() {
-    this.router.navigate(['signup'])
+    this.router.navigate(['signup']);
   }
 }

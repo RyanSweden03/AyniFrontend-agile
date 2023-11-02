@@ -1,18 +1,19 @@
+<app-merchant-navigation></app-merchant-navigation>
 <div class="grid-container container">
   <div class="itemCalendar">
     <h1>Your Orders</h1>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.order_detail.product.name}} </td>
+        <td mat-cell *matCellDef="let element"> {{getProduct(element.saleId).name}} </td>
       </ng-container>
       <ng-container matColumnDef="quantity">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.order_detail.quantity}} </td>
+        <th mat-header-cell *matHeaderCellDef> Quantity </th>
+        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
       </ng-container>
       <ng-container matColumnDef="ordered_date">
         <th mat-header-cell *matHeaderCellDef> Ordered Date </th>
-        <td mat-cell *matCellDef="let element"> {{element.ordered_date}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.orderedDate}} </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -30,19 +31,17 @@
     <div class="carousel-display">
       <mat-card *ngFor="let order of orders">
         <mat-card-header>
-          <img [src]="order.product.image_url" width="350px">
+          <img src="{{getProduct(order.saleId)?.imageUrl}}" width="350px">
         </mat-card-header>
         <mat-card-content>
           <p>Quantity: {{ order.quantity }}</p>
-          <p>Unit Price: {{ order.product.unit_price }}</p>
-          <p>{{ order.product.description }}</p>
+          <p>Unit Price: {{getProduct(order.saleId)?.unitPrice}}</p>
+          <p>{{getProduct(order.saleId)?.description}}</p>
         </mat-card-content>
         <mat-card-footer class="carousel-display-button">
-          <button mat-button >{{ order.product.name }}</button>
+          <button mat-button >{{getProduct(order.saleId)?.name}}</button>
         </mat-card-footer>
       </mat-card>
     </div>
   </div>
 </div>
-
-

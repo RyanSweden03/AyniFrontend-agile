@@ -1,7 +1,7 @@
 import {Component, Output} from '@angular/core';
 import {Router} from "@angular/router";
-import {Store} from "@ngrx/store";
-import {updateRol} from "../../states/user.actions";
+import {DataService} from "../../services/data.service";
+import {UsersService} from "../../services/users.service";
 
 @Component({
   selector: 'app-select-rol',
@@ -10,24 +10,24 @@ import {updateRol} from "../../states/user.actions";
 })
 export class SelectRolComponent {
   rol !: string;
-  constructor(private router: Router,
-              private store: Store) {
+  formData: any;
+
+  constructor(private router: Router, private dataService: DataService, private usersService: UsersService) {
+    this.formData = this.dataService.getFormData();
+    console.log("aaaa",this.formData);
   }
   onFarmerSelected() {
-    this.rol = 'farmer';
-    this.store.dispatch(updateRol({rol: this.rol}));
-
-    // Complete SignIn
-
-    this.router.navigate(["farmer-home"])
+    this.formData.rol = 'farmer';
+    this.usersService.create(this.formData).subscribe(() => {
+      this.router.navigate(["farmer-home"]);
+    });
   }
 
   onMerchantSelected() {
-    this.rol = 'merchant';
-    this.store.dispatch(updateRol({rol: this.rol}));
-    // Complete SignIn
-
-    this.router.navigate(["merchant-home"])
+    this.formData.rol = 'merchant';
+    console.log(this.formData);
+    this.usersService.create(this.formData).subscribe(() => {
+      this.router.navigate(["merchant-home"]);
+    });
   }
-
 }

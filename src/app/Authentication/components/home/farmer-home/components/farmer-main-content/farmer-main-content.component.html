@@ -1,3 +1,4 @@
+<app-farmer-navigation></app-farmer-navigation>
 <div class="grid-container container">
   <div class="itemCalendar">
     <h1>Your Activities</h1>
@@ -34,10 +35,10 @@
     <div class="carousel-display">
       <mat-card *ngFor="let product of products">
         <mat-card-header>
-          <img [src]="product.image_url" width="350px">
+          <img [src]="product.imageUrl" width="350px">
         </mat-card-header>
         <mat-card-content>
-          <p>Unit Price: {{ product.unit_price }}</p>
+          <p>Unit Price: {{ product.unitPrice }}</p>
           <p>{{ product.description }}</p>
         </mat-card-content>
         <mat-card-footer class="carousel-display-button">
