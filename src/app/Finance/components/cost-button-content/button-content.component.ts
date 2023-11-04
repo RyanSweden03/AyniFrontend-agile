@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 
 
 @Component({
-  selector: 'app-button-content',
+  selector: 'app-cost-button-content',
   templateUrl: './button-content.component.html',
   styleUrls: ['./button-content.component.css'],
 

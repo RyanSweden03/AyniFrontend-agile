@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-button2-content',
+  selector: 'app-profit-button-content',
   templateUrl: './button2-content.component.html',
   styleUrls: ['./button2-content.component.css']
 })
