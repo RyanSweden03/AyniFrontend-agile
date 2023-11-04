@@ -15,13 +15,23 @@ export class TableCostContentComponent {
 
 
   constructor(private transactionsService: TransactionsService) {
+   this.loadData();
+  }
 
+  loadData(){
     this.transactionsService.getAll().subscribe((response:any)=>{
       const costos = response.filter((transaction: { type: string; }) => transaction.type === 'gasto');
       console.log(costos);
       this.costos = costos;
     });
+  }
 
+  deleteCost(id: number) {
+    this.transactionsService.delete(id).subscribe(()=>
+      {
+        this.loadData();
+      }
+    )
   }
 
 

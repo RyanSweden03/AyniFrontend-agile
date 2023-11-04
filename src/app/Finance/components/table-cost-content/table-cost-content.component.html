@@ -16,7 +16,7 @@
       </mat-card-content>
       <mat-card-actions class="buttons">
         <button mat-raised-button class="color">EDITAR</button>
-        <button mat-raised-button color="warn">ELIMINAR</button>
+        <button mat-raised-button color="warn" (click)="deleteCost(costo.id)">ELIMINAR</button>
       </mat-card-actions>
     </mat-card>
   </div>

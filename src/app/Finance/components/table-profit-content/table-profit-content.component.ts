@@ -11,12 +11,23 @@ export class TableProfitContentComponent {
   @Input() profits: Transaction[]=[];
 
   constructor(private transactionsService: TransactionsService) {
+    this.loadData();
+  }
 
+  loadData(){
     this.transactionsService.getAll().subscribe((response:any)=>{
       const profits = response.filter((transaction: { type: string; }) => transaction.type === 'ingreso');
       console.log(profits);
       this.profits = profits;
     });
+  }
+
+  deleteProfit(id: number) {
+    this.transactionsService.delete(id).subscribe(()=>
+      {
+        this.loadData();
+      }
+    )
   }
 
 }
