@@ -29,11 +29,9 @@ import {SalesStep3CardContentComponent} from './Shopping/components/step3-card-c
 import {SalesDialogContentComponent} from './Shopping/components/dialog-content/dialog-content.component';
 import {OrdersService} from "./Shopping/services/orders.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {ListContentComponent} from './Finance/components/list-content/list-content.component';
-import {List2ContentComponent} from './Finance/components/list2-content/list2-content.component';
 import {MatDividerModule} from '@angular/material/divider';
-import {ButtonContentComponent} from './Finance/components/button-content/button-content.component';
-import {Button2ContentComponent} from './Finance/components/button2-content/button2-content.component';
+import {ButtonContentComponent} from './Finance/components/cost-button-content/button-content.component';
+import {Button2ContentComponent} from './Finance/components/profit-button-content/button2-content.component';
 import {FinanceMainContentComponent} from './Finance/components/finance-main-content/finance-main-content.component';
 import {DialogContentComponent} from './Finance/components/dialog-content/dialog-content.component';
 import {TableCostContentComponent} from './Finance/components/table-cost-content/table-cost-content.component';
@@ -43,8 +41,6 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatTableModule} from "@angular/material/table";
 import {MatMenuModule} from "@angular/material/menu";
 import {TableProfitContentComponent} from './Finance/components/table-profit-content/table-profit-content.component';
-import {Button4ContentComponent} from './Finance/components/button4-content/button4-content.component';
-import {Dialog2ContentComponent} from './Finance/components/dialog2-content/dialog2-content.component';
 import {FarmerNavigationComponent} from './shared/components/farmer-navigation/farmer-navigation.component';
 import {SignInComponent} from './Authentication/components/sign-in/sign-in.component';
 import {SignUpComponent} from './Authentication/components/sign-up/sign-up.component';
@@ -88,6 +84,7 @@ import { OrderRequestsComponent } from "./Shopping/pages/order-requests/order-re
 import { MerchantNavigationComponent } from './shared/components/merchant-navigation/merchant-navigation.component';
 import {OrderDialogComponent} from "./Shopping/components/order-dialog/order-dialog.component";
 import {RateDialogComponent} from "./Shopping/components/rate-dialog/rate-dialog.component";
+import {MatSortModule} from "@angular/material/sort";
 
 let StoreDevtoolsModule;
 
@@ -110,8 +107,6 @@ let StoreDevtoolsModule;
     SalesStep2CardContentComponent,
     SalesStep3CardContentComponent,
     SalesDialogContentComponent,
-    ListContentComponent,
-    List2ContentComponent,
     ButtonContentComponent,
     Button2ContentComponent,
     FinanceMainContentComponent,
@@ -119,8 +114,6 @@ let StoreDevtoolsModule;
     TableCostContentComponent,
     Button3ContentComponent,
     TableProfitContentComponent,
-    Button4ContentComponent,
-    Dialog2ContentComponent,
     ProductDetailsContentComponent,
     ProductsContentComponent,
     ProductCardComponent,
@@ -138,7 +131,7 @@ let StoreDevtoolsModule;
     OrderRequestsComponent,
     MerchantNavigationComponent,
     OrderDialogComponent,
-    RateDialogComponent
+    RateDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -171,6 +164,7 @@ let StoreDevtoolsModule;
     MatGridListModule,
     MatPaginatorModule,
     MatProgressBarModule,
+    MatSortModule,
   ],
   providers: [OrdersService],
   bootstrap: [AppComponent]

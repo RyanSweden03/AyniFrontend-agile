@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {Cost} from "../../model/cost-model";
-import {CostsService} from "../../services/costs.service";
+import {Transaction} from "../../model/transaction-model";
+import {TransactionsService} from "../../services/transactions.service";
 
 @Component({
   selector: 'app-dialog-content',
@@ -10,12 +10,12 @@ import {CostsService} from "../../services/costs.service";
 })
 export class DialogContentComponent {
   freshnessList = ["Producto", "Servicio"];
-  form: Cost;
-  constructor(private costsService: CostsService, private router: Router) {
-    this.form={id: 0,costName:'',date:'',description:'',price:0,quantity:''};
+    form: Transaction;
+  constructor(private transactionsService: TransactionsService, private router: Router) {
+    this.form={id: 0,type:'', costName:'',date:'',description:'',price:0,quantity:''};
   }
 
   onSubmit() {
-    this.costsService.create(this.form).subscribe(() => { });
+    this.transactionsService.create(this.form).subscribe(() => { });
   }
 }
