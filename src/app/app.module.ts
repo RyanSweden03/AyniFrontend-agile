@@ -68,7 +68,6 @@ import {ProductsContentComponent} from "./Management/pages/products-content/prod
 import {MatGridListModule} from "@angular/material/grid-list";
 import {ProductCardComponent} from "./Management/components/product-card/product-card.component";
 import {MatPaginatorModule} from "@angular/material/paginator";
-import {StoreModule} from "@ngrx/store";
 import { PurchaseCardContentComponent } from './Shopping/components/purchase-card-content/purchase-card-content.component';
 import { PurchasesContentComponent } from './Shopping/pages/purchases-content/purchases-content.component';
 import { CancelPurchaseDialogContentComponent } from './Shopping/components/cancel-purchase-dialog-content/cancel-purchase-dialog-content.component';
@@ -85,8 +84,6 @@ import { MerchantNavigationComponent } from './shared/components/merchant-naviga
 import {OrderDialogComponent} from "./Shopping/components/order-dialog/order-dialog.component";
 import {RateDialogComponent} from "./Shopping/components/rate-dialog/rate-dialog.component";
 import {MatSortModule} from "@angular/material/sort";
-
-let StoreDevtoolsModule;
 
 @NgModule({
   declarations: [

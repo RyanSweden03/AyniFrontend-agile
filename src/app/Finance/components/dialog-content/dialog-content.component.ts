@@ -1,5 +1,4 @@
 import { Component} from '@angular/core';
-import {Router} from "@angular/router";
 import {Transaction} from "../../model/transaction-model";
 import {TransactionsService} from "../../services/transactions.service";
 
@@ -11,7 +10,7 @@ import {TransactionsService} from "../../services/transactions.service";
 export class DialogContentComponent {
   freshnessList = ["Producto", "Servicio"];
     form: Transaction;
-  constructor(private transactionsService: TransactionsService, private router: Router) {
+  constructor(private transactionsService: TransactionsService) {
     this.form={id: 0,type:'', costName:'',date:'',description:'',price:0,quantity:''};
   }
 
