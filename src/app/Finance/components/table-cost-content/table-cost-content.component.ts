@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {CostsService} from "../../services/costs.service";
-import {Cost} from "../../model/cost-model";
+import {Transaction} from "../../model/transaction-model";
+import {TransactionsService} from "../../services/transactions.service";
 
 
 @Component({
@@ -11,14 +11,15 @@ import {Cost} from "../../model/cost-model";
 
 export class TableCostContentComponent {
 
-  @Input() costos: Array<Cost>=[];
+  @Input() costos: Transaction[]=[];
 
 
-  constructor(private costservice: CostsService) {
+  constructor(private transactionsService: TransactionsService) {
 
-
-    this.costservice.getAll().subscribe((response:any)=>{
-      console.log(response);
+    this.transactionsService.getAll().subscribe((response:any)=>{
+      const costos = response.filter((transaction: { type: string; }) => transaction.type === 'gasto');
+      console.log(costos);
+      this.costos = costos;
     });
 
   }

@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {Profit} from "../../model/profit-model";
-import {ProfitsService} from "../../services/profits.service";
+import {Transaction} from "../../model/transaction-model";
+import {TransactionsService} from "../../services/transactions.service";
 
 @Component({
   selector: 'app-table-profit-content',
@@ -8,12 +8,14 @@ import {ProfitsService} from "../../services/profits.service";
   styleUrls: ['./table-profit-content.component.css']
 })
 export class TableProfitContentComponent {
-  @Input() profits: Profit[]=[];
+  @Input() profits: Transaction[]=[];
 
-  constructor(private profitsService: ProfitsService) {
+  constructor(private transactionsService: TransactionsService) {
 
-    this.profitsService.getAll().subscribe((response:any)=>{
-      console.log(response);
+    this.transactionsService.getAll().subscribe((response:any)=>{
+      const profits = response.filter((transaction: { type: string; }) => transaction.type === 'ingreso');
+      console.log(profits);
+      this.profits = profits;
     });
   }
 
