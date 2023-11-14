@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Transaction} from "../../model/transaction-model";
 import {TransactionsService} from "../../services/transactions.service";
 
@@ -7,16 +7,17 @@ import {TransactionsService} from "../../services/transactions.service";
   templateUrl: './table-profit-content.component.html',
   styleUrls: ['./table-profit-content.component.css']
 })
-export class TableProfitContentComponent {
+export class TableProfitContentComponent implements OnInit{
   @Input() profits: Transaction[]=[];
 
-  constructor(private transactionsService: TransactionsService) {
+  constructor(private transactionsService: TransactionsService) {}
+  ngOnInit(): void {
     this.loadData();
   }
 
   loadData(){
     this.transactionsService.getAll().subscribe((response:any)=>{
-      const profits = response.filter((transaction: { type: string; }) => transaction.type === 'ingreso');
+      const profits = response.filter((transaction: { type: string; }) => transaction.type === 'Ingreso');
       console.log(profits);
       this.profits = profits;
     });
@@ -29,5 +30,4 @@ export class TableProfitContentComponent {
       }
     )
   }
-
 }

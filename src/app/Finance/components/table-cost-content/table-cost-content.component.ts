@@ -14,13 +14,14 @@ export class TableCostContentComponent {
   @Input() costos: Transaction[]=[];
 
 
-  constructor(private transactionsService: TransactionsService) {
-   this.loadData();
+  constructor(private transactionsService: TransactionsService) {  }
+  ngOnInit(): void {
+    this.loadData();
   }
 
   loadData(){
     this.transactionsService.getAll().subscribe((response:any)=>{
-      const costos = response.filter((transaction: { type: string; }) => transaction.type === 'gasto');
+      const costos = response.filter((transaction: { type: string; }) => transaction.type === 'Gasto');
       console.log(costos);
       this.costos = costos;
     });
@@ -33,7 +34,5 @@ export class TableCostContentComponent {
       }
     )
   }
-
-
 
 }

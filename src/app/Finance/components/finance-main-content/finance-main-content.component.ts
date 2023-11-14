@@ -4,6 +4,7 @@ import {MatSort, Sort} from "@angular/material/sort";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {TransactionsService} from "../../services/transactions.service";
 import {Transaction} from "../../model/transaction-model";
+import {MatPaginator} from "@angular/material/paginator";
 
 
 @Component({
@@ -24,9 +25,11 @@ export class FinanceMainContentComponent implements AfterViewInit{
   dataSource = new MatTableDataSource(this.transactions);
 
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   announceSortChange(sortState: Sort) {

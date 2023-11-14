@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
-import {Transaction} from "../../model/transaction-model";
 import {TransactionsService} from "../../services/transactions.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-dialog-content',
@@ -8,13 +8,21 @@ import {TransactionsService} from "../../services/transactions.service";
   styleUrls: ['./dialog-content.component.css']
 })
 export class DialogContentComponent {
-  freshnessList = ["Producto", "Servicio"];
-    form: Transaction;
-  constructor(private transactionsService: TransactionsService) {
-    this.form={id: 0,type:'', costName:'',date:'',description:'',price:0,quantity:''};
+    form: FormGroup;
+  constructor(private fb:FormBuilder, private transactionsService: TransactionsService) {
+    this.form = this.fb.group({
+      id: [0],
+      type: ['', Validators.required],
+      costName: ['', Validators.required],
+      date: [''],
+      description: [''],
+      price: [],
+      quantity: ['']
+    });
   }
 
   onSubmit() {
-    this.transactionsService.create(this.form).subscribe(() => { });
+    console.log(this.form.value);
+    this.transactionsService.create(this.form.value).subscribe(() => { });
   }
 }

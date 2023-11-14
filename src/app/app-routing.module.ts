@@ -33,7 +33,7 @@ const routes: Routes = [
   { path: 'sales/:id/new', component: SalesStepperContentComponent },
   { path: 'crops', component: CropsStepperContentComponent},
   { path: 'costlist', component: TableCostContentComponent },
-  { path: 'billlist', component: TableProfitContentComponent },
+  { path: 'profitlist', component: TableProfitContentComponent },
   { path: 'finance', component: FinanceMainContentComponent },
   { path: 'products', component: ProductsContentComponent },
   { path: 'products/:id', component: ProductDetailsContentComponent },
