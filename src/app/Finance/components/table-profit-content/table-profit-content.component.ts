@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Transaction} from "../../model/transaction-model";
 import {TransactionsService} from "../../services/transactions.service";
+import {DialogContentComponent} from "../dialog-content/dialog-content.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-table-profit-content',
@@ -10,7 +12,7 @@ import {TransactionsService} from "../../services/transactions.service";
 export class TableProfitContentComponent implements OnInit{
   @Input() profits: Transaction[]=[];
 
-  constructor(private transactionsService: TransactionsService) {}
+  constructor(private transactionsService: TransactionsService, private dialog: MatDialog) {}
   ngOnInit(): void {
     this.loadData();
   }
@@ -29,5 +31,11 @@ export class TableProfitContentComponent implements OnInit{
         this.loadData();
       }
     )
+  }
+
+  openDialog() {
+    this.dialog.open(DialogContentComponent, {
+      width:'30%'
+    });
   }
 }

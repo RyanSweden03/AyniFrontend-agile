@@ -1,6 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {Transaction} from "../../model/transaction-model";
 import {TransactionsService} from "../../services/transactions.service";
+import {DialogContentComponent} from "../dialog-content/dialog-content.component";
+import {MatDialog} from "@angular/material/dialog";
 
 
 @Component({
@@ -14,7 +16,7 @@ export class TableCostContentComponent {
   @Input() costos: Transaction[]=[];
 
 
-  constructor(private transactionsService: TransactionsService) {  }
+  constructor(private transactionsService: TransactionsService, private dialog: MatDialog) {  }
   ngOnInit(): void {
     this.loadData();
   }
@@ -35,4 +37,9 @@ export class TableCostContentComponent {
     )
   }
 
+  openDialog() {
+    this.dialog.open(DialogContentComponent, {
+      width:'30%'
+    });
+  }
 }

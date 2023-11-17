@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {Router} from "@angular/router";
 import {Order} from "../../model/order";
 import {OrdersService} from "../../services/orders.service";
 import {UsersService} from "../../../Authentication/services/users.service";
@@ -23,7 +22,7 @@ export class PurchasesContentComponent {
   pageSize: number = 2;
   pageSizeOptions: number[] = [2, 4, 6, 8];
 
-  constructor(private ordersService: OrdersService, private salesService: SalesService, private userService: UsersService, private router: Router) {
+  constructor(private ordersService: OrdersService, private salesService: SalesService, private userService: UsersService) {
   }
 
   ngOnInit(): void {
@@ -42,9 +41,9 @@ export class PurchasesContentComponent {
           this.products.push(productResponse);
         });
 
-        this.userService.getById(purchase.acceptedBy).subscribe((userResponse: any) => {
+        /*this.userService.getById(purchase.acceptedBy).subscribe((userResponse: any) => {
           this.users.push(userResponse);
-        });
+        });*/
       });
     });
   }

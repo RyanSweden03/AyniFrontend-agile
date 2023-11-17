@@ -23,6 +23,8 @@ export class DialogContentComponent {
 
   onSubmit() {
     console.log(this.form.value);
-    this.transactionsService.create(this.form.value).subscribe(() => { });
+    this.transactionsService.create(this.form.value).subscribe(() => {
+      location.reload();
+    });
   }
 }

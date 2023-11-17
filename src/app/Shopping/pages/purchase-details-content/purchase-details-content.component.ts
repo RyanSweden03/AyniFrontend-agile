@@ -41,9 +41,11 @@ export class PurchaseDetailsContentComponent {
       this.saleService.getById(purchaseId).subscribe((orderResponse: any) => {
         this.order=orderResponse;
 
+        /*
         this.usersService.getById(this.order.acceptedBy).subscribe((userResponse: any) => {
           this.user=userResponse;
         });
+        */
 
         this.productsService.getById(this.order.saleId).subscribe((productResponse: any) => {
           this.product=productResponse;

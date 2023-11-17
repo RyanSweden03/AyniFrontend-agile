@@ -43,9 +43,9 @@ export class OrderRequestsComponent implements OnInit {
           this.sales.push(productResponse);
         });
 
-        this.usersService.getById(order.orderedBy).subscribe((userResponse: any) => {
+        /*this.usersService.getById(order.orderedBy).subscribe((userResponse: any) => {
           this.users.push(userResponse);
-        });
+        });*/
 
       });
     });

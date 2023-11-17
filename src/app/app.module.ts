@@ -35,7 +35,6 @@ import {Button2ContentComponent} from './Finance/components/profit-button-conten
 import {FinanceMainContentComponent} from './Finance/components/finance-main-content/finance-main-content.component';
 import {DialogContentComponent} from './Finance/components/dialog-content/dialog-content.component';
 import {TableCostContentComponent} from './Finance/components/table-cost-content/table-cost-content.component';
-import {Button3ContentComponent} from './Finance/components/button3-content/button3-content.component';
 import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from '@angular/material/radio';
 import {MatTableModule} from "@angular/material/table";
@@ -109,7 +108,6 @@ import {MatSortModule} from "@angular/material/sort";
     FinanceMainContentComponent,
     DialogContentComponent,
     TableCostContentComponent,
-    Button3ContentComponent,
     TableProfitContentComponent,
     ProductDetailsContentComponent,
     ProductsContentComponent,

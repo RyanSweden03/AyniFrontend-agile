@@ -1,22 +1,27 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 import {User} from "../model/user";
 import {BaseService} from "../../shared/services/base.service";
-import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService extends BaseService<User>{
-
+  private readonly apiUrl: string;
   constructor(http:HttpClient) {
     super(http);
-    this.resourceEndpoint = '/users';
+    this.resourceEndpoint='/auth';
+    this.apiUrl= 'http://localhost:3000/api' + this.resourceEndpoint;
   }
 
-  getUserByEmail(email: string) {
-    const query = `email=${email}`;
-    return this.getByQuery(query);
+  //funciona xq le puse protected en el base service.
+  signup(user: User): Observable<any> {
+    return this.http.post(`${this.apiUrl}/signup`, user);
+  }
+
+  signin(credentials: { password: any; username: any }): Observable<any> {
+    return this.http.post(`${this.apiUrl}/signin`, credentials);
   }
 
 }
