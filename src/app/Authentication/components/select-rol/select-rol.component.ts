@@ -12,22 +12,25 @@ export class SelectRolComponent {
   rol !: string;
   formData: any = {};
 
-  constructor(private router: Router, private dataService: DataService, private usersService: UsersService) {
+  constructor(private router: Router,
+              private dataService: DataService,
+              private usersService: UsersService) {
     this.formData = this.dataService.getFormData();
     console.log("ok",this.formData);
   }
   onFarmerSelected() {
-    this.formData.rol = 'farmer';
+    this.formData.role = 'farmer';
+    console.log("ok",this.formData);
     this.usersService.signup(this.formData).subscribe(() => {
-      this.router.navigate(["farmer-home"]);
+      this.router.navigate(["signin"]);
     });
   }
 
   onMerchantSelected() {
-    this.formData.rol = 'merchant';
+    this.formData.role = 'merchant';
     console.log(this.formData);
     this.usersService.signup(this.formData).subscribe(() => {
-      this.router.navigate(["merchant-home"]);
+      this.router.navigate(["signin"]);
     });
   }
 }
