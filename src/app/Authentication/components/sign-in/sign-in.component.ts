@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {UsersService} from "../../services/users.service";
+import {TokenStorageService} from "../../services/token-storage.service";
 
 @Component({
   selector: 'app-sign-in',
@@ -11,8 +12,15 @@ import {UsersService} from "../../services/users.service";
 
 export class SignInComponent {
   signInForm!: FormGroup;
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
 
-  constructor(private fb: FormBuilder, private router: Router, private usersService: UsersService) {
+  constructor(private fb: FormBuilder,
+              private router: Router,
+              private usersService: UsersService,
+              private tokenStorage: TokenStorageService) {
     /*this.signInForm = this.fb.group({
       username: new FormControl('', [
         Validators.required,
@@ -28,6 +36,14 @@ export class SignInComponent {
       password: ['', Validators.required]
     });
   }
+  ngOnInit(): void {
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().roles;
+      console.log('User already logged!: ', this.tokenStorage.getUser());
+
+    }
+  }
 
   onSubmit() {
     if (this.signInForm.valid) {
@@ -40,6 +56,17 @@ export class SignInComponent {
       ).subscribe({
         next: (response) => {
           console.log('Signin successful:', response);
+          this.tokenStorage.saveToken(response.token);
+          this.tokenStorage.saveUser(response);
+
+          this.isLoginFailed = false;
+          this.isLoggedIn = true;
+          this.roles = this.tokenStorage.getUser().roles;
+
+          if(this.tokenStorage.getUser().roles[0].role === 'ROLE_FARMER')
+            this.router.navigate(['farmer-home']);
+          else
+            this.router.navigate(['merchant-home']);
         },
         error: (error) => {
           console.error('Signin failed:', error);
@@ -54,5 +81,7 @@ export class SignInComponent {
 
   redirectToHome() {
 
+    //if (this.tokenStorage.getUser().roles[0].role === 'ROLE_FARMER') this.router.navigate(['farmer-home']);
+    //else this.router.navigate(['merchant-home']);
   }
 }
