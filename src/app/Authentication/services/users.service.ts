@@ -12,7 +12,7 @@ export class UsersService extends BaseService<User>{
   constructor(http:HttpClient) {
     super(http);
     this.resourceEndpoint='/auth';
-    this.apiUrl= 'https://ayni-api.zeabur.app/api' + this.resourceEndpoint;
+    this.apiUrl= 'http://localhost:3000/api' + this.resourceEndpoint;
   }
 
   //funciona xq le puse protected en el base service.
