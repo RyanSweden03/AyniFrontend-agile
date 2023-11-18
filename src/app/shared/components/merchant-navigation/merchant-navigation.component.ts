@@ -1,5 +1,6 @@
 import {Component, HostListener} from '@angular/core';
 import {Router} from "@angular/router";
+import {TokenStorageService} from "../../../Authentication/services/token-storage.service";
 
 @Component({
   selector: 'app-merchant-navigation',
@@ -7,6 +8,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./merchant-navigation.component.css']
 })
 export class MerchantNavigationComponent {
+  user = this.tokenStorage.getUser();
   isLargeScreen = window.innerWidth >= 768;
 
   routesMerchant: {label:string , to: string}[] = [
@@ -20,10 +22,12 @@ export class MerchantNavigationComponent {
   onResize(event: any): void {
     this.isLargeScreen = event.target.innerWidth >= 768;
   }
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private tokenStorage: TokenStorageService) {
   }
-
-  redirectToSignIn(){
+  onLogOut() {
+    console.log("LogOUT");
+    this.tokenStorage.signOut();
     this.router.navigate(["signin"]);
   }
 

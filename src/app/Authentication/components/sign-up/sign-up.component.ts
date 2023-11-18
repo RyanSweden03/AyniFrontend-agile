@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {DataService} from "../../services/data.service";
+import {UsersService} from "../../services/users.service";
 
 @Component({
   selector: 'app-sign-up',
@@ -13,7 +14,9 @@ export class SignUpComponent implements OnInit{
 
   signUpForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private dataService: DataService) {
+  constructor(private formBuilder: FormBuilder,
+              private router: Router,
+              private dataService: DataService) {
 
     /*this.signUpForm = this.formBuilder.group({
       username: new FormControl('', [

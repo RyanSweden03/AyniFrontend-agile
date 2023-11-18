@@ -83,6 +83,7 @@ import { MerchantNavigationComponent } from './shared/components/merchant-naviga
 import {OrderDialogComponent} from "./Shopping/components/order-dialog/order-dialog.component";
 import {RateDialogComponent} from "./Shopping/components/rate-dialog/rate-dialog.component";
 import {MatSortModule} from "@angular/material/sort";
+import {authInterceptorProviders} from "./Authentication/helpers/AuthInterceptor";
 
 @NgModule({
   declarations: [
@@ -161,7 +162,7 @@ import {MatSortModule} from "@angular/material/sort";
     MatProgressBarModule,
     MatSortModule,
   ],
-  providers: [OrdersService],
+  providers: [OrdersService, authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {

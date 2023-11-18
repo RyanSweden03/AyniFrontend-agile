@@ -2,6 +2,7 @@ import {Component, HostListener, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {MatMenu} from "@angular/material/menu";
 import {Store} from "@ngrx/store";
+import {TokenStorageService} from "../../../Authentication/services/token-storage.service";
 
 @Component({
   selector: 'app-farmer-navigation',
@@ -9,6 +10,7 @@ import {Store} from "@ngrx/store";
   styleUrls: ['./farmer-navigation.component.css']
 })
 export class FarmerNavigationComponent {
+  user = this.tokenStorage.getUser();
   isLargeScreen = window.innerWidth >= 768;
   rol:string = "";
 
@@ -24,11 +26,11 @@ export class FarmerNavigationComponent {
   onResize(event: any): void {
     this.isLargeScreen = event.target.innerWidth >= 768;
   }
-  constructor(private router: Router) {
-  }
-
-  redirectToSignIn(){
+  constructor(private router: Router,
+              private tokenStorage: TokenStorageService) {}
+  onLogOut() {
+    console.log("LogOUT");
+    this.tokenStorage.signOut();
     this.router.navigate(["signin"]);
   }
-
 }
