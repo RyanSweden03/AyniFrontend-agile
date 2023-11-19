@@ -18,20 +18,6 @@ export class SignUpComponent implements OnInit{
               private router: Router,
               private dataService: DataService) {
 
-    /*this.signUpForm = this.formBuilder.group({
-      username: new FormControl('', [
-        Validators.required
-      ]),
-      email: new FormControl('', [
-        Validators.required,
-        Validators.email
-      ]),
-      password: new FormControl('', [
-        Validators.required
-      ]),
-      rol: ''
-    });*/
-
     this.signUpForm = this.formBuilder.group({
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],

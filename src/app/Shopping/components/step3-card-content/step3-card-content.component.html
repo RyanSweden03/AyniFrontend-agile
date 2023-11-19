@@ -10,7 +10,7 @@
   <mat-card-footer>
     <mat-card-footer>
       <button mat-button matStepperPrevious>Atras</button>
-      <button mat-raised-button color="primary" (click)="openDialog()">Finalizar Compra</button>
+      <button mat-raised-button color="primary" [routerLink]="sales" (click)="onSubmit()">Finalizar Compra</button>
     </mat-card-footer>
   </mat-card-footer>
 </mat-card>

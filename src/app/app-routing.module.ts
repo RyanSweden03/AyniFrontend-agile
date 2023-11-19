@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'farmer-home', component: FarmerMainContentComponent },
   { path: 'sales', component: SalesContentComponent },
   { path: 'sales/:id', component: SaleDetailsContentComponent },
-  { path: 'sales/:id/new', component: SalesStepperContentComponent },
+  { path: 'requests', component: SalesStepperContentComponent },
   { path: 'crops', component: CropsStepperContentComponent},
   { path: 'costlist', component: TableCostContentComponent },
   { path: 'profitlist', component: TableProfitContentComponent },

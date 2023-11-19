@@ -1,5 +1,8 @@
 <app-farmer-navigation></app-farmer-navigation>
 <div class="container" xmlns="http://www.w3.org/1999/html">
+  <button mat-button color="primary" (click)="addNewSale()">
+    <p><mat-icon>add</mat-icon>Añadir producto a la venta</p>
+  </button>
   <h1>Mis pedidos</h1>
   <div class="orders">
     <ng-container *ngFor="let order of pagedOrders">
@@ -18,8 +21,8 @@
             <p>Cantidad: {{order.quantity}}</p>
             <p>Precio Total: {{order.totalPrice}}</p>
             <div class="buttons">
-              <button class="button-color" mat-raised-button (click)="openDialog(); deleteOrder(order.id)">Aceptar</button>
-              <button color="warn"  (click)="deleteOrder(order.id)" mat-raised-button>Rechazar</button>
+              <button class="button-color" mat-raised-button (click)="acceptOrder(order.id)">Aceptar</button>
+              <button color="warn" (click)="deleteOrder(order.id)" mat-raised-button>Rechazar</button>
             </div>
           </div>
 

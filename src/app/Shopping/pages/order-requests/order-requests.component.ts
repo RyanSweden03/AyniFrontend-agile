@@ -8,6 +8,8 @@ import {Sale} from "../../model/sale";
 import {OrdersService} from "../../services/orders.service";
 import {SalesService} from "../../services/sales.service";
 import {UsersService} from "../../../Authentication/services/users.service";
+import {AddSaleContentComponent} from "../add-sale-content/add-sale-content.component";
+import {TokenStorageService} from "../../../Authentication/services/token-storage.service";
 
 @Component({
   selector: 'app-order-requests',
@@ -17,36 +19,46 @@ import {UsersService} from "../../../Authentication/services/users.service";
 export class OrderRequestsComponent implements OnInit {
 
   orders: Order[] = [];
+  order: Order = new Order();
   users: User[] = [];
   sales: Sale[] = [];
   pageSize = 4;
   pageIndex = 0;
   pageNumbers: number[] = [];
 
-  constructor(private ordersService: OrdersService, private salesService: SalesService, private usersService: UsersService, public dialog: MatDialog, private router: Router) {
+  constructor(private ordersService: OrdersService, private salesService: SalesService, private usersService: UsersService, public dialog: MatDialog, private router: Router, private tokenStorage: TokenStorageService) {
   }
 
-  openDialog(){
-    this.dialog.open(OrderDialogComponent);
+  acceptOrder(id: number){
+    /*this.ordersService.getById(id).subscribe((response: any) => {
+      this.order = response;
+      this.order.status = 'finalized';
+
+      console.log("actualizado", this.order)
+
+      this.ordersService.update(id, this.order).subscribe(() => {
+        //this.dialog.open(OrderDialogComponent);
+        //this.loadData(this.tokenStorage.getUser().id);
+      });
+    });*/
+
+    this.ordersService.finalizeOrder(id).subscribe(() => {
+    });
+
   }
   ngOnInit(): void {
-   this.loadData(1);
+   this.loadData(this.tokenStorage.getUser().id);
   }
 
   loadData(userId: number){
     this.ordersService.getAll().subscribe((response: any) => {
-      this.orders = response.filter((order: any) => order.acceptedBy === userId);
+      this.orders = response.filter((order: any) => order.acceptedBy === userId && order.status === 'pending');
       this.pageNumbers = Array.from({ length: Math.ceil(this.orders.length / this.pageSize) }, (_, index) => index );
 
       this.orders.forEach(order => {
         this.salesService.getById(order.saleId).subscribe((productResponse: any) => {
           this.sales.push(productResponse);
         });
-
-        /*this.usersService.getById(order.orderedBy).subscribe((userResponse: any) => {
-          this.users.push(userResponse);
-        });*/
-
       });
     });
   }
@@ -67,11 +79,9 @@ export class OrderRequestsComponent implements OnInit {
   }
 
   deleteOrder(id: number) {
-    this.ordersService.delete(id).subscribe(()=>
-      {
-        this.loadData(1);
-      }
-    )
+    this.ordersService.delete(id).subscribe(() => {
+      this.loadData(this.tokenStorage.getUser().id);
+    });
   }
 
   goToPage(pageNumber: number) {
@@ -82,6 +92,10 @@ export class OrderRequestsComponent implements OnInit {
 
   navigateToPreviousView() {
     this.router.navigate(['farmer-home']).then(r =>  console.log('Navegación exitosa'));
+  }
+
+  addNewSale() {
+    this.dialog.open(AddSaleContentComponent);
   }
 }
 

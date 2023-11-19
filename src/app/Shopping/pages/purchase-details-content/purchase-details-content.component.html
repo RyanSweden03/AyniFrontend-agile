@@ -6,18 +6,18 @@
   </mat-card-header>
   <mat-card-content>
     <div class="product-info">
-      <img alt="{{product.name}}" class="product-photo" src="{{product.imageUrl}}">
+      <img width="30%" alt="{{product.name}}" class="product-photo" src="{{sale.imageUrl}}">
     </div>
     <div class="product-info">
-      <p>Producto: {{product.name}}</p>
-      <p>Descripción: {{product.description}}</p>
+      <p>Producto: {{sale.name}}</p>
+      <p>Descripción: {{sale.description}}</p>
       <p>Estado: {{order.status}}</p>
-      <p>Precio Unitario: {{product.unitPrice}}</p>
+      <p>Precio Unitario: {{sale.unitPrice}}</p>
       <p>Cantidad: {{order.quantity}}</p>
       <p>Precio Total: {{order.totalPrice}}</p>
     </div>
     <div class="farmer-info">
-      <p>Productor: {{user.username}}</p>
+      <p>Productor: {{sale.userId}}</p>
     </div>
     <div class="buttons">
       <button class="warn" mat-raised-button (click)="openDialog(); deleteOrder(order.id)">Cancelar</button>
@@ -31,11 +31,11 @@
     [value]="calculateProgress(order.status)"
   ></mat-progress-bar>
 
-  <div class="status-description" [ngClass]="{'pending': order.status === 'Pendiente', 'packaging': order.status === 'Empaquetando', 'completed': order.status === 'Finalizado'}">
+  <div class="status-description" [ngClass]="{'pending': order.status === 'pending', 'finalized': order.status === 'finalized', 'qualified': order.status === 'qualified'}">
     <p>
-      <span *ngIf="order.status === 'Pendiente'">La compra está pendiente.</span>
-      <span *ngIf="order.status === 'Empaquetando'">La compra se está empaquetando.</span>
-      <span *ngIf="order.status === 'Finalizado'">La compra fue finalizada.</span>
+      <span *ngIf="order.status === 'pending'">La compra está pendiente.</span>
+      <span *ngIf="order.status === 'finalized'">La compra termino con exito.</span>
+      <span *ngIf="order.status === 'qualified'">La compra fue calificada.</span>
     </p>
   </div>
   <button mat-icon-button (click)="navigateBack()">

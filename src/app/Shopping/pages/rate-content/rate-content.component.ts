@@ -1,16 +1,12 @@
 import {Component, Input} from '@angular/core';
-import { Rate} from "../../model/rate";
-import { RateDialogComponent} from "../../components/rate-dialog/rate-dialog.component";
-import {MatDialog} from "@angular/material/dialog";
-import { RatesService} from "../../services/rates.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Product} from "../../../Management/model/product";
 import {ProductsService} from "../../../Management/services/products.service";
 import {Order} from "../../model/order";
-import {User} from "../../../Authentication/model/user";
 import {OrdersService} from "../../services/orders.service";
-import {UsersService} from "../../../Authentication/services/users.service";
 import {PageEvent} from "@angular/material/paginator";
+import {TokenStorageService} from "../../../Authentication/services/token-storage.service";
+import {SalesService} from "../../services/sales.service";
 
 @Component({
   selector: 'app-rate-content',
@@ -26,26 +22,26 @@ export class RateContentComponent {
   pageSize: number = 2;
   pageSizeOptions: number[] = [2, 4, 6, 8];
 
-  constructor(private ordersService: OrdersService, private productsService: ProductsService, private router: Router) {
+  constructor(private ordersService: OrdersService, private salesService: SalesService, private router: Router, private tokenStorage: TokenStorageService) {
   }
 
   ngOnInit(): void {
-    this.loadData(2);
+    this.loadData(this.tokenStorage.getUser().id);
   }
 
   loadData(userId: number) {
     this.ordersService.getAll().subscribe((response: any) => {
-      this.purchases = response.filter((purchase: any) => purchase.orderedBy === userId && purchase.status==='Finalized');
-      console.log(this.purchases);
+      this.purchases = response.filter((purchase: any) => purchase.orderedBy === userId && purchase.status==='finalized');
       this.pagedList = this.purchases.slice(0,2);
       this.breakpoint = (window.innerWidth <= 800) ? 1 : 3;
       this.length = this.purchases.length;
 
       this.purchases.forEach(purchase => {
-        this.productsService.getById(purchase.saleId).subscribe((productResponse: any) => {
+        this.salesService.getById(purchase.saleId).subscribe((productResponse: any) => {
           this.products.push(productResponse);
         });
       });
+
     });
   }
 

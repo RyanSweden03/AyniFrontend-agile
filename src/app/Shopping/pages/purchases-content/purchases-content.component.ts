@@ -6,6 +6,7 @@ import {Product} from "../../../Management/model/product";
 import {User} from "../../../Authentication/model/user";
 import {PageEvent} from "@angular/material/paginator";
 import {SalesService} from "../../services/sales.service";
+import {TokenStorageService} from "../../../Authentication/services/token-storage.service";
 
 @Component({
   selector: 'app-purchases-content',
@@ -22,11 +23,11 @@ export class PurchasesContentComponent {
   pageSize: number = 2;
   pageSizeOptions: number[] = [2, 4, 6, 8];
 
-  constructor(private ordersService: OrdersService, private salesService: SalesService, private userService: UsersService) {
+  constructor(private ordersService: OrdersService, private salesService: SalesService, private userService: UsersService, private tokenStorage: TokenStorageService) {
   }
 
   ngOnInit(): void {
-    this.loadData(2);
+    this.loadData(this.tokenStorage.getUser().id);
   }
 
   loadData(userId: number) {
@@ -40,10 +41,6 @@ export class PurchasesContentComponent {
         this.salesService.getById(purchase.saleId).subscribe((productResponse: any) => {
           this.products.push(productResponse);
         });
-
-        /*this.userService.getById(purchase.acceptedBy).subscribe((userResponse: any) => {
-          this.users.push(userResponse);
-        });*/
       });
     });
   }
