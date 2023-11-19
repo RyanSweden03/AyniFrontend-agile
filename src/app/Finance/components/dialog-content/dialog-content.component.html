@@ -5,45 +5,45 @@
     <mat-form-field appearance="fill">
       <mat-label>Tipo</mat-label>
       <mat-select formControlName="type" required>
-        <mat-option value="Gasto">Gasto</mat-option>
-        <mat-option value="Ingreso">Ingreso</mat-option>
+        <mat-option value="Cost">Costs</mat-option>
+        <mat-option value="Profit">Profits</mat-option>
       </mat-select>
     </mat-form-field>
 
     <p>
       <mat-form-field appearance="outline">
-        <mat-label>Nombre</mat-label>
-        <input matInput formControlName="costName" placeholder="Ingrese un nombre">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="costName" placeholder="Enter a name">
       </mat-form-field>
     </p>
 
-    <h2>Detalles</h2>
+    <h2>Details</h2>
     <p>
       <mat-form-field appearance="outline">
-        <mat-label>Descripción</mat-label>
-        <input formControlName="description" matInput placeholder="Ingrese una descripción">
+        <mat-label>Description</mat-label>
+        <input formControlName="description" matInput placeholder="Enter a description">
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="outline">
-        <mat-label>Monto</mat-label>
-        <input  formControlName="price" matInput type="Number" placeholder="Ingrese el monto">
+        <mat-label>Amount</mat-label>
+        <input  formControlName="price" matInput type="Number" placeholder="Enter the amount">
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="outline">
-        <mat-label>Cantidad</mat-label>
-        <input formControlName="quantity" matInput placeholder="Ingresa la cantidad">
+        <mat-label>Quantity</mat-label>
+        <input formControlName="quantity" matInput placeholder="Enter the quantity">
       </mat-form-field>
     </p>
 
     <h2>
-      Elige la fecha:
+      Choose the date:
     </h2>
     <p>
 
       <mat-form-field>
-        <mat-label>Elige la fecha:</mat-label>
+        <mat-label>Date:</mat-label>
         <input formControlName="date" matInput [matDatepicker]="picker">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -52,8 +52,8 @@
 
     </p>
     <div mat-dialog-actions [align]="'end'">
-      <button mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
-      <button mat-raised-button class="boton-personalizado" type="submit" mat-dialog-close>Guardar</button>
+      <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+      <button mat-raised-button class="boton-personalizado" type="submit" mat-dialog-close>Save</button>
     </div>
   </form>
 </div>
