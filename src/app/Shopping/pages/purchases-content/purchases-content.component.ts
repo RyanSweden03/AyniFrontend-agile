@@ -18,10 +18,10 @@ export class PurchasesContentComponent {
   users: User[] = [];
   products: Product[] = [];
   pagedList: Order[] = [];
-  breakpoint: number = 3;
+  breakpoint: number = 1;
   length: number = 0;
-  pageSize: number = 2;
-  pageSizeOptions: number[] = [2, 4, 6, 8];
+  pageSize: number = 1;
+  pageSizeOptions: number[] = [1, 2, 4, 6];
 
   constructor(private ordersService: OrdersService, private salesService: SalesService, private userService: UsersService, private tokenStorage: TokenStorageService) {
   }
@@ -33,7 +33,7 @@ export class PurchasesContentComponent {
   loadData(userId: number) {
     this.ordersService.getAll().subscribe((response: any) => {
       this.purchases = response.filter((purchase: any) => purchase.orderedBy === userId);
-      this.pagedList = this.purchases.slice(0,2)
+      this.pagedList = this.purchases.slice(0,1)
       this.breakpoint = (window.innerWidth <= 800) ? 1 : 3;
       this.length = this.purchases.length;
 

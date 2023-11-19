@@ -12,8 +12,7 @@
         </mat-card-header>
         <mat-card-content>
           <div class="user-info">
-            <img alt="user picture" class="user-photo" src="{{getUser(order.orderedBy)?.photo}}">
-            <button mat-raised-button>{{getUser(order.orderedBy)?.username}}</button>
+            <img alt="{{getProduct(order.saleId)?.name}}" class="user-photo" src="{{getProduct(order.saleId)?.imageUrl}}">
           </div>
           <div class="product-info">
             <p>Product: {{getProduct(order.saleId)?.name}}</p>
@@ -25,7 +24,6 @@
               <button color="warn" (click)="deleteOrder(order.id)" mat-raised-button>Decline</button>
             </div>
           </div>
-
         </mat-card-content>
       </mat-card>
     </ng-container>

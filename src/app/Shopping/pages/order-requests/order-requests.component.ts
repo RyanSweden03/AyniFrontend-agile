@@ -30,21 +30,11 @@ export class OrderRequestsComponent implements OnInit {
   }
 
   acceptOrder(id: number){
-    /*this.ordersService.getById(id).subscribe((response: any) => {
-      this.order = response;
-      this.order.status = 'finalized';
-
-      console.log("actualizado", this.order)
-
-      this.ordersService.update(id, this.order).subscribe(() => {
-        //this.dialog.open(OrderDialogComponent);
-        //this.loadData(this.tokenStorage.getUser().id);
-      });
-    });*/
-
     this.ordersService.finalizeOrder(id).subscribe(() => {
+      const dialogRef = this.dialog.open(OrderDialogComponent, {
+        width: '600px',
+      });
     });
-
   }
   ngOnInit(): void {
    this.loadData(this.tokenStorage.getUser().id);

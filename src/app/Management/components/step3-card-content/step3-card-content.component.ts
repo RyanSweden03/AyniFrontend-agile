@@ -12,6 +12,7 @@ import {Crop} from "../../model/crop";
 })
 export class CropsStep3CardContentComponent {
   @Input() formData: Crop = new Crop();
+  products: any = "/products";
   constructor(public dialog:MatDialog, private cropsService:CropsService, private router:Router) { }
 
   openDialog() {

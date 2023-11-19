@@ -6,8 +6,8 @@
   </mat-card-header>
   <mat-card-content>
     <mat-form-field>
-      <h1>Crop name</h1>
-      <input matInput [ngModel]="cropform1.name" name="name" placeholder="Write the name here">
+      <h5>Crop name</h5>
+      <input matInput [(ngModel)]="cropform1.name" name="name" placeholder="Write the name here">
     </mat-form-field>
     <div class="checkbox-group">
       <mat-checkbox [(ngModel)]="cropform1.undergrowth" name="undergrowth">Get rid of weeds</mat-checkbox>

@@ -13,8 +13,10 @@ import {SalesService} from "../../services/sales.service";
 export class SalesStep3CardContentComponent {
   @Input() formData: Order = new Order();
   sale: any;
+  saleT: any;
   sales: any = "/sales"
   constructor(public dialog:MatDialog, private ordersService: OrdersService, private salesService: SalesService) {
+
   }
 
   openDialog() {
