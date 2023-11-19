@@ -21,7 +21,7 @@ export class MerchantMainContentComponent {
   constructor(private ordersService: OrdersService,
               private salesServices: SalesService,
               private tokenStorage: TokenStorageService) {
-    this.loadData(1);
+    this.loadData(tokenStorage.getUser().id);
   }
 
   loadData(userId: number) {

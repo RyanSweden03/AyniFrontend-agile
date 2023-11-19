@@ -5,6 +5,7 @@ export class Sale {
   unitPrice: number;
   quantity: number;
   imageUrl: string;
+  userId: number;
 
   constructor() {
     this.id = 0;
@@ -13,5 +14,6 @@ export class Sale {
     this.unitPrice = 0;
     this.quantity = 0;
     this.imageUrl = '';
+    this.userId = 0;
   }
 }

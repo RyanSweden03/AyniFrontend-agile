@@ -10,6 +10,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {
   CancelPurchaseDialogContentComponent
 } from "../../components/cancel-purchase-dialog-content/cancel-purchase-dialog-content.component";
+import {SalesService} from "../../services/sales.service";
+import {Sale} from "../../model/sale";
 
 @Component({
   selector: 'app-purchase-details-content',
@@ -19,11 +21,13 @@ import {
 export class PurchaseDetailsContentComponent {
   order: Order = new Order();
   user: User = new User();
+  sale: Sale = new Sale();
   product: Product = new Product();
 
   constructor(
-    private saleService: OrdersService,
+    private orderService: OrdersService,
     private productsService: ProductsService,
+    private salesService: SalesService,
     private usersService: UsersService,
     private router: Router,
     private route: ActivatedRoute,
@@ -38,18 +42,22 @@ export class PurchaseDetailsContentComponent {
   loadData() {
     this.route.params.subscribe(params => {
       const purchaseId = +params['id'];
-      this.saleService.getById(purchaseId).subscribe((orderResponse: any) => {
+      this.orderService.getById(purchaseId).subscribe((orderResponse: any) => {
         this.order=orderResponse;
 
-        /*
-        this.usersService.getById(this.order.acceptedBy).subscribe((userResponse: any) => {
-          this.user=userResponse;
-        });
-        */
+        console.log(this.order);
 
-        this.productsService.getById(this.order.saleId).subscribe((productResponse: any) => {
-          this.product=productResponse;
+        this.salesService.getById(this.order.saleId).subscribe((saleResponse: any) => {
+          this.sale=saleResponse;
         });
+
+        /*this.usersService.getById(this.order.acceptedBy).subscribe((userResponse: any) => {
+          this.user=userResponse;
+        });*/
+
+        /*this.productsService.getById(this.order.saleId).subscribe((productResponse: any) => {
+          this.product=productResponse;
+        });*/
       });
     });
   }
@@ -59,7 +67,7 @@ export class PurchaseDetailsContentComponent {
   }
 
   deleteOrder(id: number) {
-    this.saleService.delete(id).subscribe(() => { });
+    this.orderService.delete(id).subscribe(() => { });
   }
 
   calculateProgress(status: string){

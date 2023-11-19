@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
 })
 export class SalesStepperContentComponent {
 
-  constructor() {
-  }
+  combinedFormData: any = {};
 
+  handleFormCompleted1(data: any) {
+    this.combinedFormData = { ...this.combinedFormData, ...data };
+  }
 }

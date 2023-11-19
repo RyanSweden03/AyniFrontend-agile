@@ -6,6 +6,8 @@ export class Transaction {
   description: string;
   price: number;
   quantity: string;
+  userId: number;
+
   constructor(){
     this.id=0;
     this.type= '';
@@ -14,6 +16,7 @@ export class Transaction {
     this.description = '';
     this.price = 0;
     this.quantity = '';
+    this.userId = 0;
   }
 
 }

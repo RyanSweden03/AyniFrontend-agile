@@ -3,6 +3,7 @@ import {Transaction} from "../../model/transaction-model";
 import {TransactionsService} from "../../services/transactions.service";
 import {DialogContentComponent} from "../dialog-content/dialog-content.component";
 import {MatDialog} from "@angular/material/dialog";
+import {TokenStorageService} from "../../../Authentication/services/token-storage.service";
 
 @Component({
   selector: 'app-table-profit-content',
@@ -12,14 +13,14 @@ import {MatDialog} from "@angular/material/dialog";
 export class TableProfitContentComponent implements OnInit{
   @Input() profits: Transaction[]=[];
 
-  constructor(private transactionsService: TransactionsService, private dialog: MatDialog) {}
+  constructor(private transactionsService: TransactionsService, private dialog: MatDialog, private tokenStorage: TokenStorageService) {}
   ngOnInit(): void {
-    this.loadData();
+    this.loadData(this.tokenStorage.getUser().id);
   }
 
-  loadData(){
+  loadData(id: number){
     this.transactionsService.getAll().subscribe((response:any)=>{
-      const profits = response.filter((transaction: { type: string; }) => transaction.type === 'Ingreso');
+      const profits = response.filter((transaction:any) => transaction.type === 'Profit' && transaction.userId === id);
       console.log(profits);
       this.profits = profits;
     });
@@ -28,7 +29,7 @@ export class TableProfitContentComponent implements OnInit{
   deleteProfit(id: number) {
     this.transactionsService.delete(id).subscribe(()=>
       {
-        this.loadData();
+        this.loadData(this.tokenStorage.getUser().id);
       }
     )
   }

@@ -7,7 +7,7 @@ export class Order {
   quantity: number;
   status: string;
   orderedDate: string;
-  totalPrice: string;
+  totalPrice: number;
   paymentMethod: string;
 
   constructor() {
@@ -19,7 +19,7 @@ export class Order {
     this.quantity = 0;
     this.status = '';
     this.orderedDate = '';
-    this.totalPrice = '';
+    this.totalPrice = 0;
     this.paymentMethod = '';
   }
 }

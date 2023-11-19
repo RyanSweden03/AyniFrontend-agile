@@ -3,6 +3,7 @@ import {OrdersService} from "../../../Shopping/services/orders.service";
 import {Router} from "@angular/router";
 import {Product} from "../../model/product";
 import {ProductsService} from "../../services/products.service";
+import {TokenStorageService} from "../../../Authentication/services/token-storage.service";
 
 @Component({
   selector: 'app-add-product-content',
@@ -11,7 +12,7 @@ import {ProductsService} from "../../services/products.service";
 })
 export class AddProductContentComponent {
   productForm: Product;
-  constructor(private productsService: ProductsService, private router: Router) {
+  constructor(private productsService: ProductsService, private router: Router, private tokenStorage: TokenStorageService) {
     this.productForm={
       id: 0,
       name: '',
@@ -22,7 +23,8 @@ export class AddProductContentComponent {
       groundType: '',
       season: '',
       unitPrice: 0,
-      imageUrl: ''
+      imageUrl: '',
+      userId: this.tokenStorage.getUser().id,
     };
   }
 

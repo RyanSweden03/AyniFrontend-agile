@@ -28,6 +28,7 @@ export class SalesContentComponent {
   navigateToSaleDetails(id: number) {
     this.router.navigate(['sales/details', id]);
   }
+
   OnPageChange(event: PageEvent){
     let startIndex = event.pageIndex * event.pageSize;
     let endIndex = startIndex + event.pageSize;
@@ -47,9 +48,5 @@ export class SalesContentComponent {
       this.breakpoint = (window.innerWidth <= 800) ? 1 : 3;
       this.length = this.salesList.length;
     });
-  }
-
-  addNewSale() {
-    this.dialog.open(AddSaleContentComponent);
   }
 }

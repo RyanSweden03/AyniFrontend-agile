@@ -4,6 +4,8 @@ import {ActivityApiService} from "../../services/activity-api.service";
 import {Activity} from "../../model/activity";
 import {ProductsService} from "../../../../../../Management/services/products.service";
 import {Product} from "../../../../../../Management/model/product";
+import {CropsService} from "../../../../../../Management/services/crops.service";
+import {Crop} from "../../../../../../Management/model/crop";
 
 @Component({
   selector: 'app-farmer-main-content',
@@ -12,22 +14,21 @@ import {Product} from "../../../../../../Management/model/product";
 })
 export class FarmerMainContentComponent {
   products !: Product[];
-  activities !: Activity[];
+  crops !: Crop[];
 
   // Table
-  displayedColumns: string[] = ['name', 'description', 'start_date', 'finish_date'];
+  displayedColumns: string[] = ['name', 'watered', 'pestCleaning'];
   dataSource!: MatTableDataSource<any>;
-  constructor(private activityApi: ActivityApiService,
+  constructor(private cropsService: CropsService,
               private productsService: ProductsService) {
     this.productsService.getAll()
       .subscribe((response: any) => {
         this.products = response;
       });
-    this.activityApi.getAll()
+    this.cropsService.getAll()
       .subscribe((response: any) => {
-        this.activities = response;
-        console.log(this.activities);
-        this.dataSource = new MatTableDataSource(this.activities);
+        this.crops = response;
+        this.dataSource = new MatTableDataSource(this.crops);
       });
   }
 }

@@ -5,6 +5,7 @@ import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {TransactionsService} from "../../services/transactions.service";
 import {Transaction} from "../../model/transaction-model";
 import {MatPaginator} from "@angular/material/paginator";
+import {TokenStorageService} from "../../../Authentication/services/token-storage.service";
 
 
 @Component({
@@ -15,17 +16,20 @@ import {MatPaginator} from "@angular/material/paginator";
 export class FinanceMainContentComponent implements AfterViewInit{
   displayedColumns: string[] = ['id', 'type', 'costName', 'date', 'description', 'price'];
   transactions: Transaction[] = [];
-  constructor(private _liveAnnouncer: LiveAnnouncer, private transactionsService: TransactionsService) {
-    this.transactionsService.getAll().subscribe((response:any)=>{
-       console.log(response);
-       this.transactions = response;
-       this.dataSource.data = this.transactions;
-    });
+  constructor(private _liveAnnouncer: LiveAnnouncer, private transactionsService: TransactionsService, private tokenStorage: TokenStorageService) {
+    this.loadData(tokenStorage.getUser().id)
   }
   dataSource = new MatTableDataSource(this.transactions);
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  loadData(id: number) {
+    this.transactionsService.getAll().subscribe((response:any)=>{
+      this.transactions = response.filter((transaction: any) => transaction.userId === id);
+      this.dataSource.data = this.transactions;
+    });
+  };
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;

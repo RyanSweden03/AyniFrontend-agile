@@ -16,11 +16,9 @@ export class SelectRolComponent {
               private dataService: DataService,
               private usersService: UsersService) {
     this.formData = this.dataService.getFormData();
-    console.log("ok",this.formData);
   }
   onFarmerSelected() {
     this.formData.role = 'farmer';
-    console.log("ok",this.formData);
     this.usersService.signup(this.formData).subscribe(() => {
       this.router.navigate(["signin"]);
     });

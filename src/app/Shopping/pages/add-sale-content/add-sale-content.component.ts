@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {SalesService} from "../../services/sales.service";
 import {Sale} from "../../model/sale";
+import {TokenStorageService} from "../../../Authentication/services/token-storage.service";
 
 @Component({
   selector: 'app-add-sale-content',
@@ -10,20 +11,21 @@ import {Sale} from "../../model/sale";
 })
 export class AddSaleContentComponent {
   saleForm: Sale;
-  constructor(private salesService: SalesService, private router: Router) {
+  constructor(private salesService: SalesService, private router: Router, private tokenStorage: TokenStorageService) {
     this.saleForm={
       id: 0,
       name: '',
       description: '',
       unitPrice: 0,
       quantity: 0,
-      imageUrl: ''
+      imageUrl: '',
+      userId: 0
     };
   }
 
   onSubmit() {
+    this.saleForm.userId=this.tokenStorage.getUser().id;
     this.salesService.create(this.saleForm).subscribe(() => {
-      this.router.navigate(['/sales']);
       location.reload();
     });
   }

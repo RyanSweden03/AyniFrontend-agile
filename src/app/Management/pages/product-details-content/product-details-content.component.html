@@ -5,38 +5,38 @@
     <div class="product-details">
       <h1 class="product-title">{{ product.name }}</h1>
       <h3>
-        Detalles de la planta
+        Plant Details
       </h3>
       <p>
-        Distancia: {{ product.distance }}<br>
-        Profundidad: {{ product.depth }}<br>
-        Clima: {{ product.weather }}<br>
-        Tipo de tierra: {{ product.groundType }}<br>
-        Temporada: {{ product.season }}<br>
+        Distance: {{ product.distance }}<br>
+        Depth: {{ product.depth }}<br>
+        Weather: {{ product.weather }}<br>
+        Ground type: {{ product.groundType }}<br>
+        Season: {{ product.season }}<br>
       </p>
       <h3>
-        Plan de Cultivo
+        Cultivation Plan
       </h3>
       <p>
-        Paso 1 --> Finalizado <br>
-        Paso 2 --> Finalizado <br>
-        Paso 3 --> En desarrollo <br>
-        Paso 4 --> Pendiente <br>
-        Paso 5 --> Pendiente <br>
+        Phase 1 --> Finalized <br>
+        Phase 2 --> Finalized <br>
+        Phase 3 --> In progress <br>
+        Phase 4 --> Pendient <br>
+        Phase 5 --> Pendient <br>
       </p>
       <h3>
-        Insumos utilizados
+        Inputs used
       </h3>
       <p>
-        Fertilizante: Casero <br>
-        Pesticidas: Canela con romero <br>
-        Vestimenta: Traje de tela hidrorrepelente <br>
-        Empaquetado: 10 cajas de madera <br>
+        Fertilizer: Casero <br>
+        Pesticided: Canela con romero <br>
+        Clothing: Traje de tela hidrorrepelente <br>
+        Packaging: 10 cajas de madera <br>
       </p>
     </div>
 
   </div>
   <div class="buttons">
-    <button mat-raised-button [routerLink]="crops" class="button" color="primary">CULTIVAR</button>
+    <button mat-raised-button [routerLink]="crops" class="button" (click)="saveData()" color="primary">CULTIVATE</button>
   </div>
 </div>

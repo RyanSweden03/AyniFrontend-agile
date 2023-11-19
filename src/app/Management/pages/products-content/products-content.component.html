@@ -2,7 +2,7 @@
 <div class="content">
   <h1 class="content-title">Available products</h1>
   <button mat-button color="primary" (click)="addNewProduct()">
-    <p><mat-icon>add</mat-icon>Nuevo producto</p>
+    <p><mat-icon>add</mat-icon>New product</p>
   </button>
   <mat-grid-list class="grid-list" [cols]="breakpoint" rowHeight="250px" (window:resize)="onResize($event)">
     <mat-grid-tile *ngFor="let product of pagedList" class="grid-title">

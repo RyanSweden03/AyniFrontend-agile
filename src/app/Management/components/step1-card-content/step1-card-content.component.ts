@@ -1,4 +1,7 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Crop} from "../../model/crop";
+import {CropdataService} from "../../services/cropdata.service";
+import {TokenStorageService} from "../../../Authentication/services/token-storage.service";
 
 @Component({
   selector: 'crops-step1-card-content',
@@ -7,16 +10,25 @@ import {Component, EventEmitter, Output} from '@angular/core';
 })
 export class CropsStep1CardContentComponent {
   @Output() formCompleted1 = new EventEmitter<any>();
-
+  form: any = {};
   cropform1: any = {
     undergrowth: false,
     fertilize: false,
     oxygenate: false,
-    lines: false,
-    holes: false,
+    line: false,
+    hole: false,
+    name: '',
+    productId: 0,
+    userId: 0
   };
 
+  constructor(private dataService: CropdataService, private tokenStorage: TokenStorageService) {
+    this.form = this.dataService.getFormData();
+  }
+
   saveData() {
+    this.cropform1.userId = this.tokenStorage.getUser().id;
+    this.cropform1.productId = this.form.productId;
     this.formCompleted1.emit(this.cropform1);
   }
 }
