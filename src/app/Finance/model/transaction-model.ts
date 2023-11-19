@@ -1,17 +1,22 @@
-export class Profit {
+export class Transaction {
   id: number;
-  profitName: string;
+  type: string;
+  costName: string;
   date: string;
   description: string;
   price: number;
   quantity: string;
+  userId: number;
+
   constructor(){
     this.id=0;
-    this.profitName = '';
+    this.type= '';
+    this.costName = '';
     this.date = '';
     this.description = '';
     this.price = 0;
     this.quantity = '';
+    this.userId = 0;
   }
 
 }

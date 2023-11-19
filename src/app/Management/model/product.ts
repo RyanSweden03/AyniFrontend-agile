@@ -9,6 +9,7 @@ export class Product {
   season: string;
   unitPrice: number;
   imageUrl: string;
+  userId: number;
 
   constructor() {
     this.id = 0;
@@ -21,5 +22,6 @@ export class Product {
     this.season = '';
     this.unitPrice = 0;
     this.imageUrl = '';
+    this.userId = 0;
   }
 }

@@ -7,7 +7,7 @@ export class DataService {
   formData: any;
 
   setFormData(data: any) {
-    this.formData = data;
+    this.formData = { ...data };
   }
 
   getFormData() {

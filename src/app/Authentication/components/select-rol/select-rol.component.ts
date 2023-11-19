@@ -10,24 +10,25 @@ import {UsersService} from "../../services/users.service";
 })
 export class SelectRolComponent {
   rol !: string;
-  formData: any;
+  formData: any = {};
 
-  constructor(private router: Router, private dataService: DataService, private usersService: UsersService) {
+  constructor(private router: Router,
+              private dataService: DataService,
+              private usersService: UsersService) {
     this.formData = this.dataService.getFormData();
-    console.log("aaaa",this.formData);
   }
   onFarmerSelected() {
-    this.formData.rol = 'farmer';
-    this.usersService.create(this.formData).subscribe(() => {
-      this.router.navigate(["farmer-home"]);
+    this.formData.role = 'farmer';
+    this.usersService.signup(this.formData).subscribe(() => {
+      this.router.navigate(["signin"]);
     });
   }
 
   onMerchantSelected() {
-    this.formData.rol = 'merchant';
+    this.formData.role = 'merchant';
     console.log(this.formData);
-    this.usersService.create(this.formData).subscribe(() => {
-      this.router.navigate(["merchant-home"]);
+    this.usersService.signup(this.formData).subscribe(() => {
+      this.router.navigate(["signin"]);
     });
   }
 }

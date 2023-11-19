@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
-import {Router} from "@angular/router";
-import {Cost} from "../../model/cost-model";
-import {CostsService} from "../../services/costs.service";
+import {TransactionsService} from "../../services/transactions.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {TokenStorageService} from "../../../Authentication/services/token-storage.service";
 
 @Component({
   selector: 'app-dialog-content',
@@ -9,13 +9,24 @@ import {CostsService} from "../../services/costs.service";
   styleUrls: ['./dialog-content.component.css']
 })
 export class DialogContentComponent {
-  freshnessList = ["Producto", "Servicio"];
-  form: Cost;
-  constructor(private costsService: CostsService, private router: Router) {
-    this.form={id: 0,costName:'',date:'',description:'',price:0,quantity:''};
+    form: FormGroup;
+  constructor(private fb:FormBuilder, private transactionsService: TransactionsService, private tokenStorage: TokenStorageService) {
+    this.form = this.fb.group({
+      id: [0],
+      type: ['', Validators.required],
+      costName: ['', Validators.required],
+      date: [''],
+      description: [''],
+      price: [],
+      quantity: [''],
+      userId: this.tokenStorage.getUser().id
+    });
   }
 
   onSubmit() {
-    this.costsService.create(this.form).subscribe(() => { });
+    console.log(this.form.value);
+    this.transactionsService.create(this.form.value).subscribe(() => {
+      location.reload();
+    });
   }
 }

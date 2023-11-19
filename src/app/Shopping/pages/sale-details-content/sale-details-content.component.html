@@ -4,19 +4,15 @@
     <img class="img" src="{{sale.imageUrl}}" alt="">
     <div class="product-details">
       <h1 class="product-title">{{ sale.name }}</h1>
-      <h3>
-        Detalles de la venta
-      </h3>
+      <h3>Sale details:</h3>
       <p>
         Description: {{ sale.description }}<br>
         Unit Price: {{ sale.unitPrice }}<br>
         Quantity: {{ sale.quantity }}<br>
       </p>
     </div>
-
   </div>
   <div class="buttons">
-    <button mat-raised-button (click)="redirectToNewSale(sale.id)" class="button" color="primary">COMPRAR</button>
-    <button mat-raised-button class="button" color="primary">CALIFICAR</button>
+    <button mat-raised-button (click)="redirectToNewSale()" class="button" color="primary">BUY PRODUCT</button>
   </div>
 </div>

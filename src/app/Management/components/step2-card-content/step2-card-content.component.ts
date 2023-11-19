@@ -11,11 +11,10 @@ export class CropsStep2CardContentComponent {
 
   cropform2: any = {
     watered: 0,
-    pestcleaning: 0,
+    pestCleaning: 0,
   };
 
   saveData() {
-    console.log(this.cropform2);
     this.formCompleted2.emit(this.cropform2);
   }
 }

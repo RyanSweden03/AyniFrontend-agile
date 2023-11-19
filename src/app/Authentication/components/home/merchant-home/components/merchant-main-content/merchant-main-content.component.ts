@@ -4,6 +4,7 @@ import {Order} from "../../../../../../Shopping/model/order";
 import {OrdersService} from "../../../../../../Shopping/services/orders.service";
 import {Sale} from "../../../../../../Shopping/model/sale";
 import {SalesService} from "../../../../../../Shopping/services/sales.service";
+import {TokenStorageService} from "../../../../../services/token-storage.service";
 
 @Component({
   selector: 'app-merchant-main-content',
@@ -17,8 +18,10 @@ export class MerchantMainContentComponent {
   // Table
   displayedColumns: string[] = ['name', 'quantity', 'ordered_date'];
   dataSource!: MatTableDataSource<Order>;
-  constructor(private ordersService: OrdersService, private salesServices: SalesService) {
-    this.loadData(1);
+  constructor(private ordersService: OrdersService,
+              private salesServices: SalesService,
+              private tokenStorage: TokenStorageService) {
+    this.loadData(tokenStorage.getUser().id);
   }
 
   loadData(userId: number) {
@@ -32,9 +35,7 @@ export class MerchantMainContentComponent {
         });
       });
 
-      const token = localStorage.getItem('token');
-
-      console.log('Token JWT:', token);
+      console.log('Token JWT:', this.tokenStorage.getToken());
 
     });
   }

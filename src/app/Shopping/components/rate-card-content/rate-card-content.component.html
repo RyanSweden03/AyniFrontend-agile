@@ -8,10 +8,10 @@
 
 <mat-card class="product-details">
   <mat-card-content>
-    <p>Producto: {{getProduct(order.saleId)?.name}}</p>
-    <p>Descripción: {{getProduct(order.saleId)?.description}}</p>
-    <p>Cantidad: {{order.quantity}}</p>
-    <p>Precio Total: {{order.totalPrice}}</p>
+    <p>Product: {{getProduct(order.saleId)?.name}}</p>
+    <p>Description: {{getProduct(order.saleId)?.description}}</p>
+    <p>Quantity: {{order.quantity}}</p>
+    <p>Total Price: {{order.totalPrice}}</p>
 
     <div class="rating">
       <mat-icon
@@ -23,7 +23,7 @@
     </div>
 
       <div class="buttons">
-      <button mat-raised-button class="button" color="primary" (click)="createReview()">Enviar</button>
+      <button mat-raised-button class="button" color="primary" (click)="createReview()">Send</button>
     </div>
   </mat-card-content>
 </mat-card>

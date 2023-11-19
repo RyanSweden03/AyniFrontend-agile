@@ -11,6 +11,7 @@ import {
   CancelPurchaseDialogContentComponent
 } from "../cancel-purchase-dialog-content/cancel-purchase-dialog-content.component";
 import {RatesService} from "../../services/rates.service";
+import {SalesService} from "../../services/sales.service";
 
 @Component({
   selector: 'app-rate-card-content',
@@ -23,7 +24,7 @@ export class RateCardContentComponent {
 
   selectedRating: number = 0;
 
-  constructor(public dialog:MatDialog, private ratesService: RatesService, private router: Router, private ordersService: OrdersService) {
+  constructor(public dialog:MatDialog, private ratesService: RatesService, private router: Router, private ordersService: OrdersService, private salesService: SalesService) {
   }
 
   openDialog(){
@@ -46,13 +47,15 @@ export class RateCardContentComponent {
       userId: this.order.orderedBy,
     };
 
-    this.order.status = 'Qualified';
+    this.order.status = 'qualified';
+
+    this.ordersService.qualifyOrder(this.order.id).subscribe(() => {
+
+    });
 
     this.ratesService.create(review).subscribe(() => {
-      this.ordersService.update(this.order.id, this.order).subscribe(() => {
-        this.router.navigate(['/rates']);
-        location.reload();
-      });
+      this.router.navigate(['/rates']);
+      location.reload();
     });
   }
 

@@ -2,7 +2,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, pipe, retry, throwError} from "rxjs";
 
 export class BaseCostService<T> {
-  basePath: string='http://localhost:3000/api/v1';
+  basePath: string='https://ayni-api-test.zeabur.app/api/v1';
   resourceEndpoint: string = '/resources';
 
   httpOptions={

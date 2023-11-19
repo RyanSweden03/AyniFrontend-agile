@@ -1,8 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {User} from "../../model/user";
 import {DataService} from "../../services/data.service";
+import {UsersService} from "../../services/users.service";
 
 @Component({
   selector: 'app-sign-up',
@@ -12,24 +12,16 @@ import {DataService} from "../../services/data.service";
 export class SignUpComponent implements OnInit{
   @Output() form = new EventEmitter<any>();
 
-  signUpForm!: FormGroup;
+  signUpForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private dataService: DataService) {
+  constructor(private formBuilder: FormBuilder,
+              private router: Router,
+              private dataService: DataService) {
 
     this.signUpForm = this.formBuilder.group({
-      username: new FormControl('', [
-        Validators.required
-      ]),
-      email: new FormControl('', [
-        Validators.required,
-        Validators.email
-      ]),
-      password: new FormControl('', [
-        Validators.required
-      ]),
-      photo: new FormControl('', [
-        Validators.required
-      ]),
+      username: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
       rol: ''
     });
   }
