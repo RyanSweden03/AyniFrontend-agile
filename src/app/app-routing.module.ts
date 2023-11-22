@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {SignInComponent} from "./Authentication/components/sign-in/sign-in.component";
-import {SignUpComponent} from "./Authentication/components/sign-up/sign-up.component";
-import {SelectRolComponent} from "./Authentication/components/select-rol/select-rol.component";
-import {MerchantMainContentComponent} from "./Authentication/components/home/merchant-home/components/merchant-main-content/merchant-main-content.component";
-import {FarmerMainContentComponent} from "./Authentication/components/home/farmer-home/components/farmer-main-content/farmer-main-content.component";
-import {SalesStepperContentComponent} from "./Shopping/components/stepper-content/stepper-content.component";
-import {TableCostContentComponent} from "./Finance/components/table-cost-content/table-cost-content.component";
-import {CropsStepperContentComponent} from "./Management/components/stepper-content/stepper-content.component";
-import {TableProfitContentComponent} from "./Finance/components/table-profit-content/table-profit-content.component";
-import {FinanceMainContentComponent} from "./Finance/components/finance-main-content/finance-main-content.component";
-import {ProductsContentComponent} from "./Management/pages/products-content/products-content.component";
-import {ProductDetailsContentComponent} from "./Management/pages/product-details-content/product-details-content.component";
-import {PurchasesContentComponent} from "./Shopping/pages/purchases-content/purchases-content.component";
+import {SignInComponent} from "./authentication/components/sign-in/sign-in.component";
+import {SignUpComponent} from "./authentication/components/sign-up/sign-up.component";
+import {SelectRolComponent} from "./authentication/components/select-rol/select-rol.component";
+import {MerchantMainContentComponent} from "./authentication/components/home/merchant-home/components/merchant-main-content/merchant-main-content.component";
+import {FarmerMainContentComponent} from "./authentication/components/home/farmer-home/components/farmer-main-content/farmer-main-content.component";
+import {SalesStepperContentComponent} from "./shopping/components/stepper-content/stepper-content.component";
+import {CostsGalleryContentComponent} from "./finance/pages/costs-gallery-content/costs-gallery-content.component";
+import {CropsStepperContentComponent} from "./management/components/stepper-content/stepper-content.component";
+import {ProfitsGalleryContentComponent} from "./finance/pages/profits-gallery-content/profits-gallery-content.component";
+import {TransactionsListContentComponent} from "./finance/pages/transactions-list-content/transactions-list-content.component";
+import {ProductsGalleryContentComponent} from "./management/pages/products-gallery-content/products-gallery-content.component";
+import {ProductInformationContentComponent} from "./management/pages/product-information-content/product-information-content.component";
+import {OrdersGalleryContentComponent} from "./shopping/pages/orders-gallery-content/orders-gallery-content.component";
 import {
-  PurchaseDetailsContentComponent
-} from "./Shopping/pages/purchase-details-content/purchase-details-content.component";
-import {RateContentComponent} from "./Shopping/pages/rate-content/rate-content.component";
-import {SalesContentComponent} from "./Shopping/pages/sales-content/sales-content.component";
-import {SaleDetailsContentComponent} from "./Shopping/pages/sale-details-content/sale-details-content.component";
-import {OrderRequestsComponent} from "./Shopping/pages/order-requests/order-requests.component";
+  OrderInformationContentComponent
+} from "./shopping/pages/order-Information-content/order-information-content.component";
+import {RatesGalleryContentComponent} from "./shopping/pages/rates-gallery-content/rates-gallery-content.component";
+import {SalesGalleryContentComponent} from "./shopping/pages/sales-gallery-content/sales-gallery-content.component";
+import {SaleInformationContentComponent} from "./shopping/pages/sale-information-content/sale-information-content.component";
+import {OrderRequestsContentComponent} from "./shopping/pages/order-requests-content/order-requests-content.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'signin', pathMatch: 'full' },
@@ -28,19 +28,19 @@ const routes: Routes = [
   { path: 'select-rol', component: SelectRolComponent},
   { path: 'merchant-home', component: MerchantMainContentComponent},
   { path: 'farmer-home', component: FarmerMainContentComponent },
-  { path: 'sales', component: SalesContentComponent },
-  { path: 'sales/:id', component: SaleDetailsContentComponent },
+  { path: 'sales', component: SalesGalleryContentComponent },
+  { path: 'sales/:id', component: SaleInformationContentComponent },
   { path: 'requests', component: SalesStepperContentComponent },
   { path: 'crops', component: CropsStepperContentComponent},
-  { path: 'costlist', component: TableCostContentComponent },
-  { path: 'profitlist', component: TableProfitContentComponent },
-  { path: 'finance', component: FinanceMainContentComponent },
-  { path: 'products', component: ProductsContentComponent },
-  { path: 'products/:id', component: ProductDetailsContentComponent },
-  { path: 'orders', component: OrderRequestsComponent},
-  { path: 'purchases', component: PurchasesContentComponent },
-  { path: 'purchases/:id', component: PurchaseDetailsContentComponent },
-  { path: 'rates', component: RateContentComponent},
+  { path: 'costlist', component: CostsGalleryContentComponent },
+  { path: 'profitlist', component: ProfitsGalleryContentComponent },
+  { path: 'finance', component: TransactionsListContentComponent },
+  { path: 'products', component: ProductsGalleryContentComponent },
+  { path: 'products/:id', component: ProductInformationContentComponent },
+  { path: 'orders', component: OrderRequestsContentComponent},
+  { path: 'purchases', component: OrdersGalleryContentComponent },
+  { path: 'purchases/:id', component: OrderInformationContentComponent },
+  { path: 'rates', component: RatesGalleryContentComponent},
   { path: '**', redirectTo: 'signin', pathMatch: 'full'  },
 ];
 

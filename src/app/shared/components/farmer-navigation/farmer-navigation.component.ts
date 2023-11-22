@@ -2,7 +2,7 @@ import {Component, HostListener, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {MatMenu} from "@angular/material/menu";
 import {Store} from "@ngrx/store";
-import {TokenStorageService} from "../../../Authentication/services/token-storage.service";
+import {TokenStorageService} from "../../../authentication/services/token-storage.service";
 
 @Component({
   selector: 'app-farmer-navigation',
@@ -18,7 +18,7 @@ export class FarmerNavigationComponent {
   routesFarmer: {label:string , to: string}[] = [
     {label: "Home", to: "/farmer-home"},
     {label: "Products", to: "/products"},
-    {label: "Financial Management", to: "/finance"},
+    {label: "Financial management", to: "/finance"},
     {label: "Orders", to: "/orders"},
   ]
 

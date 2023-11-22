@@ -1,6 +1,6 @@
 import {Component, HostListener} from '@angular/core';
 import {Router} from "@angular/router";
-import {TokenStorageService} from "../../../Authentication/services/token-storage.service";
+import {TokenStorageService} from "../../../authentication/services/token-storage.service";
 
 @Component({
   selector: 'app-merchant-navigation',
@@ -14,7 +14,7 @@ export class MerchantNavigationComponent {
   routesMerchant: {label:string , to: string}[] = [
     {label: "Home", to: "/merchant-home"},
     {label: "Products", to: "/sales"},
-    {label: "My Shopping", to: "/purchases"},
+    {label: "My shopping", to: "/purchases"},
     {label: "Rate", to: "/rates"},
   ]
 
