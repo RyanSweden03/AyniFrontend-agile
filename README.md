@@ -1,38 +1,49 @@
-# Ayni
+# Ayni - Crop Maintenance Frontend
 
-Ayni is a web application built with Angular Material, TS and JS designed to facilitate the management and trading of crops. Its key features include:
+## Overview
 
-## For Farmers:
+Ayni is a crop maintenance application designed to streamline and optimize the cultivation process. This frontend is built using Angular and TypeScript, providing a modern and efficient user interface for managing and monitoring crops.
 
-- Crop planning through calendars and steps
-- Adding and recording crop details
-- Cost and profit management
-- Listing products for sale
-- Sales management
+## Features
 
-## For Traders:
+- **Intuitive Dashboard:** A user-friendly dashboard for quick insights into crop status and key metrics.
+- **Crop Management:** Easily add, edit, and remove crops with detailed information.
+- **Task Tracking:** Keep track of cultivation tasks and schedules for each crop.
+- **Data Visualization:** Visual representation of crop data through charts and graphs.
+- **Responsive Design:** Ensures a seamless experience across various devices.
 
-- Exploring high-quality products
-- Making purchases and placing orders
-- Tracking purchase status
-- Rating agricultural products
+## Getting Started
 
-## Advantages:
+### Prerequisites
 
-- Enhanced production and cultivation management
-- Improved time and dedication management
-- Streamlined profit tracking
-- Automation of steps through user-defined inputs
-- Direct contact with producers and traders
-- Transparent data on purchases and sales
-- User-friendly and intuitive design
-- Secure ordering process
-- Formalized cultivation procedures
+Make sure you have the following tools installed before setting up the project:
 
----
+- [Node.js](https://nodejs.org/)
+- [Angular CLI](https://cli.angular.io/)
 
-## How to Get Started
+### Installation
 
-1. Clone this repository.
-2. Install the required dependencies using `npm install`.
-3. Run the application using `npm run serve`.
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/yourusername/ayni-frontend.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd ayni-frontend
+    ```
+
+3. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+### Running the Application
+
+Use the Angular CLI to serve the application locally:
+
+```bash
+ng serve
