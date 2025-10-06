@@ -1,0 +1,31 @@
+<div *ngIf="showChat" class="chatbot-container">
+  <!-- Botón flotante -->
+  <div *ngIf="!chatOpen" class="chatbot-button" (click)="toggleChat()">💬</div>
+
+  <!-- Ventana del chatbot -->
+  <div *ngIf="chatOpen" class="chatbot-window">
+    <div class="chatbot-header">
+      <span>🤖 Ayni Assistant</span>
+      <button class="close-btn" (click)="toggleChat()">×</button>
+    </div>
+
+    <div class="chatbot-messages" #chatMessages>
+      <div
+        *ngFor="let msg of messages"
+        class="chat-message"
+        [ngClass]="msg.sender"
+      >
+        {{ msg.text }}
+      </div>
+    </div>
+
+    <div class="chatbot-input">
+      <input
+        [(ngModel)]="userMessage"
+        (keyup.enter)="sendMessage()"
+        placeholder="Escribe tu pregunta..."
+      />
+      <button (click)="sendMessage()">Enviar</button>
+    </div>
+  </div>
+</div>
