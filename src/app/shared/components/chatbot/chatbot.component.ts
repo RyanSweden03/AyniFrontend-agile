@@ -18,7 +18,7 @@ export class ChatbotComponent {
   chatOpen = false;
   userMessage = '';
   messages: Message[] = [
-    { text: '¡Hola! 👋 Soy Ayni Assistant. ¿En qué puedo ayudarte hoy?', sender: 'bot' }
+    { text: '¡Hola! 👋 Soy Ayni Assistant. ¿En qué puedo ayudarte?', sender: 'bot' }
   ];
 
   hiddenRoutes = ['/signin', '/signup', '/admin'];
