@@ -48,6 +48,8 @@ export class ChatbotComponent {
     this.messages.push({ text: message, sender: 'user' });
     this.userMessage = '';
 
+    console.log('[Chatbot] user desde tokenStorage:', this.user);
+
     const username =
       (this.user && (this.user.username || this.user.name)) || null;
 
@@ -55,6 +57,8 @@ export class ChatbotComponent {
     if (username) {
       payload.username = username;
     }
+
+    console.log('[Chatbot] payload que se enviará:', payload);
 
 
     try {
