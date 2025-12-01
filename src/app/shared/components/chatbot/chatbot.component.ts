@@ -53,7 +53,8 @@ export class ChatbotComponent {
     const username =
       (this.user && (this.user.username || this.user.name)) || null;
 
-    const payload: any = { message };
+    const payload: any = { message, username
+    };
     if (username) {
       payload.username = username;
     }
