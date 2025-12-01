@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import {TokenStorageService} from "../../../authentication/services/token-storage.service";
 
 interface Message {
   text: string;
@@ -22,10 +23,12 @@ export class ChatbotComponent {
 
   hiddenRoutes = ['/signin', '/signup', '/admin'];
   showChat = true;
+  user = this.tokenStorage.getUser();
+
 
   @ViewChild('chatMessages') chatMessages!: ElementRef;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router,private tokenStorage: TokenStorageService) {
     // Escucha cambios de ruta para ocultar o mostrar el chat
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
@@ -45,9 +48,18 @@ export class ChatbotComponent {
     this.messages.push({ text: message, sender: 'user' });
     this.userMessage = '';
 
+    const username =
+      (this.user && (this.user.username || this.user.name)) || null;
+
+    const payload: any = { message };
+    if (username) {
+      payload.username = username;
+    }
+
+
     try {
       const response = await this.http
-        .post<{ reply: string }>('https://ia-8d46.onrender.com/chat', { message })
+        .post<{ reply: string }>('https://ia-8d46.onrender.com/chat',payload)
         .toPromise();
 
       this.messages.push({
