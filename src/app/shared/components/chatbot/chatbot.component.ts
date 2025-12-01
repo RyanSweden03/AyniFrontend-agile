@@ -57,6 +57,8 @@ export class ChatbotComponent {
     };
     if (username) {
       payload.username = username;
+    } else {
+      payload.username = 'Ryan86' // testing
     }
 
     console.log('[Chatbot] payload que se enviará:', payload);
