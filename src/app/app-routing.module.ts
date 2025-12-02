@@ -20,6 +20,7 @@ import {RatesGalleryContentComponent} from "./shopping/pages/rates-gallery-conte
 import {SalesGalleryContentComponent} from "./shopping/pages/sales-gallery-content/sales-gallery-content.component";
 import {SaleInformationContentComponent} from "./shopping/pages/sale-information-content/sale-information-content.component";
 import {OrderRequestsContentComponent} from "./shopping/pages/order-requests-content/order-requests-content.component";
+import { CropsListComponent } from './management/components/crops-list/crops-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'signin', pathMatch: 'full' },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'sales/:id', component: SaleInformationContentComponent },
   { path: 'requests', component: SalesStepperContentComponent },
   { path: 'crops', component: CropsStepperContentComponent},
+  { path: 'crops-list', component: CropsListComponent},
   { path: 'costlist', component: CostsGalleryContentComponent },
   { path: 'profitlist', component: ProfitsGalleryContentComponent },
   { path: 'finance', component: TransactionsListContentComponent },

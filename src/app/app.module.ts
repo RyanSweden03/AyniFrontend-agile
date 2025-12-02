@@ -86,6 +86,7 @@ import {MatSortModule} from "@angular/material/sort";
 import {authInterceptorProviders} from "./authentication/helpers/AuthInterceptor";
 import { ContactDialogComponent } from './authentication/components/contact-dialog/contact-dialog.component';
 import { ChatbotComponent } from './shared/components/chatbot/chatbot.component';
+import { CropsListComponent } from './management/components/crops-list/crops-list.component';
 
 @NgModule({
   declarations: [
@@ -132,6 +133,7 @@ import { ChatbotComponent } from './shared/components/chatbot/chatbot.component'
     RateDialogContentComponent,
     ContactDialogComponent,
     ChatbotComponent,
+    CropsListComponent,
   ],
   imports: [
     BrowserModule,

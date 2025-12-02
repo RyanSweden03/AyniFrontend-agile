@@ -1,9 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-html, body{
-  background: rgb(208,243,203);
-  background: linear-gradient(0deg, rgba(208,243,203,1) 0%, rgba(42,175,135,1) 100%);
+html, body {
+  height: 100%;
+  margin: 0;
+  /* GRIS OSCURO DEFINIDO */
+  background-color: #dbe0e6 !important; 
+  font-family: 'Poppins', sans-serif;
 }

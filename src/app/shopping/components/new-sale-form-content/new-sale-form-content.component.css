@@ -1,19 +1,68 @@
-.card {
-  padding: 20px;
+/* Cabecera */
+.title-icon {
+  vertical-align: middle;
+  margin-right: 10px;
+  color: #2e7d32; /* Verde Ayni */
+}
+
+.section-subtitle {
+  font-size: 0.85rem;
+  color: #78909c;
+  margin: 15px 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #eceff1;
+  padding-bottom: 5px;
+}
+
+/* Cuerpo */
+.dialog-body {
+  min-width: 450px;
+  max-width: 100%;
+}
+
+.sale-form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.full-width {
   width: 100%;
-  max-height: 80vh;
+  margin-bottom: 5px;
+}
+
+/* Grid para Precio y Cantidad */
+.grid-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* Estilo para las opciones del selector de imagen */
+.select-option-content {
   display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  align-items: center;
+  gap: 10px;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
+.option-img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #ddd;
 }
 
-.content {
-  flex: 1;
-  overflow-y: auto;
+/* Quitar flechas de inputs numéricos */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
+/* Responsive */
+@media (max-width: 600px) {
+  .dialog-body { min-width: auto; }
+  .grid-inputs { grid-template-columns: 1fr; }
+}

@@ -20,6 +20,7 @@ export class FarmerNavigationComponent {
     {label: "Products", to: "/products"},
     {label: "Financial management", to: "/finance"},
     {label: "Orders", to: "/orders"},
+    {label: "Crops", to: "/crops-list"},
   ]
 
   @HostListener('window:resize', ['$event'])

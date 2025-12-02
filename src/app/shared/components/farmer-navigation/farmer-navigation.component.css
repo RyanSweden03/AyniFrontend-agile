@@ -1,22 +1,116 @@
-.spacer{
-  flex: 1 1 auto;
-}
-
-.nav-welcome{
+/* BARRA PRINCIPAL */
+.navbar {
+  position: sticky; /* Se queda pegada arriba al hacer scroll */
+  top: 0;
+  z-index: 1000; /* Siempre encima de todo */
+  
+  /* Efecto Glassmorphism */
+  background: rgba(255, 255, 255, 0.95); 
+  backdrop-filter: blur(10px);
+  
+  height: 64px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
-  gap: 0.2rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 }
-.nav-components{
-  display: flex;
-}
-@media (max-width: 768px) {
-  .nav-components{
-    flex-direction: column;
-    align-items: center;
-  }
+.navbar {
+  background-color: #2b6d2e; 
+  border-bottom: 1px solid #d0d7d3; /* Borde sutil para separar */
 }
 
-.nav{
-  background-color: #2AAF87;
+.active-link {
+  background-color: #dcedc8 !important; /* Verde oliva muy suave */
+  color: #1b5e20 !important; /* Verde bosque oscuro para el texto */
+}
+
+.spacer { flex: 1 1 auto; }
+
+/* BRANDING */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  margin-right: 40px;
+}
+
+.brand-icon {
+  color: #2e7d32; /* Tu verde principal */
+  font-size: 28px;
+  width: 28px; height: 28px;
+}
+
+.brand-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #2c3e50;
+  letter-spacing: -0.5px;
+}
+
+/* LINKS DE NAVEGACIÓN */
+.nav-links {
+  display: flex;
+  gap: 5px;
+}
+
+.nav-item {
+  color: #546e7a; /* Gris azulado suave */
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 8px;
+  padding: 0 16px;
+  transition: all 0.2s;
+}
+
+.nav-item:hover {
+  background-color: #f1f8e9; /* Verde muy pálido al pasar el mouse */
+  color: #2e7d32;
+}
+
+/* CLASE AUTOMÁTICA DE ANGULAR ROUTER */
+.active-link {
+  color: #2e7d32 !important;
+  background-color: #e8f5e9 !important; /* Verde fondo activo */
+  font-weight: 700;
+}
+
+/* PERFIL DE USUARIO */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 1px solid #eee; /* Separador sutil */
+}
+
+.username {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.avatar-btn { padding: 0; min-width: 0; }
+
+.avatar-circle {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #2e7d32, #66bb6a);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 5px rgba(46, 125, 50, 0.3);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .navbar { padding: 0 16px; }
+  .user-profile { border: none; margin-left: 10px; padding-left: 0; }
+  .brand-name { display: none; } /* Ocultar nombre en celular si falta espacio */
 }

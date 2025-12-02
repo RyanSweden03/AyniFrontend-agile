@@ -1,23 +1,56 @@
-<mat-toolbar class="nav">
-  <span class="nav-welcome">
-    <span mat-card-image><mat-icon>account_circle</mat-icon></span>
-    Welcome, {{ user.username }}
-    <button (click)="onLogOut()" mat-button>Log Out</button>
-  </span>
+<mat-toolbar class="navbar mat-elevation-z2">
+  
+  <div class="brand" routerLink="/farmer-home">
+    <mat-icon class="brand-icon">eco</mat-icon>
+    <span class="brand-name">Ayni</span>
+  </div>
+
   <span class="spacer"></span>
 
-  <ng-container *ngIf="isLargeScreen">
-    <button *ngFor="let route of routesFarmer"
-            [routerLink]="route.to"
-            mat-button>
+  <div class="nav-links" *ngIf="isLargeScreen">
+    <a *ngFor="let route of routesFarmer" 
+       [routerLink]="route.to" 
+       routerLinkActive="active-link"
+       mat-button 
+       class="nav-item">
       {{ route.label }}
+    </a>
+  </div>
+
+  <div class="user-profile">
+    <span class="username" *ngIf="isLargeScreen">Hola, {{ user.username }}</span>
+    
+    <button mat-icon-button [matMenuTriggerFor]="userMenu" class="avatar-btn">
+      <div class="avatar-circle">{{ user.username.charAt(0).toUpperCase() }}</div>
     </button>
-  </ng-container>
-  <button mat-button [matMenuTriggerFor]="userMenu" *ngIf="!isLargeScreen"><mat-icon>menu</mat-icon></button>
-  <mat-menu #userMenu="matMenu">
-    <button *ngFor="let route of routesFarmer" [routerLink]="route.to" mat-menu-item>
-      {{ route.label }}
-    </button>
-  </mat-menu>
+  </div>
+
+  <button mat-icon-button [matMenuTriggerFor]="mobileMenu" *ngIf="!isLargeScreen" class="mobile-toggle">
+    <mat-icon>menu</mat-icon>
+  </button>
+
 </mat-toolbar>
+
+<mat-menu #userMenu="matMenu" xPosition="before">
+  <button mat-menu-item disabled>
+    <mat-icon>account_circle</mat-icon>
+    <span>Mi Perfil</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item (click)="onLogOut()">
+    <mat-icon color="warn">logout</mat-icon>
+    <span>Cerrar Sesión</span>
+  </button>
+</mat-menu>
+
+<mat-menu #mobileMenu="matMenu">
+  <button mat-menu-item *ngFor="let route of routesFarmer" [routerLink]="route.to">
+    <span>{{ route.label }}</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item (click)="onLogOut()">
+    <mat-icon>logout</mat-icon> Salir
+  </button>
+</mat-menu>
+
 <router-outlet></router-outlet>

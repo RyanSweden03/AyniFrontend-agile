@@ -1,49 +1,89 @@
 <app-farmer-navigation></app-farmer-navigation>
-<div class="container" xmlns="http://www.w3.org/1999/html">
-  <button mat-button color="primary" (click)="addNewSale()">
-    <p><mat-icon>add</mat-icon>Add products</p>
-  </button>
-  <h1>My orders</h1>
-  <div class="orders">
+
+<div class="dashboard-wrapper">
+  
+  <div class="page-header">
+    <div class="header-title">
+      <h1>Solicitudes de Pedidos</h1>
+      <p>Gestiona las compras entrantes de tus clientes.</p>
+    </div>
+    <button mat-flat-button color="primary" (click)="addNewSale()">
+      <mat-icon>add</mat-icon> Agregar Venta
+    </button>
+  </div>
+
+  <div *ngIf="orders.length === 0" class="empty-state">
+    <mat-icon>inbox</mat-icon>
+    <h3>No tienes pedidos pendientes</h3>
+    <p>Tus nuevas solicitudes aparecerán aquí.</p>
+  </div>
+
+  <div class="orders-grid">
     <ng-container *ngFor="let order of pagedOrders">
-      <mat-card class="order-card">
-        <mat-card-header>
-          <p>Date: {{order.orderedDate}}</p>
-        </mat-card-header>
-        <mat-card-content>
-          <div class="user-info">
-            <img alt="{{getProduct(order.saleId)?.name}}" class="user-photo" src="{{getProduct(order.saleId)?.imageUrl}}">
+      
+      <div class="order-card">
+        <div class="card-top-strip">
+          <mat-icon class="date-icon">event</mat-icon>
+          <span class="order-date">{{ order.orderedDate | date:'mediumDate' }}</span>
+        </div>
+
+        <div class="card-content">
+          <div class="product-thumb">
+            <img [src]="getProduct(order.saleId)?.imageUrl" 
+                 alt="Producto" 
+                 onerror="this.src='https://via.placeholder.com/100'">
           </div>
-          <div class="product-info">
-            <p>Product: {{getProduct(order.saleId)?.name}}</p>
-            <p>Unit Price: S/. {{getProduct(order.saleId)?.unitPrice}}</p>
-            <p>Quantity: {{order.quantity}} Kg</p>
-            <p>Total Price: S/. {{order.totalPrice}}</p>
-            <div class="buttons">
-              <button class="button-color" mat-raised-button (click)="acceptOrder(order.id)">Accept</button>
-              <button color="warn" (click)="deleteOrder(order.id)" mat-raised-button>Decline</button>
+
+          <div class="order-details">
+            <h3 class="product-name">{{ getProduct(order.saleId)?.name }}</h3>
+            
+            <div class="detail-row">
+              <span class="label">Cantidad:</span>
+              <span class="value">{{ order.quantity }} Kg</span>
+            </div>
+            
+            <div class="detail-row">
+              <span class="label">Precio Unit.:</span>
+              <span class="value">S/ {{ getProduct(order.saleId)?.unitPrice }}</span>
+            </div>
+            
+            <div class="total-row">
+              <span class="label">Total:</span>
+              <span class="total-price">S/ {{ order.totalPrice }}</span>
             </div>
           </div>
-        </mat-card-content>
-      </mat-card>
+        </div>
+
+        <div class="card-actions">
+          <button mat-stroked-button color="warn" (click)="deleteOrder(order.id)">
+            Rechazar
+          </button>
+          <button mat-flat-button color="primary" (click)="acceptOrder(order.id)">
+            Aceptar Pedido
+          </button>
+        </div>
+      </div>
+
     </ng-container>
   </div>
 
-
-  <div class="navigation-buttons">
-  <button mat-raised-button (click)="navigateToPreviousView()"><mat-icon>keyboard_arrow_left></mat-icon></button>
-
-  <div class="pagination-buttons">
-    <button mat-raised-button  (click)="goToPage(pageIndex - 1)" [disabled]="pageIndex === 0" ><mat-icon>keyboard_arrow_left></mat-icon></button>
-    <button mat-raised-button  *ngFor="let pageNumber of pageNumbers" (click)="goToPage(pageNumber)" [class.active]="pageNumber === pageIndex">
-      {{ pageNumber+1 }}
+  <div class="pagination-container" *ngIf="orders.length > 0">
+    <button mat-icon-button (click)="goToPage(pageIndex - 1)" [disabled]="pageIndex === 0">
+      <mat-icon>chevron_left</mat-icon>
     </button>
-    <button mat-raised-button (click)="goToPage(pageIndex + 1)" [disabled]="pageIndex === pageNumbers.length - 1"><mat-icon>keyboard_arrow_right</mat-icon></button>
+
+    <div class="page-numbers">
+      <button *ngFor="let pageNumber of pageNumbers" 
+              class="page-btn" 
+              [class.active]="pageNumber === pageIndex"
+              (click)="goToPage(pageNumber)">
+        {{ pageNumber + 1 }}
+      </button>
+    </div>
+
+    <button mat-icon-button (click)="goToPage(pageIndex + 1)" [disabled]="pageIndex === pageNumbers.length - 1">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
   </div>
-    <button disabled mat-raised-button><mat-icon>keyboard_arrow_right</mat-icon></button>
-
-  </div>
-
-
 
 </div>

@@ -1,18 +1,56 @@
 <app-farmer-navigation></app-farmer-navigation>
-<div class="content">
-  <h1 class="content-title">Available products</h1>
-  <button mat-button color="primary" (click)="addNewProduct()">
-    <p><mat-icon>add</mat-icon>New product</p>
-  </button>
-  <mat-grid-list class="grid-list" [cols]="breakpoint" rowHeight="250px" (window:resize)="onResize($event)">
-    <mat-grid-tile *ngFor="let product of pagedList" class="grid-title">
-      <app-product-card-content [product]="product" (click)="navigateToProductDetails(product.id)"></app-product-card-content>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <mat-paginator [length]="length"
-                 [pageSize]="pageSize"
-                 [pageSizeOptions]="pageSizeOptions"
-                 [hidePageSize]=true
-                 (page)="OnPageChange($event)">
+
+<div class="main-container">
+
+  <div class="header-section">
+    <h2 class="page-title">
+      Productos Disponibles
+    </h2>
+
+    <button mat-flat-button color="primary" (click)="addNewProduct()" class="add-btn">
+      <mat-icon>add</mat-icon> Nuevo Producto
+    </button>
+  </div>
+
+  <div *ngIf="productsList.length === 0" class="loading-state">
+    <p>Cargando inventario...</p>
+  </div>
+
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let product of pagedList" (click)="navigateToProductDetails(product.id)">
+
+      <div class="card-image">
+        <img [src]="product.imageUrl" alt="{{ product.name }}"
+          onerror="this.src='https://via.placeholder.com/300x200?text=Sin+Imagen'">
+        <span class="price-tag">S/ {{ product.unitPrice }}</span>
+      </div>
+
+      <div class="card-body">
+        <h3 class="product-name">{{ product.name }}</h3>
+
+        <div class="specs-row">
+          <span class="spec-badge">
+            <mat-icon>straighten</mat-icon> {{ product.recommendedCultivationDistance || 'N/A' }}
+          </span>
+          <span class="spec-badge">
+            <mat-icon>wb_sunny</mat-icon> {{ product.recommendedGrowingClimate || 'Clima var.' }}
+          </span>
+        </div>
+
+        <p class="description-text">
+          {{ product.description | slice:0:80 }}{{ product.description.length > 80 ? '...' : '' }}
+        </p>
+      </div>
+
+      <div class="card-footer">
+        <button mat-stroked-button color="primary">Ver Detalles</button>
+      </div>
+
+    </div>
+  </div>
+
+  <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    (page)="OnPageChange($event)" class="custom-paginator">
   </mat-paginator>
+
 </div>

@@ -1,35 +1,60 @@
-<mat-card class="card">
-  <mat-card-header>
-    <mat-card-title>Crop Purchase Form</mat-card-title>
-  </mat-card-header>
+<h2 mat-dialog-title>
+  <mat-icon class="title-icon">sell</mat-icon> 
+  Publicar Nueva Venta
+</h2>
 
-  <mat-card-content class="content">
-    <form class="form-group">
-      <p>Name</p>
-      <mat-form-field>
-        <input matInput [(ngModel)]="saleForm.name" name="name" placeholder="Name"/>
+<mat-dialog-content class="dialog-body">
+  <form class="sale-form" #formControl="ngForm">
+    
+    <div class="form-section">
+      
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre del Producto</mat-label>
+        <input matInput [(ngModel)]="saleForm.name" name="name" required placeholder="Ej. Saco de Papa Blanca">
+        <mat-icon matSuffix>edit</mat-icon>
+        <mat-error>El nombre es obligatorio</mat-error>
       </mat-form-field>
 
-      <p>Description</p>
-      <mat-form-field>
-        <input matInput [(ngModel)]="saleForm.description" name="description" placeholder="Description"/>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput [(ngModel)]="saleForm.description" name="description" rows="3" placeholder="Detalles de la cosecha..."></textarea>
       </mat-form-field>
 
-      <p>Unit Price</p>
-      <mat-form-field>
-        <input matInput [(ngModel)]="saleForm.unitPrice" name="unitPrice" placeholder="Unit price"/>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Selecciona Imagen</mat-label>
+        <mat-select [(ngModel)]="saleForm.imageUrl" name="imageUrl" required>
+          <mat-option *ngFor="let img of availableImages" [value]="img.url">
+            <div class="select-option-content">
+               <img [src]="img.url" class="option-img"> 
+               {{ img.name }}
+            </div>
+          </mat-option>
+        </mat-select>
+        <mat-icon matSuffix>image</mat-icon>
       </mat-form-field>
 
-      <p>Quantity</p>
-      <mat-form-field>
-        <input matInput [(ngModel)]="saleForm.quantity" name="quantity" placeholder="Quantity"/>
+    </div>
+
+    <h3 class="section-subtitle">Detalles de Venta</h3>
+    <div class="grid-inputs">
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Precio Unitario (S/)</mat-label>
+        <input matInput type="number" min="0" [(ngModel)]="saleForm.unitPrice" name="unitPrice" required>
+        <span matPrefix>S/&nbsp;</span>
       </mat-form-field>
 
-      <p>Image link</p>
-      <mat-form-field>
-        <input matInput [(ngModel)]="saleForm.imageUrl" name="imageUrl" placeholder="Image link"/>
+      <mat-form-field appearance="outline">
+        <mat-label>Cantidad Disponible (Kg)</mat-label>
+        <input matInput type="number" min="0" [(ngModel)]="saleForm.quantity" name="quantity" required>
+        <span matSuffix>Kg</span>
       </mat-form-field>
-      <button mat-button (click)="onSubmit()">Save</button>
-    </form>
-  </mat-card-content>
-</mat-card>
+
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-stroked-button color="warn" (click)="onCancel()">Cancelar</button>
+  <button mat-flat-button color="primary" (click)="onSubmit()" [disabled]="!formControl.valid">Publicar Venta</button>
+</mat-dialog-actions>

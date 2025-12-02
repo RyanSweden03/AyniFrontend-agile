@@ -1,42 +1,207 @@
-.content {
+/* Layout Principal */
+.main-container {
   display: flex;
-  flex-direction: column;
-  column-gap: 1rem;
-  justify-content: space-around;
-  padding: 1.5rem 3.5rem;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', sans-serif;
+  align-items: flex-start; /* Para que las cajas no se estiren */
 }
-.product-information {
+
+/* --- TARJETA IZQUIERDA (Detalles) --- */
+.details-card {
+  flex: 1 1 500px; /* Crece, se encoge, base 500px */
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.image-container {
+  height: 300px;
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
+
+.image-container img {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  padding-right: 1.5rem;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-body {
+  padding: 30px;
 }
 
 .product-title {
-  font-size: 2.5rem;
-  font-weight: 500;
-  color: white;
-}
-.product-details {
-  background-color: #212121;
-  color: white;
-  padding: 1.5rem;
-  width: 100%;
-}
-.img {
-  height: 200px;
-  padding: 1rem;
+  font-size: 2.2rem;
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+  font-weight: 700;
 }
 
-.buttons {
+.product-desc {
+  color: #666;
+  line-height: 1.6;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 20px 0;
+}
+
+.icon-align {
+  vertical-align: bottom;
+  margin-right: 8px;
+  color: #4CAF50;
+}
+
+/* Grid de Ficha Técnica */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.tech-item {
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  border-left: 3px solid #4CAF50;
+}
+
+.tech-item .label {
+  display: block;
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.tech-item .value {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Tags de Insumos */
+.tags-container {
   display: flex;
-  padding: 0.75rem 0;
-  column-gap: 1.5rem;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.mat-mdc-raised-button.mat-primary {
-  --mdc-protected-button-container-color: #3EAF2C;
-  --mdc-protected-button-label-text-color: #fff;
- padding: 1.5rem;
+.tag {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+
+/* --- TARJETA DERECHA (Planificador) --- */
+.planning-card {
+  flex: 1 1 350px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  position: sticky; /* Para que te siga al bajar scrol */
+  top: 20px;
+}
+
+.planning-header h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.full-width {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Timeline CSS */
+.timeline {
+  margin-top: 20px;
+  padding-left: 10px;
+  border-left: 2px solid #e0e0e0;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 25px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -7px; /* Centrado en la línea (line width 2px + marker width 12px / 2) */
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #bdbdbd;
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px #bdbdbd;
+}
+
+.timeline-item:hover .timeline-marker {
+  background: #4CAF50;
+  box-shadow: 0 0 0 2px #a5d6a7;
+}
+
+.final-marker {
+  background: #4CAF50 !important;
+  width: 16px;
+  height: 16px;
+  left: -9px;
+}
+
+.phase-date {
+  font-size: 0.85rem;
+  color: #4CAF50;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.phase-name {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.phase-desc {
+  margin: 2px 0 0 0;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Botón Grande */
+.action-area {
+  margin-top: 30px;
+}
+
+.cultivate-btn {
+  width: 100%;
+  padding: 25px !important;
+  font-size: 1.1rem !important;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .main-container {
+    padding: 20px;
+    flex-direction: column;
+  }
+  
+  .planning-card {
+    position: static; /* En móvil no debe ser sticky */
+  }
 }

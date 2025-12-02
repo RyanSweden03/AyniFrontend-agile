@@ -1,45 +1,118 @@
 <app-farmer-navigation></app-farmer-navigation>
-<div class="grid-container container">
-  <div class="itemCalendar">
-    <h1>Your Crops</h1>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-      <ng-container matColumnDef="watered">
-        <th mat-header-cell *matHeaderCellDef> Watering days </th>
-        <td mat-cell *matCellDef="let element"> {{element.wateringDays}} days</td>
-      </ng-container>
-      <ng-container matColumnDef="pestCleaning">
-        <th mat-header-cell *matHeaderCellDef> Pest cleaning days </th>
-        <td mat-cell *matCellDef="let element"> {{element.pestCleanupDays}} days</td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </div>
-  <div class="itemLogo">
-    <img src="../../../assets/logo.png">
-  </div>
-  <div class="itemAdvertising">
-    <h1>Advertisement</h1>
-    <img width="80%" src="https://mir-s3-cdn-cf.behance.net/projects/404/362264152506325.Y3JvcCwxMDgwLDg0NCwwLDExNw.jpg" alt="Advertise">
-  </div>
-  <div class="itemCarousel">
-    <h2 class="center">Recent Products</h2>
-    <div class="carousel-display">
-      <mat-card *ngFor="let product of products">
-        <mat-card-header>
-          <img [src]="product.imageUrl" width="350px">
-        </mat-card-header>
-        <mat-card-content>
-          <p>{{ product.description }}</p>
-        </mat-card-content>
-        <mat-card-footer class="carousel-display-button">
-          <button mat-button >{{ product.name }}</button>
-        </mat-card-footer>
-      </mat-card>
+
+<div class="dashboard-wrapper">
+  
+  <div class="welcome-banner mat-elevation-z3">
+    <div class="welcome-text">
+      <h1>Buenos días, Agricultor</h1>
+      <p>Hoy es un excelente día para revisar tus cultivos.</p>
     </div>
+    <div class="weather-widget">
+      <mat-icon>wb_sunny</mat-icon>
+      <div>
+        <span class="temp">24°C</span>
+        <span class="location">Lima, PE</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-content">
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon bg-blue">
+          <mat-icon>grass</mat-icon>
+        </div>
+        <div class="stat-data">
+          <h3>{{ totalCrops }}</h3>
+          <p>Cultivos Activos</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon bg-orange">
+          <mat-icon>warning</mat-icon>
+        </div>
+        <div class="stat-data">
+          <h3>{{ pendingTasks }}</h3>
+          <p>Atención Necesaria</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon bg-green">
+          <mat-icon>storefront</mat-icon>
+        </div>
+        <div class="stat-data">
+          <h3>{{ products.length }}</h3>
+          <p>En Venta</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-grid">
+      
+      <div class="content-card crops-section">
+        <div class="card-header">
+          <h2>Estado del Huerto</h2>
+          <button mat-icon-button routerLink="/crops-list"><mat-icon>arrow_forward</mat-icon></button>
+        </div>
+        
+        <table mat-table [dataSource]="dataSource" class="clean-table">
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Cultivo </th>
+            <td mat-cell *matCellDef="let element" class="fw-bold"> {{element.name}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="watered">
+            <th mat-header-cell *matHeaderCellDef> Riego </th>
+            <td mat-cell *matCellDef="let element"> 
+                <span class="tag-info">💧 {{element.wateringDays}}d</span>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="pestCleaning">
+            <th mat-header-cell *matHeaderCellDef> Plagas </th>
+            <td mat-cell *matCellDef="let element"> 
+                <span class="tag-info">🐛 {{element.pestCleanupDays}}d</span>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Estado </th>
+            <td mat-cell *matCellDef="let element">
+              <span class="status-badge healthy">Saludable</span>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+
+      <div class="sidebar-stack">
+        <div class="promo-card">
+          <div class="promo-content">
+            <span class="promo-badge">OFERTA</span>
+            <h3>Abono Orgánico</h3>
+            <p>Maximiza tu cosecha.</p>
+            <button mat-raised-button color="accent">Ver Más</button>
+          </div>
+          <img src="https://mir-s3-cdn-cf.behance.net/projects/404/362264152506325.Y3JvcCwxMDgwLDg0NCwwLDExNw.jpg" alt="Promo">
+        </div>
+      </div>
+    </div>
+
+    <h3 class="section-title">Nuevos en Tienda</h3>
+    <div class="products-grid">
+      <div class="product-mini-card" *ngFor="let product of recentProducts" (click)="goToProduct(product.id)">
+        <img [src]="product.imageUrl" alt="prod">
+        <div class="prod-info">
+          <h4>{{ product.name }}</h4>
+          <span class="price">S/ {{ product.unitPrice }}</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

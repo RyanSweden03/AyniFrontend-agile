@@ -1,42 +1,86 @@
 <app-farmer-navigation></app-farmer-navigation>
-<div class="content">
-  <div class="product-information">
-    <img class="img" src="{{product.imageUrl}}" alt="">
-    <div class="product-details">
+
+<div class="main-container">
+
+  <div class="details-card">
+    <div class="image-container">
+      <img [src]="product.imageUrl" alt="{{ product.name }}" 
+           onerror="this.src='https://via.placeholder.com/400x300'">
+    </div>
+
+    <div class="content-body">
       <h1 class="product-title">{{ product.name }}</h1>
-      <h3>
-        Plant Details
-      </h3>
-      <p>
-        Recommended separation distance: {{ product.recommendedCultivationDistance }} meters<br>
-        Recommended cultivation depth: {{ product.recommendedCultivationDepth }} meters<br>
-        Weather: {{ product.recommendedGrowingClimate }}<br>
-        Recommended soil type: {{ product.recommendedSoilType }}<br>
-        Season: {{ product.recommendedGrowingSeason }}<br>
-      </p>
-      <h3>
-        Cultivation Plan
-      </h3>
-      <p>
-        Phase 1 --> Finalized <br>
-        Phase 2 --> Finalized <br>
-        Phase 3 --> In progress <br>
-        Phase 4 --> Pendient <br>
-        Phase 5 --> Pendient <br>
-      </p>
-      <h3>
-        Inputs used
-      </h3>
-      <p>
-        Fertilizer: Casero <br>
-        Pesticided: Canela con romero <br>
-        Clothing: Traje de tela hidrorrepelente <br>
-        Packaging: 10 cajas de madera <br>
-      </p>
+      <p class="product-desc">{{ product.description || 'Sin descripción disponible.' }}</p>
+
+      <hr class="divider">
+
+      <h3><mat-icon class="icon-align">science</mat-icon> Ficha Técnica</h3>
+      
+      <div class="tech-grid">
+        <div class="tech-item">
+          <span class="label">Clima Ideal</span>
+          <span class="value">{{ product.recommendedGrowingClimate }}</span>
+        </div>
+        <div class="tech-item">
+          <span class="label">Tipo de Suelo</span>
+          <span class="value">{{ product.recommendedSoilType }}</span>
+        </div>
+        <div class="tech-item">
+          <span class="label">Temporada</span>
+          <span class="value">{{ product.recommendedGrowingSeason }}</span>
+        </div>
+        <div class="tech-item">
+          <span class="label">Distancia</span>
+          <span class="value">{{ product.recommendedCultivationDistance }} m</span>
+        </div>
+        <div class="tech-item">
+          <span class="label">Profundidad</span>
+          <span class="value">{{ product.recommendedCultivationDepth }} m</span>
+        </div>
+      </div>
+
+      <div class="inputs-section">
+        <h3>Insumos Recomendados</h3>
+        <div class="tags-container">
+            <span class="tag">Fertilizante Casero</span>
+            <span class="tag">Traje Hidrorrepelente</span>
+            <span class="tag">Cajas de Madera</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="planning-card">
+    
+    <div class="planning-header">
+      <h2>Planificador de Cultivo</h2>
+      <p>Selecciona tu fecha de inicio para ver el cronograma estimado.</p>
+      
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Fecha de Inicio</mat-label>
+        <input matInput [matDatepicker]="picker" [value]="startDate" (dateChange)="onDateChange($event)">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let phase of phases; let i = index; let last = last">
+        <div class="timeline-marker" [class.final-marker]="last"></div>
+        <div class="timeline-content">
+          <span class="phase-date">{{ phase.calculatedDate | date:'dd MMM yyyy' }}</span>
+          <h4 class="phase-name">{{ phase.name }}</h4>
+          <p class="phase-desc">{{ phase.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-area">
+      <button mat-flat-button color="primary" class="cultivate-btn" (click)="saveData()">
+        <mat-icon>agriculture</mat-icon> COMENZAR CULTIVO
+      </button>
     </div>
 
   </div>
-  <div class="buttons">
-    <button mat-raised-button [routerLink]="crops" class="button" (click)="saveData()" color="primary">CULTIVATE</button>
-  </div>
+
 </div>
