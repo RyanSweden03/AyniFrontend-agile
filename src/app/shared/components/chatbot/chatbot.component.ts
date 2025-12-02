@@ -2,7 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import {TokenStorageService} from "../../../authentication/services/token-storage.service";
+import { TokenStorageService } from '../../../authentication/services/token-storage.service';
 
 interface Message {
   text: string;
@@ -25,11 +25,13 @@ export class ChatbotComponent {
   showChat = true;
   user = this.tokenStorage.getUser();
 
-
   @ViewChild('chatMessages') chatMessages!: ElementRef;
 
-  constructor(private http: HttpClient, private router: Router,private tokenStorage: TokenStorageService) {
-    // Escucha cambios de ruta para ocultar o mostrar el chat
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private tokenStorage: TokenStorageService
+  ) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: any) => {
@@ -45,6 +47,7 @@ export class ChatbotComponent {
     const message = this.userMessage.trim();
     if (!message) return;
 
+    // Agrega mensaje del usuario al chat local
     this.messages.push({ text: message, sender: 'user' });
     this.userMessage = '';
 
@@ -53,20 +56,25 @@ export class ChatbotComponent {
     const username =
       (this.user && (this.user.username || this.user.name)) || null;
 
-    const payload: any = { message, username
+    // Historial limitado (por ejemplo, últimos 10 mensajes)
+    const history = this.messages
+      .slice(-10) // para no mandar todo el universo
+      .map(m => ({
+        role: m.sender === 'user' ? 'user' : 'assistant',
+        content: m.text
+      }));
+
+    const payload: any = {
+      message,
+      username: username || 'Ryan86', // fallback de test, si quieres
+      history
     };
-    if (username) {
-      payload.username = username;
-    } else {
-      payload.username = 'Ryan86' // testing
-    }
 
     console.log('[Chatbot] payload que se enviará:', payload);
 
-
     try {
       const response = await this.http
-        .post<{ reply: string }>('https://ia-8d46.onrender.com/chat',payload)
+        .post<{ reply: string }>('https://ia-8d46.onrender.com/chat', payload)
         .toPromise();
 
       this.messages.push({
