@@ -1,19 +1,75 @@
-.card {
-  padding: 20px;
+/* Cabecera */
+.title-icon {
+  vertical-align: middle;
+  margin-right: 10px;
+  color: #4CAF50;
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 15px 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+/* Cuerpo del Dialog */
+.dialog-body {
+  min-width: 500px; /* Ancho mínimo para que se vea bien en escritorio */
+  max-width: 100%;
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.full-width {
   width: 100%;
-  max-height: 80vh;
+  margin-bottom: 5px; /* Espacio pequeño entre filas grandes */
+}
+
+/* GRID SYSTEM para la ficha técnica */
+.grid-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+  gap: 15px; /* Espacio entre columnas y filas */
+}
+
+/* Ajuste responsive para móviles */
+@media (max-width: 600px) {
+  .dialog-body {
+    min-width: auto;
+  }
+  
+  .grid-inputs {
+    grid-template-columns: 1fr; /* Una sola columna en celular */
+  }
+}
+
+/* ... tus estilos anteriores ... */
+
+/* Estilo para la opción del select de imagen */
+.select-option-content {
   display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  align-items: center;
+  gap: 10px;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
+.option-img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #ddd;
 }
 
-.content {
-  flex: 1;
-  overflow-y: auto;
+/* Ajustes para inputs numéricos para quitar las flechas feas del navegador (opcional) */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
-

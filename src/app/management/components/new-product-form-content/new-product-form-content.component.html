@@ -1,55 +1,82 @@
-<mat-card class="card">
-  <mat-card-header>
-    <mat-card-title>Form for Products</mat-card-title>
-  </mat-card-header>
+<h2 mat-dialog-title>
+  <mat-icon class="title-icon">add_circle_outline</mat-icon> 
+  Registrar Nuevo Producto
+</h2>
 
-  <mat-card-content class="content">
-    <form class="form-group">
-      <p>Name</p>
-      <mat-form-field>
-        <input matInput [(ngModel)]="productForm.name" name="name" placeholder="Name"/>
+<mat-dialog-content class="dialog-body">
+  <form class="product-form" #formControl="ngForm">
+    
+    <div class="form-section">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre del Producto</mat-label>
+        <input matInput [(ngModel)]="productForm.name" name="name" required placeholder="Ej. Papa Amarilla">
+        <mat-icon matSuffix>local_florist</mat-icon>
+        <mat-error>El nombre es obligatorio</mat-error>
       </mat-form-field>
 
-      <p>Description</p>
-      <mat-form-field>
-        <input matInput [(ngModel)]="productForm.description" name="description" placeholder="Description"/>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Selecciona Imagen</mat-label>
+        <mat-select [(ngModel)]="productForm.imageUrl" name="imageUrl" required>
+          <mat-option *ngFor="let img of availableImages" [value]="img.url">
+            <div class="select-option-content">
+               <img [src]="img.url" class="option-img"> 
+               {{ img.name }}
+            </div>
+          </mat-option>
+        </mat-select>
+        <mat-icon matSuffix>image</mat-icon>
       </mat-form-field>
 
-      <p>Separation distance</p>
-      <mat-form-field>
-        <input matInput [(ngModel)]="productForm.recommendedCultivationDistance" name="distance" placeholder="Separation distance"/>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput [(ngModel)]="productForm.description" name="description" rows="2"></textarea>
+      </mat-form-field>
+    </div>
+
+    <h3 class="section-subtitle">Ficha Técnica</h3>
+    <div class="grid-inputs">
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Clima</mat-label>
+        <input matInput [(ngModel)]="productForm.recommendedGrowingClimate" name="weather">
+        <mat-icon matSuffix>wb_sunny</mat-icon>
       </mat-form-field>
 
-      <p>Planting depth</p>
-      <mat-form-field>
-        <input matInput [(ngModel)]="productForm.recommendedCultivationDepth" name="depth" placeholder="Planting depth"/>
+      <mat-form-field appearance="outline">
+        <mat-label>Tipo de Suelo</mat-label>
+        <input matInput [(ngModel)]="productForm.recommendedSoilType" name="groundType">
+        <mat-icon matSuffix>landscape</mat-icon>
       </mat-form-field>
 
-      <p>Weather</p>
-      <mat-form-field>
-        <input matInput [(ngModel)]="productForm.recommendedGrowingClimate" name="weather" placeholder="Weather"/>
+      <mat-form-field appearance="outline">
+        <mat-label>Temporada</mat-label>
+        <input matInput [(ngModel)]="productForm.recommendedGrowingSeason" name="season">
+        <mat-icon matSuffix>calendar_today</mat-icon>
       </mat-form-field>
 
-      <p>Ground type</p>
-      <mat-form-field>
-        <input matInput [(ngModel)]="productForm.recommendedSoilType" name="groundType" placeholder="Ground type"/>
+      <mat-form-field appearance="outline">
+        <mat-label>Distancia (m)</mat-label>
+        <input matInput type="number" min="0" [(ngModel)]="productForm.recommendedCultivationDistance" name="distance">
+        <mat-icon matSuffix>space_bar</mat-icon>
       </mat-form-field>
 
-      <p>Season</p>
-      <mat-form-field>
-        <input matInput [(ngModel)]="productForm.recommendedGrowingSeason" name="season" placeholder="Season"/>
+      <mat-form-field appearance="outline">
+        <mat-label>Profundidad (m)</mat-label>
+        <input matInput type="number" min="0" [(ngModel)]="productForm.recommendedCultivationDepth" name="depth">
+        <mat-icon matSuffix>vertical_align_bottom</mat-icon>
       </mat-form-field>
 
-      <p>Unit Price</p>
-      <mat-form-field>
-        <input matInput [(ngModel)]="productForm.unitPrice" name="unitPrice" placeholder="Unit price"/>
+      <mat-form-field appearance="outline">
+        <mat-label>Precio Unitario (S/)</mat-label>
+        <input matInput type="number" min="0" [(ngModel)]="productForm.unitPrice" name="unitPrice" required>
+        <span matPrefix>S/&nbsp;</span>
       </mat-form-field>
 
-      <p>Image link</p>
-      <mat-form-field>
-        <input matInput [(ngModel)]="productForm.imageUrl" name="imageUrl" placeholder="Image link"/>
-      </mat-form-field>
-      <button mat-button (click)="onSubmit()">Save</button>
-    </form>
-  </mat-card-content>
-</mat-card>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-stroked-button color="warn" (click)="onCancel()">Cancelar</button>
+  <button mat-flat-button color="primary" (click)="onSubmit()" [disabled]="!formControl.valid">Guardar Producto</button>
+</mat-dialog-actions>

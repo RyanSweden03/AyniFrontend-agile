@@ -1,0 +1,83 @@
+<app-farmer-navigation></app-farmer-navigation>
+
+<div class="main-container">
+    <h2 class="page-title">
+        Gestión de Cultivos
+    </h2>
+
+    <div *ngIf="crops.length === 0" class="loading-state">
+        <p>Cargando cultivos...</p>
+    </div>
+
+    <div class="crop-list-container">
+        <div class="crop-card" *ngFor="let crop of crops">
+
+            <div class="card-image">
+                <img [src]="getImageUrl(crop.productId)" alt="{{ crop.name }}"
+                    onerror="this.src='https://via.placeholder.com/150'">
+            </div>
+
+            <div class="card-content">
+
+                <div class="card-header">
+                    <h3>{{ crop.name }}</h3>
+                    <span class="status-badge">En Progreso</span>
+                </div>
+
+                <div class="card-body">
+
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <mat-icon class="mat-icon-sm">water_drop</mat-icon>
+                            <div>
+                                <span class="stat-label">Riego</span>
+                                <span class="stat-value">{{ crop.wateringDays }} días</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <mat-icon class="mat-icon-sm">pest_control</mat-icon>
+                            <div>
+                                <span class="stat-label">Plagas</span>
+                                <span class="stat-value">{{ crop.pestCleanupDays }} días</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="divider">
+
+                    <div class="tasks-section">
+                        <h4>Tareas Pendientes:</h4>
+                        <div class="badges-container">
+
+                            <span *ngIf="crop.pickUpWeed" class="task-badge">
+                                <mat-icon>grass</mat-icon> Maleza
+                            </span>
+
+                            <span *ngIf="crop.fertilizeCrop" class="task-badge">
+                                <mat-icon>compost</mat-icon> Fertilizar
+                            </span>
+
+                            <span *ngIf="crop.oxygenateCrop" class="task-badge">
+                                <mat-icon>air</mat-icon> Oxigenar
+                            </span>
+
+                            <span *ngIf="crop.makeCropLine" class="task-badge">
+                                <mat-icon>waves</mat-icon> Surcos
+                            </span>
+
+                            <span *ngIf="crop.makeCropHole" class="task-badge">
+                                <mat-icon>radio_button_unchecked</mat-icon> Hoyos
+                            </span>
+
+                            <span
+                                *ngIf="!crop.pickUpWeed && !crop.fertilizeCrop && !crop.oxygenateCrop && !crop.makeCropLine && !crop.makeCropHole"
+                                class="no-tasks-text">
+                                <mat-icon>check_circle</mat-icon> Todo al día
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
